@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "removeComments": true,
+    "out": "dist/bunnywars.js",
+    "sourceMap": true
+  },
+  "files": [
+    "src/typescripts/index.ts",
+    "typings/tsd.d.ts",
+    "node_modules/phaser/typescript/phaser.d.ts"
+  ]
+}
