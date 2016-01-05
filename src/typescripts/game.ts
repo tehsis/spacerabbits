@@ -1,6 +1,6 @@
 class Game {
-    constructor () {
-        this.game = new Phaser.Game(800, 600, Phaser.AUTO, '', 
+    constructor (args: {width: number, height: number, element: string}) {
+        this.game = new Phaser.Game(args.width, args.height, Phaser.AUTO, args.element, 
             { 
                 preload: this.preload, 
                 create: this.create 
