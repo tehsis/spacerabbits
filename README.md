@@ -20,6 +20,11 @@ All project dependencies as well as build dependencies are installed under `node
 ### `make dev`
   Will build the project for development and set up a static http server to test it.
   Refer to the output of the command to know how to access to the server.
+
+### Cordova
+  This project uses Cordova to build mobile applications. A script to build the project can be found at `./tools/createCordova.sh`.
+  Before running it, make sure to have cordova installed: `npm i -g cordova`.
+  
   
 ### Project structure
 
