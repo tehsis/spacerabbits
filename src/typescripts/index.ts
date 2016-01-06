@@ -6,8 +6,8 @@ class BunnyWars extends Game {}
 
 window.onload = () => {
   new BunnyWars({
-      width: GAME.SCREEN.BASE_WIDTH,
-      height: GAME.SCREEN.BASE_HEIGHT,
+      width: window.innerWidth,
+      height: window.innerHeight,
       element: GAME.DOM_ELEMENT,
       states: states,
       default_state: GAME.DEFAULT_STATE

@@ -13,15 +13,16 @@ TSDFLAGS = install
 
 all: build
 
-dev: $(BUILDFOLDER)/index.html $(BUILDFOLDER)/bunnywars.ts-dev $(BUILDFOLDER)/phaser.min.js run-server
-
-build: js-dependencies ts-dependencies $(BUILDFOLDER)/index.html $(BUILDFOLDER)/bunnywars.ts $(BUILDFOLDER)/phaser.min.js
+build: js-dependencies ts-dependencies $(BUILDFOLDER) $(BUILDFOLDER)/index.html $(BUILDFOLDER)/bunnywars.ts $(BUILDFOLDER)/phaser.min.js $(BUILDFOLDER)/normalize.css
 
 js-dependencies: node_modules/
 	$(NPM) $(NPMFLAGS)
 
 ts-dependencies: typings/
 	$(TSD) $(TSDFLAGS)
+
+$(BUILDFOLDER):
+	mkdir $@
 
 $(BUILDFOLDER)/index.html: $(SRCFOLDER)/index.html
 	$(HTMLOPTIMIZER) $(HTMLOPTIMIZERFLAGS) $@ $^ 
@@ -34,6 +35,9 @@ $(BUILDFOLDER)/bunnywars.ts-dev:
 
 $(BUILDFOLDER)/phaser.min.js: ./node_modules/phaser/build/phaser.min.js
 	$(CP) $^ $@
+
+$(BUILDFOLDER)/normalize.css: ./node_modules/normalize-css/normalize.css
+	$(CP) $^ $@ 
 
 run-server:
 	$(SERVER) $(BUILDFOLDER)
