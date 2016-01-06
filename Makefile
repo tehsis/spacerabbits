@@ -37,3 +37,6 @@ $(BUILDFOLDER)/phaser.min.js: ./node_modules/phaser/build/phaser.min.js
 
 run-server:
 	$(SERVER) $(BUILDFOLDER)
+
+clean:
+	rm -r dist/
