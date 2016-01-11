@@ -5,7 +5,7 @@ module.exports = {
   output: {
     filename: 'dist/typescripts/bunnywars.js'
   },
-  devtool: 'source-map',
+  devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
   },
