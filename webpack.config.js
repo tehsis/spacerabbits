@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {  
   entry: './src/typescripts/index.ts',
   output: {
-    filename: 'dist/bunnywars.js'
+    filename: 'dist/typescripts/bunnywars.js'
   },
   devtool: 'source-map',
   resolve: {
