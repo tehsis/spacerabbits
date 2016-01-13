@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 
 module.exports = {  
-  entry: './src/typescripts/index.ts',
+  entry: './src/scripts/index.ts',
   output: {
-    filename: 'dist/typescripts/bunnywars.js'
+    filename: 'dist/scripts/bunnywars.js'
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
   resolve: {
