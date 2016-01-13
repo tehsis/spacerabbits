@@ -7,7 +7,7 @@
     "sourceMap": true
   },
   "files": [
-    "src/typescripts/index.ts",
+    "src/scripts/index.ts",
     "typings/tsd.d.ts",
     "node_modules/phaser/typescript/phaser.d.ts"
   ]

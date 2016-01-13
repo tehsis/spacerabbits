@@ -6,7 +6,7 @@ const pngquant = require('imagemin-pngquant');
 const PATHS =  {
     BASE_SRC: 'src',
     BASE_DIST: 'dist',
-    SCRIPTS: 'typescripts/',
+    SCRIPTS: 'scripts/',
     STYLES: 'styles/',
     PHASER: {
       LIB: 'node_modules/phaser/build/phaser.min.js',
