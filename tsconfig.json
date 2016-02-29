@@ -9,6 +9,6 @@
   "files": [
     "src/scripts/index.ts",
     "typings/tsd.d.ts",
-    "node_modules/phaser/typescript/phaser.d.ts"
+    "vendor/dts/phaser.d.ts"
   ]
 }

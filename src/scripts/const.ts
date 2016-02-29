@@ -2,8 +2,13 @@ const GAME = {
     DEFAULT_STATE: 'Boot',
     DOM_ELEMENT: 'bunnywars-main',
     SCREEN: {
-        BASE_WIDTH: 800,
-        BASE_HEIGHT: 600
+        BASE_WIDTH: window.innerWidth,
+        BASE_HEIGHT: window.innerHeight
+    },
+    ASSETS: {
+      IMAGES: {
+        PLANET: 'images/planet.png'
+      }
     }
 };
 

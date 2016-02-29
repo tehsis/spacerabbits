@@ -9,28 +9,28 @@ const PATHS =  {
     SCRIPTS: 'scripts/',
     STYLES: 'styles/',
     PHASER: {
-      LIB: 'node_modules/phaser/build/phaser.min.js',
-      MAP: 'node_modules/phaser/build/phaser.map'
+      LIB: 'vendor/phaser-ninja-physics.min.js',
+      MAP: 'vendir/phaser-ninja-physics.map'
     },
     HTML: 'index.html',
     ASSETS: 'assets/',
     IMAGES: 'assets/images/',
     FONTS: 'assets/fonts/'
-}
+};
 
 gulp.task('default', ['build'], function (cb) {
  cb();
 });
 
 gulp.task('build', [
-    'webpack', 
-    'html', 
-    'images', 
-    'phaser', 
-    'fonts', 
+    'webpack',
+    'html',
+    'images',
+    'phaser',
+    'fonts',
     'styles'
    ], function (cb) {
-    cb(); 
+    cb();
 });
 
 gulp.task('webpack', function () {
@@ -54,9 +54,9 @@ gulp.task('html', function () {
 gulp.task('images', function () {
    return gulp.src(path_join(PATHS.BASE_SRC, PATHS.IMAGES) + '**/*')
     .pipe($.imagemin({
-      use: [pngquant()] 
-    })) 
-    .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.IMAGES)))
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.IMAGES)));
 });
 
 gulp.task('phaser', ['phaser-map'], function () {
@@ -65,13 +65,13 @@ gulp.task('phaser', ['phaser-map'], function () {
 });
 
 gulp.task('phaser-map', function(cb) {
-    
+
    if (process.env.NODE_ENV !== 'production') {
-    return gulp.src(path_join(PATHS.BASE_SRC, PATHS.PHASER.MAP))
+    return gulp.src(PATHS.PHASER.MAP)
         .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.SCRIPTS)));
-   } 
-   
-   cb();
+   }
+
+  // cb();
 });
 
 gulp.task('fonts', function () {
@@ -83,6 +83,6 @@ gulp.task('fonts', function () {
 gulp.task('styles', function () {
    return gulp.src(path_join(PATHS.BASE_SRC, PATHS.STYLES, 'index.less'))
     .pipe($.less())
-    .pipe($.minifyCss()) 
+    .pipe($.minifyCss())
     .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.STYLES)));
 });

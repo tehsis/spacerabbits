@@ -4,6 +4,8 @@ class MainMenu extends Phaser.State {
             fontSize: '50px',
             fill: '#f00'
         });
+
+        this.game.state.start('MainGame');
     }
 }
 

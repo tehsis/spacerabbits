@@ -2,8 +2,8 @@
 
 set -e
 
-cordova create com.bunnywars --link-to=dist
+./node_modules/cordova/bin/cordova create com.bunnywars --link-to=dist
 cd com.bunnywars
-cordova platform add ios
+../node_modules/cordova/bin/cordova platform add ios
 
 

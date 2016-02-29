@@ -24,4 +24,4 @@ class Game {
     }
 }
 
-export {Game};
+export { Game };

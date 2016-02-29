@@ -9,6 +9,8 @@ class Loader extends Phaser.State {
             this.game.state.start('MainMenu');
         }, 5000);
     }
+    
+    
 }
 
 export { Loader };
