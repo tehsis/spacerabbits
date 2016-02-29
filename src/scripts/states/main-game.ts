@@ -1,21 +1,12 @@
-import { AssetsHandler } from '../utils/AssetsHandler';
-
 import { Asteroids } from '../entities/Asteroids';
 
 class MainGame extends Phaser.State {
-  assets: AssetsHandler;
   entities: {
     asteroids?: Phaser.Group,
     planet?: Phaser.Sprite
   };
 
   preload() {
-    this.assets = new AssetsHandler(this.game);
-
-    this.assets.loadImage('planet');
-    this.assets.loadImage('stars');
-    this.assets.loadSpreadSheet('destroyed', 20, 20);
-
     this.entities = {};
   }
 
@@ -40,11 +31,10 @@ class MainGame extends Phaser.State {
   }
 
   _createAsteroid(x: number, y: number) {
-    console.log('@@x', x);
-    console.log('@@y', y);
     let asteroid: Phaser.Sprite = this.entities.asteroids.create(x, y, 'destroyed', 0);
     let anim = asteroid.animations.add('destroyed');
     this.game.physics.ninja.enable(asteroid);
+    asteroid.body.moveDown(900);
     anim.onComplete.add((as: Phaser.Sprite) => {
         as.kill();
         this._createAsteroid((Math.random() * 320), (Math.random() * 1000));
