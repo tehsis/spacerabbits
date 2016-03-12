@@ -1,11 +1,8 @@
-import { AssetsHandler } from '../utils/AssetsHandler';
 
 interface IEntity {
-  assets: AssetsHandler;
-
-  game: Phaser.Game
-
-  load();
+  game: Phaser.Game;
+  getGroup?(): Phaser.Group;
+  getSprite?(): Phaser.Sprite;
 };
 
-export {IEntity};
+export default IEntity;

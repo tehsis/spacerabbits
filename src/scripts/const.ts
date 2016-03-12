@@ -2,14 +2,10 @@ const GAME = {
     DEFAULT_STATE: 'Boot',
     DOM_ELEMENT: 'bunnywars-main',
     SCREEN: {
-        BASE_WIDTH: window.innerWidth,
-        BASE_HEIGHT: window.innerHeight
+        BASE_WIDTH: 375,
+        BASE_HEIGHT: 667
     },
-    ASSETS: {
-      IMAGES: {
-        PLANET: 'images/planet.png'
-      }
-    }
+    NUMBER_OF_ASTEROIDS: 10
 };
 
 export {GAME};
