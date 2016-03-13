@@ -1,9 +1,9 @@
-import IEntity from './IEntity';
+import ISpriteEntity from './IEntity';
 
-class Planet implements IEntity {
+class Planet implements ISpriteEntity {
   game: Phaser.Game;
   sprite: Phaser.Sprite;
-  
+
   constructor (game, x: number, y: number) {
     this.game = game;
     this.sprite = this.game.add.sprite(x, y, 'planet');

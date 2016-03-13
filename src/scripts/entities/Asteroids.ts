@@ -1,6 +1,6 @@
-import IEntity from './IEntity';
+import IGroupEntity from './IEntity';
 
-class Asteroids implements IEntity {
+class Asteroids implements IGroupEntity {
   game: Phaser.Game;
   resource : Phaser.Group;
 
