@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "CommonJS",
     "target": "es6",
     "removeComments": true,
     "out": "dist/bunnywars.js",
@@ -9,6 +9,9 @@
   "files": [
     "src/scripts/index.ts",
     "typings/tsd.d.ts",
-    "vendor/dts/phaser.d.ts"
-  ]
+    "typings/custom-tsd.d.ts",
+    "vendor/dts/phaser.d.ts",
+    "node_modules/immutable/dist/immutable.d.ts"
+  ],
+  "externalTranspiler": "babel"
 }

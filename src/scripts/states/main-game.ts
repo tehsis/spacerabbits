@@ -20,10 +20,12 @@ class MainGame extends Phaser.State {
 
     this.planet = new Planet(this.game, 0, this.game.world.centerY + 300);
     this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS);
-    this.rabbit = new Rabbit(this.game, this.game.world.centerX-60, this.game.world.centerY+34);
+    this.rabbit = new Rabbit(this.game);
   }
 
   update() {
+    this.rabbit.move();
+
     this.game.physics.ninja.overlap(this.planet.getSprite(), this.asteroids.getGroup(), (planet: Phaser.Sprite, asteroid: Phaser.Sprite) => {
       asteroid.animations.play('destroyed');
     }, null, this);

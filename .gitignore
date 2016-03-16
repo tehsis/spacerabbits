@@ -1,4 +1,6 @@
 node_modules
-typings
+typings/cordova
+typings/jquery
+typings/tsd.d.ts
 dist
 com.bunnywars

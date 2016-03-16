@@ -1,5 +1,5 @@
 
- interface IEntity {
+interface IEntity {
   game: Phaser.Game;
 }
 
