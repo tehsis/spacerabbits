@@ -27,8 +27,8 @@ class Asteroids implements IGroupEntity {
 
     let asteroid: Phaser.Sprite = this.getGroup().create(x, y, 'destroyed', 0);
     let animation = asteroid.animations.add('destroyed');
-    this.game.physics.ninja.enable(asteroid);
-    asteroid.body.moveDown(200);
+    this.game.physics.arcade.enable(asteroid);
+    asteroid.body.gravity.y = 300;
     animation.onComplete.add((desroyedAsteroid: Phaser.Sprite) => {
         desroyedAsteroid.kill();
         this.createAsteroid();

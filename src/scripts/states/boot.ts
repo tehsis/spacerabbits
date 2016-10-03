@@ -17,13 +17,8 @@ class Boot extends Phaser.State {
   create() {
     this.scaleStage();
 
-    if (window.cordova) {
-      document.addEventListener('deviceready', () => {
-        this.game.state.start('Loader');
-      });
-    } else {
-      this.game.state.start('Loader');
-    }
+
+    this.game.state.start('Loader');
   }
 }
 

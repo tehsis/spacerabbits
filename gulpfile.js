@@ -26,7 +26,6 @@ gulp.task('build', [
     'webpack',
     'html',
     'images',
-    'phaser',
     'fonts',
     'styles'
    ], function (cb) {
@@ -59,20 +58,6 @@ gulp.task('images', function () {
     .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.IMAGES)));
 });
 
-gulp.task('phaser', ['phaser-map'], function () {
-   return gulp.src(PATHS.PHASER.LIB)
-    .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.SCRIPTS)));
-});
-
-gulp.task('phaser-map', function(cb) {
-
-   if (process.env.NODE_ENV !== 'production') {
-    return gulp.src(PATHS.PHASER.MAP)
-        .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.SCRIPTS)));
-   }
-
-  // cb();
-});
 
 gulp.task('fonts', function () {
    return gulp.src(path_join(PATHS.BASE_SRC, PATHS.FONTS) + '**/*.TTF')

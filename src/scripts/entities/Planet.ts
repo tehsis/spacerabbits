@@ -7,7 +7,7 @@ class Planet implements ISpriteEntity {
   constructor (game, x: number, y: number) {
     this.game = game;
     this.sprite = this.game.add.sprite(x, y, 'planet');
-    this.game.physics.ninja.enable(this.sprite);
+    this.game.physics.arcade.enable(this.sprite);
     this.sprite.body.immovable = true;
   }
 

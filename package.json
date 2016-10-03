@@ -9,17 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "immutable": "^3.7.6",
+    "immutable": "^3.8.1",
     "normalize-css": "^2.3.1",
-    "phaser": "^2.4.6",
+    "phaser": "^2.6.2",
     "phaser-swipe": "^1.0.4",
-    "typescript": "^1.7.5"
+    "script-loader": "^0.7.0",
+    "typescript": "^2.0.3"
   },
   "devDependencies": {
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.3.13",
-    "cordova": "^5.4.1",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-fontmin": "^0.7.3",
     "gulp-htmlmin": "^1.3.0",
     "gulp-imagemin": "^2.4.0",
@@ -32,8 +30,7 @@
     "less": "^2.5.3",
     "minimize": "^1.7.4",
     "pngquant-bin": "^3.0.1",
-    "ts-loader": "^0.7.2",
-    "tsd": "^0.6.5",
+    "ts-loader": "^0.8.2",
     "webpack": "^1.12.9"
   }
 }

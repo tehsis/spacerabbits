@@ -1,17 +1,12 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "commonjs",
     "target": "es6",
     "removeComments": true,
-    "out": "dist/bunnywars.js",
+    "outDir": "dist/",
     "sourceMap": true
   },
-  "files": [
-    "src/scripts/index.ts",
-    "typings/tsd.d.ts",
-    "typings/custom-tsd.d.ts",
-    "vendor/dts/phaser.d.ts",
-    "node_modules/immutable/dist/immutable.d.ts"
-  ],
-  "externalTranspiler": "babel"
+  "exclude": [
+    "node_modules"
+  ]
 }

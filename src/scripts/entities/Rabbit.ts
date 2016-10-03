@@ -1,5 +1,5 @@
 import ISpriteEntity from './IEntity';
-import Swipe from 'phaser-swipe';
+import Bullets from './bullets';
 import { Map } from 'immutable';
 
 enum Positions { LEFT_CORNER, LEFT, CENTER, RIGHT, RIGHT_CORNER };
@@ -10,14 +10,14 @@ interface IRabbitPositions {
   rotation: number
 }
 
-
 class Rabbit implements ISpriteEntity {
   game: Phaser.Game;
   sprite: Phaser.Sprite;
   cursors: Phaser.CursorKeys;
   availablePositions: Array<IRabbitPositions>;
   currentPosition: Positions;
-  swipe: Swipe;
+  bullets: Bullets;
+  bulletTime: number;
 
   constructor(game) {
     this.game = game;
@@ -50,6 +50,8 @@ class Rabbit implements ISpriteEntity {
       }
     ];
 
+    this.bulletTime = 0;
+
     this.currentPosition = Positions.CENTER;
 
     this.sprite = this.game.add.sprite(
@@ -57,31 +59,30 @@ class Rabbit implements ISpriteEntity {
         this.availablePositions[this.currentPosition].y,
         'rabbit'
     );
+
+    this.bullets = new Bullets(this.game, 20);
    
-    this.swipe = new Swipe(this.game);
     this.cursors = this.game.input.keyboard.createCursorKeys();
+    game.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
   }
 
-  checkTouch () {
-    let swipe = this.swipe.check();
-
-    return swipe;
-  }
 
   move() {
 
-    let swipe_direction = this.checkTouch();
-
-    if (this.cursors.left.isDown || (swipe_direction && (swipe_direction.direction === this.swipe.DIRECTION_LEFT))) {
+    if (this.cursors.left.isDown) {
       if (Positions.LEFT_CORNER !== this.currentPosition) {
         this.currentPosition--;
       }
     }
 
-    if (this.cursors.right.isDown || (swipe_direction && (swipe_direction.direction === this.swipe.DIRECTION_RIGHT))) {
+    if (this.cursors.right.isDown) {
       if (Positions.RIGHT_CORNER !== this.currentPosition) {
         this.currentPosition++;
       }
+    }
+
+    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+      this.shoot();
     }
 
     this.moveTo(this.currentPosition);
@@ -96,6 +97,21 @@ class Rabbit implements ISpriteEntity {
 
   getSprite() {
     return this.sprite;
+  }
+
+  getBullets() {
+    return this.bullets.getGroup();
+  }
+
+  shoot () {
+    if (this.game.time.now > this.bulletTime) {
+      const bullet = this.bullets.getGroup().getFirstExists(false);
+      if (bullet) {
+        bullet.reset(this.getSprite().x + 130, this.getSprite().y - 8 );
+        bullet.body.velocity.y = -300;
+        this.bulletTime = this.game.time.now + 150;
+      }
+    }
   }
 }
 
