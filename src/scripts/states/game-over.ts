@@ -1,11 +1,11 @@
 class GameOver extends Phaser.State {
   create() {
-    this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY, 'Game', {
+    this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY-100, 'Game', {
        font: 'bold 32px Tron',
        fill: '#fff'
      });
 
-     this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY+100, 'Over', {
+     this.game.add.text(this.game.world.centerX - 50, this.game.world.centerY-50, 'Over', {
         font: 'bold 32px Tron',
         fill: '#fff'
       });

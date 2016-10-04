@@ -2,7 +2,6 @@ import "pixi.js";
 import "p2";
 import "Phaser";
 
-
 import {GAME} from './const';
 import { Game } from './game';
 import * as states from './states/index';
