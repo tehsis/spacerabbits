@@ -11,7 +11,7 @@ class Game {
     args: IGameConstructorArgs
     
     constructor (args: IGameConstructorArgs) {
-        this.game = new Phaser.Game(args.width, args.height, Phaser.AUTO, args.element);
+        this.game = new Phaser.Game(args.width, args.height, Phaser.WEBGL, args.element);
         this.states = args.states;
         this.args = args;
     }
