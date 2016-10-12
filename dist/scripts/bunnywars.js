@@ -335,9 +335,7 @@
 	        let background = this.game.add.sprite(0, 0, 'stars');
 	        background.scale.setTo(0.5, 0.5);
 	        this.planet = new Planet_1.default(this.game, 0, this.game.world.centerY + 150);
-	        this.asteroids = new Asteroids_1.default(this.game, const_1.GAME.NUMBER_OF_ASTEROIDS, () => {
-	            this.state.decreaseLife(1);
-	        });
+	        this.asteroids = new Asteroids_1.default(this.game, const_1.GAME.NUMBER_OF_ASTEROIDS, () => { });
 	        this.rabbit = new Rabbit_1.default(this.game);
 	        this.score = this.game.add.text(32, 32, 'Score:', style);
 	        this.lifes = this._createLifes();
@@ -353,7 +351,6 @@
 	    }
 	    _updateLifes() {
 	        this.lifes.forEach((lifeText, index) => {
-	            console.log('SCORE: ', index, this.state.getLifes());
 	            lifeText.text = (index < this.state.getLifes()) ? lifeChar : '';
 	        });
 	    }
@@ -368,6 +365,7 @@
 	        }, null, this);
 	        this.game.physics.arcade.overlap(this.planet.getSprite(), this.asteroids.getGroup(), (planet, asteroid) => {
 	            asteroid.animations.play('destroyed');
+	            this.state.decreaseLife(1);
 	        }, null, this);
 	        this._updateLifes();
 	        if (this.state.getLifes() <= 0) {
@@ -386,10 +384,10 @@
 	"use strict";
 	class Asteroids {
 	    constructor(game, quantity, onDestroyed) {
-	        console.log('creating');
 	        this.game = game;
 	        this.resource = this.game.add.group();
 	        this.onDestroyed = onDestroyed;
+	        this.modifier = 0;
 	        this.init(quantity);
 	    }
 	    getGroup() {
@@ -401,13 +399,24 @@
 	        }
 	    }
 	    createAsteroid() {
-	        let x = Math.random() * 320;
+	        const positions = [
+	            this.game.world.centerX - 68,
+	            this.game.world.centerX - 60,
+	            this.game.world.centerX + 65,
+	            this.game.world.centerX + 180,
+	        ];
+	        const index = Math.round(Math.random() * (positions.length - 1));
+	        console.log('index', index);
+	        let x = positions[index];
 	        let y = (Math.random() * 1000) - 900;
 	        let asteroid = this.getGroup().create(x, y, 'destroyed', 0);
 	        let animation = asteroid.animations.add('destroyed');
 	        this.game.physics.arcade.enable(asteroid);
 	        asteroid.body.setCircle(10);
-	        asteroid.body.gravity.y = 50;
+	        setInterval(() => {
+	            this.modifier++;
+	        }, 10000);
+	        asteroid.body.gravity.y = (Math.random() * this.modifier) + 10;
 	        animation.onComplete.add((desroyedAsteroid) => {
 	            this.onDestroyed();
 	            desroyedAsteroid.kill();
@@ -459,6 +468,7 @@
 	class Rabbit {
 	    constructor(game) {
 	        this.game = game;
+	        this.lock = false;
 	        this.availablePositions = [
 	            {
 	                x: this.game.world.centerX - 200,
@@ -494,6 +504,12 @@
 	        game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
 	    }
 	    move() {
+	        if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+	            this.shoot();
+	        }
+	        if (this.lock) {
+	            return;
+	        }
 	        if (this.cursors.left.isDown) {
 	            if (Positions.LEFT_CORNER !== this.currentPosition) {
 	                this.currentPosition--;
@@ -504,12 +520,14 @@
 	                this.currentPosition++;
 	            }
 	        }
-	        if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-	            this.shoot();
-	        }
 	        this.moveTo(this.currentPosition);
 	    }
 	    moveTo(position) {
+	        this.lock = true;
+	        setTimeout(() => {
+	            this.lock = false;
+	        }, 50);
+	        console.log(position);
 	        let new_position = this.availablePositions[position];
 	        this.getSprite().x = new_position.x;
 	        this.getSprite().y = new_position.y;
@@ -574,7 +592,7 @@
 	"use strict";
 	const initialState = {
 	    score: 0,
-	    life: 3
+	    life: 10
 	};
 	class GameState {
 	    constructor() {

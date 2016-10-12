@@ -12,7 +12,7 @@ interface IGameState {
 
 const initialState: IGameState = {
   score: 0,
-  life: 3
+  life: 10
 };
 
 export default class GameState {

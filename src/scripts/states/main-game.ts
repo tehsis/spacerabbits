@@ -27,9 +27,7 @@ class MainGame extends Phaser.State {
     background.scale.setTo(0.5, 0.5);
 
     this.planet = new Planet(this.game, 0, this.game.world.centerY + 150);
-    this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, () => {
-      this.state.decreaseLife(1);
-    });
+    this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, () => {});
     this.rabbit = new Rabbit(this.game);
     this.score = this.game.add.text(32, 32, 'Score:', style);
 
@@ -50,7 +48,6 @@ class MainGame extends Phaser.State {
 
   _updateLifes () {
     this.lifes.forEach((lifeText, index) => {
-      console.log('SCORE: ', index, this.state.getLifes());
       lifeText.text = (index < this.state.getLifes()) ? lifeChar : '';
     });
   }
@@ -67,6 +64,7 @@ class MainGame extends Phaser.State {
 
     this.game.physics.arcade.overlap(this.planet.getSprite(), this.asteroids.getGroup(), (planet: Phaser.Sprite, asteroid: Phaser.Sprite) => {
       asteroid.animations.play('destroyed');
+      this.state.decreaseLife(1);
     }, null, this);
 
     this._updateLifes();

@@ -4,12 +4,14 @@ class Asteroids implements IGroupEntity {
   game: Phaser.Game;
   resource : Phaser.Group;
   onDestroyed : () => void;
+  modifier: number;
 
   constructor (game: Phaser.Game, quantity: number, onDestroyed) {
-    console.log('creating');
     this.game = game;
     this.resource = this.game.add.group();
     this.onDestroyed = onDestroyed;
+
+    this.modifier = 0;
 
     this.init(quantity);
   }
@@ -25,14 +27,27 @@ class Asteroids implements IGroupEntity {
   }
 
   createAsteroid() {
-    let x = Math.random() * 320
+    const positions = [
+      this.game.world.centerX-68, 
+      this.game.world.centerX-60, 
+      this.game.world.centerX+65,
+      this.game.world.centerX+180,  
+      //this.game.world.centerX+75
+    ];
+
+    const index = Math.round(Math.random() * (positions.length-1));
+    console.log('index', index);
+    let x = positions[index];
     let y = (Math.random() * 1000) - 900;
 
     let asteroid: Phaser.Sprite = this.getGroup().create(x, y, 'destroyed', 0);
     let animation = asteroid.animations.add('destroyed');
     this.game.physics.arcade.enable(asteroid);
     asteroid.body.setCircle(10);
-    asteroid.body.gravity.y = 50;
+    setInterval(() => {
+        this.modifier++;
+    }, 10000);
+    asteroid.body.gravity.y = (Math.random() * this.modifier) + 10;
     animation.onComplete.add((desroyedAsteroid: Phaser.Sprite) => {
         this.onDestroyed();
         desroyedAsteroid.kill();

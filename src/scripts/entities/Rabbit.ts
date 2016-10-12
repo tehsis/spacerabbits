@@ -18,10 +18,11 @@ class Rabbit implements ISpriteEntity {
   currentPosition: Positions;
   bullets: Bullets;
   bulletTime: number;
+  lock: boolean;
 
   constructor(game) {
     this.game = game;
-
+    this.lock = false;
     this.availablePositions = [
       {
         x: this.game.world.centerX-200,
@@ -68,7 +69,14 @@ class Rabbit implements ISpriteEntity {
 
 
   move() {
+    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+      this.shoot();
+    }
 
+    if (this.lock) {
+      return;
+    }
+    
     if (this.cursors.left.isDown) {
       if (Positions.LEFT_CORNER !== this.currentPosition) {
         this.currentPosition--;
@@ -81,14 +89,15 @@ class Rabbit implements ISpriteEntity {
       }
     }
 
-    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      this.shoot();
-    }
-
     this.moveTo(this.currentPosition);
   }
 
   moveTo(position: Positions) {
+    this.lock = true;
+    setTimeout(() => {
+      this.lock = false;
+    }, 50);
+    console.log(position);
     let new_position = this.availablePositions[position];
     this.getSprite().x = new_position.x;
     this.getSprite().y = new_position.y;
