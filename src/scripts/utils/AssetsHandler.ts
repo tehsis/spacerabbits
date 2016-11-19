@@ -6,7 +6,7 @@ class AssetsHandler {
 
   constructor (game) {
     this.game = game;
-    this.base = '../../assets';
+    this.base = './assets';
   }
 
   get (type: string, asset: string): string {

@@ -14,7 +14,7 @@
     "immutable": "^3.8.1",
     "normalize-css": "^2.3.1",
     "phaser": "^2.6.2",
-    "phaser-swipe": "^1.0.4",
+    "phaser-swipe": "git+ssh://git@github.com/tehsis/phaser-swipe.git",
     "script-loader": "^0.7.0",
     "typescript": "^2.0.3"
   },

@@ -1,4 +1,5 @@
 import ISpriteEntity from './IEntity';
+import Input from '../input/input';
 import Bullets from './bullets';
 import { Map } from 'immutable';
 
@@ -13,12 +14,12 @@ interface IRabbitPositions {
 class Rabbit implements ISpriteEntity {
   game: Phaser.Game;
   sprite: Phaser.Sprite;
-  cursors: Phaser.CursorKeys;
   availablePositions: Array<IRabbitPositions>;
   currentPosition: Positions;
   bullets: Bullets;
   bulletTime: number;
   lock: boolean;
+  input: Input;
 
   constructor(game) {
     this.game = game;
@@ -61,29 +62,27 @@ class Rabbit implements ISpriteEntity {
         'rabbit'
     );
 
+    this.input = new Input(this.game);
+
     this.bullets = new Bullets(this.game, 20);
-   
-    this.cursors = this.game.input.keyboard.createCursorKeys();
-    game.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
   }
 
 
   move() {
-    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      this.shoot();
-    }
+    const action = this.input.checkAction();
 
-    if (this.lock) {
-      return;
-    }
-    
-    if (this.cursors.left.isDown) {
+    if (action === 'LEFT') {
       if (Positions.LEFT_CORNER !== this.currentPosition) {
         this.currentPosition--;
       }
     }
 
-    if (this.cursors.right.isDown) {
+    if (action === 'UP') {
+      this.shoot();
+    }
+  
+
+    if (action === 'RIGHT') {
       if (Positions.RIGHT_CORNER !== this.currentPosition) {
         this.currentPosition++;
       }

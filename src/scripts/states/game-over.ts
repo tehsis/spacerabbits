@@ -9,6 +9,10 @@ class GameOver extends Phaser.State {
         font: 'bold 32px Tron',
         fill: '#fff'
       });
+
+       this.game.input.onTap.add(() => {
+            this.game.state.start('MainGame');
+        });
    }
 
 }

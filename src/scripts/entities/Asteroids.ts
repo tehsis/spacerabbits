@@ -32,11 +32,9 @@ class Asteroids implements IGroupEntity {
       this.game.world.centerX-60, 
       this.game.world.centerX+65,
       this.game.world.centerX+180,  
-      //this.game.world.centerX+75
     ];
 
     const index = Math.round(Math.random() * (positions.length-1));
-    console.log('index', index);
     let x = positions[index];
     let y = (Math.random() * 1000) - 900;
 
