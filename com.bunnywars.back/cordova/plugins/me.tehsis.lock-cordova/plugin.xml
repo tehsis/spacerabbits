@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="me.tehsis.lock-cordova" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>lockCordova</name><js-module name="lockCordova" src="www/lockCordova.js"><clobbers target="cordova.plugins.lockCordova" /></js-module><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="lockCordova"><param name="ios-package" value="lockCordova" /></feature></config-file><source-file src="src/ios/lockCordova.m" /></platform></plugin>

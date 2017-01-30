@@ -14,6 +14,8 @@ interface IRabbitPositions {
 class Rabbit implements ISpriteEntity {
   game: Phaser.Game;
   sprite: Phaser.Sprite;
+  shootSound: Phaser.Sound;
+  jumpSound: Phaser.Sound;
   availablePositions: Array<IRabbitPositions>;
   currentPosition: Positions;
   bullets: Bullets;
@@ -62,9 +64,17 @@ class Rabbit implements ISpriteEntity {
         'rabbit'
     );
 
+    this.shootSound = this.game.add.sound("shoot");
+    this.jumpSound = this.game.add.sound('jump');
+
     this.input = new Input(this.game);
 
     this.bullets = new Bullets(this.game, 20);
+
+    this.game.input.onTap.add((pointer) => {
+      this.shoot()
+    });
+
   }
 
 
@@ -75,10 +85,6 @@ class Rabbit implements ISpriteEntity {
       if (Positions.LEFT_CORNER !== this.currentPosition) {
         this.currentPosition--;
       }
-    }
-
-    if (action === 'UP') {
-      this.shoot();
     }
   
 
@@ -92,12 +98,10 @@ class Rabbit implements ISpriteEntity {
   }
 
   moveTo(position: Positions) {
-    this.lock = true;
-    setTimeout(() => {
-      this.lock = false;
-    }, 50);
-    console.log(position);
     let new_position = this.availablePositions[position];
+    if (this.getSprite().x !== new_position.x && this.getSprite().y !== new_position.y) {
+      this.jumpSound.play()
+    }
     this.getSprite().x = new_position.x;
     this.getSprite().y = new_position.y;
     this.getSprite().rotation = new_position.rotation;
@@ -118,6 +122,7 @@ class Rabbit implements ISpriteEntity {
         bullet.reset(this.getSprite().x + 130, this.getSprite().y - 8 );
         bullet.body.velocity.y = -300;
         this.bulletTime = this.game.time.now + 150;
+        this.shootSound.play()
       }
     }
   }

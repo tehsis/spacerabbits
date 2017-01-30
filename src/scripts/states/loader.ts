@@ -1,5 +1,6 @@
 import { AssetsHandler } from '../utils/AssetsHandler';
 import assetHandler from '../utils/assetHandlerManager';
+import gameState from '../game-state';
 
 class Loader extends Phaser.State {
     assets: AssetsHandler;
@@ -12,6 +13,13 @@ class Loader extends Phaser.State {
       this.assets.loadImage('rabbit');
       this.assets.loadImage('rabbit-intro');
       this.assets.loadImage('bala');
+      this.assets.loadImage('new-game-button')
+      this.assets.loadImage('leaderboard-button')
+      this.assets.loadImage('main-menu-button')
+      this.assets.loadSound('shoot');
+      this.assets.loadSound('explosion');
+      this.assets.loadSound('jump');
+
       this.assets.loadSpreadSheet('destroyed', 20, 21);
 
       this.game.load.onLoadStart.add(this._loadStart, this);
@@ -28,7 +36,11 @@ class Loader extends Phaser.State {
     }
 
     _loadComplete() {
-      this.game.state.start('MainMenu');
+      gameState.load().then(() => {
+        this.game.state.start('MainMenu');
+      }).catch(() => {
+        this.game.state.start('MainMenu');
+      })
     }
 }
 

@@ -15,6 +15,7 @@ const PATHS =  {
     HTML: 'index.html',
     ASSETS: 'assets/',
     IMAGES: 'assets/images/',
+    SOUNDS: 'assets/sounds/',
     FONTS: 'assets/fonts/'
 };
 
@@ -26,6 +27,7 @@ gulp.task('build', [
     'webpack',
     'html',
     'images',
+    'sounds',
     'fonts',
     'styles'
    ], function (cb) {
@@ -35,6 +37,7 @@ gulp.task('build', [
 gulp.task('webpack', function () {
    return gulp.src(path_join(PATHS.BASE_SRC, PATHS.SCRIPTS, 'index.js'))
     .pipe($.webpack(require('./webpack.config.js')))
+    .pipe($.replace('phaser_swipe_1.default', 'phaser_swipe_1'))
     .pipe(gulp.dest('.'));
 });
 
@@ -58,9 +61,14 @@ gulp.task('images', function () {
     .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.IMAGES)));
 });
 
+gulp.task('sounds', function () {
+   return gulp.src(path_join(PATHS.BASE_SRC, PATHS.SOUNDS) + '**/*')
+    .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.SOUNDS)));
+});
+
 
 gulp.task('fonts', function () {
-   return gulp.src(path_join(PATHS.BASE_SRC, PATHS.FONTS) + '**/*.TTF')
+   return gulp.src(path_join(PATHS.BASE_SRC, PATHS.FONTS) + '**/*')
     .pipe($.fontmin())
     .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.FONTS)));
 });

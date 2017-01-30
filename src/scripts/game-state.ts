@@ -5,33 +5,65 @@
  * other class here.
 */
 
+declare global {
+  interface NativeStorageInterface {
+    setItem(key: string, value: Object, onSuccess: () => void, onError: (error: Object) => void )
+    getItem(key: string, onSuccess: (data: Object) => void, onError: (error: Object) => void)
+  }
+
+  let NativeStorage: NativeStorageInterface;
+}
+
 interface IGameState {
+  username: string;
   score: number;
   life: number;
 }
 
 const initialState: IGameState = {
+  username: '',
   score: 0,
-  life: 10
+  life: 3
 };
 
-export default class GameState {
-  state: IGameState = initialState;
+export class GameState {
+  private state: IGameState = initialState;
 
-  constructor() {}
+  constructor () {
+    this.load();
+    this.reset();
+  }
+
+  reset() {
+    const username = this.state.username;
+    this.setState(initialState);
+    this.setState({ username })
+  }
 
   increaseScore (amount) {
-    // We probably want to move to immutable states to handle 
-    // loads/saves
-    this.state.score = this.state.score + amount;
+    this.setState({score: this.state.score + amount});
   }
 
   decreaseLife (amount) {
-    this.state.life = this.state.life - amount;
+    this.setState({life : this.state.life - amount})
   }
   
-  save (id) {
-    window.localStorage.setItem(`rabbit-wars-${id}`, this.serialize());
+  save () {
+    return new Promise((resolve, reject) => {
+      NativeStorage.setItem(`rabbit-wars`, this.state, () => {
+        resolve();
+      }, function (e) {
+        reject(e);
+      });
+    });
+  }
+
+  getUserName () {
+    return this.state.username;
+  }
+
+  setUsername (username: string) {
+    this.setState({ username });
   }
 
   getScore () {
@@ -42,16 +74,31 @@ export default class GameState {
     return this.state.life;
   }
 
-  load (id) {
-    const state = window.localStorage.getItem(`rabbit-wars-${id}`);
-    try {
-      this.state = JSON.parse(state);
-    } catch (e) {
-      this.state = initialState;
-    }
+   load () {
+    return new Promise((resolve, reject) => {
+      NativeStorage.getItem(`rabbit-wars`, (state) => {
+        this.setState(state);
+        resolve();
+      }, () => {
+        this.setState(initialState);
+        reject();
+      });
+    });
   }
 
   serialize() {
     return JSON.stringify(this.state);
   }
+
+  getJSON() {
+    return this.state;
+  }
+
+  private setState(state) {
+    this.state = Object.assign({}, this.state, state)
+  }
 }
+
+const gameState = new GameState();
+
+export default gameState;

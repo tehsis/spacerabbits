@@ -20,6 +20,9 @@ module.exports = {
       'p2': p2,
     }
   },
+  externals: {
+    "cordova": "cordova"
+  },
   module: {
     loaders: [
       { test: /\.ts$/, loader: 'ts-loader' },

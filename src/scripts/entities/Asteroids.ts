@@ -4,6 +4,7 @@ class Asteroids implements IGroupEntity {
   game: Phaser.Game;
   resource : Phaser.Group;
   onDestroyed : () => void;
+  destroyedSound: Phaser.Sound;
   modifier: number;
 
   constructor (game: Phaser.Game, quantity: number, onDestroyed) {
@@ -13,6 +14,7 @@ class Asteroids implements IGroupEntity {
 
     this.modifier = 0;
 
+    this.destroyedSound = this.game.add.sound('explosion')
     this.init(quantity);
   }
 
@@ -49,6 +51,7 @@ class Asteroids implements IGroupEntity {
     animation.onComplete.add((desroyedAsteroid: Phaser.Sprite) => {
         this.onDestroyed();
         desroyedAsteroid.kill();
+        this.destroyedSound.play();
         this.createAsteroid();
     }, this);
   }

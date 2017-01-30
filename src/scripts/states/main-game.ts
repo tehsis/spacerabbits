@@ -1,14 +1,15 @@
 import { GAME } from '../const';
 
-import Asteroids from '../entities/Asteroids';
-import Planet    from '../entities/Planet';
-import Rabbit    from '../entities/Rabbit';
-import GameState from '../game-state';
+import Asteroids    from '../entities/Asteroids';
+import Planet       from '../entities/Planet';
+import Rabbit       from '../entities/Rabbit';
+import {GameState}  from '../game-state';
+import gameState    from '../game-state';
 
 const style = { font: "24px Arial", fill: "#ffffff", align: "center" };
 const lifeChar = "❤️";
 
-class MainGame extends Phaser.State {
+export class MainGame extends Phaser.State {
   asteroids : Asteroids;
   rabbit    : Rabbit;
   planet    : Planet;
@@ -21,13 +22,18 @@ class MainGame extends Phaser.State {
 
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    this.state = new GameState();
+    // FIXME: This should removed, all objects should use gameState as is
+    this.state = gameState;
+    this.state.reset();
+
+    console.log('STATE', this.state.getJSON());
 
     let background = this.game.add.sprite(0, 0, 'stars');
     background.scale.setTo(0.5, 0.5);
 
     this.planet = new Planet(this.game, 0, this.game.world.centerY + 150);
-    this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, () => {});
+    this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, () => {
+    });
     this.rabbit = new Rabbit(this.game);
     this.score = this.game.add.text(32, 32, 'Score:', style);
 
@@ -39,7 +45,6 @@ class MainGame extends Phaser.State {
   _createLifes () {
     const lifes = [];
     for (let i=0;i<this.state.getLifes();i++) {
-      console.log('i', i);
       lifes.push(this.game.add.text(332, 32 + (30*i), lifeChar, style));   
     }
 
@@ -55,16 +60,18 @@ class MainGame extends Phaser.State {
 
   update() {
     this.rabbit.move();
-    this.game.physics.arcade.overlap(this.asteroids.getGroup(), this.rabbit.getBullets(), (asteroid, bullet) => {
+    
+    this.game.physics.arcade.collide(this.asteroids.getGroup(), this.rabbit.getBullets(), (asteroid, bullet) => {
       asteroid.animations.play('destroyed');
       bullet.kill();
       this.state.increaseScore(10);
-      this.score.text = ""+ this.state.getScore();;
+      this.score.text = "" + this.state.getScore();;
     }, null, this);
 
-    this.game.physics.arcade.overlap(this.planet.getSprite(), this.asteroids.getGroup(), (planet: Phaser.Sprite, asteroid: Phaser.Sprite) => {
+    this.game.physics.arcade.collide(this.planet.getSprite(), this.asteroids.getGroup(), (planet: Phaser.Sprite, asteroid: Phaser.Sprite) => {
       asteroid.animations.play('destroyed');
       this.state.decreaseLife(1);
+      asteroid.destroy();
     }, null, this);
 
     this._updateLifes();

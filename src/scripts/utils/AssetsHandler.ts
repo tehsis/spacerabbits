@@ -17,12 +17,20 @@ class AssetsHandler {
     return this.get('images', `${asset}.png`);
   }
 
+  getAudio (asset: string): string {
+    return this.get('sounds', `${asset}.wav`);
+  }
+
   loadImage (name: string) {
     this.game.load.image(name, this.getImage(name));
   }
 
   loadSpreadSheet (name:string, width: number, height: number) {
     this.game.load.spritesheet(name, this.getImage(name), width, height);
+  }
+
+  loadSound (name: string) {
+    this.game.load.audio(name, this.getAudio(name))
   }
 }
 

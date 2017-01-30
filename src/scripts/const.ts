@@ -8,4 +8,9 @@ const GAME = {
     NUMBER_OF_ASTEROIDS: 10
 };
 
-export {GAME};
+const API = {
+    url: 'http://138.197.108.170:8080',
+    leaderboard: 'http://138.197.108.170:8080/leaderboard'
+};
+
+export {GAME, API};

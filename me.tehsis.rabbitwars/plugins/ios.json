@@ -1,0 +1,26 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "me.tehsis.rabbitwars"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "me.tehsis.rabbitwars"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "358865204487691",
+            "APP_NAME": "rabbit wars",
+            "PACKAGE_NAME": "me.tehsis.rabbitwars"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "me.tehsis.rabbitwars"
+        }
+    },
+    "dependent_plugins": {}
+}
