@@ -13,7 +13,7 @@ module.exports = {
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.tsx'],
     alias: {
       'phaser': phaser,
       'pixi.js': pixi,
@@ -25,11 +25,10 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts-loader' },
+      { test: /\.ts(x?)$/, loader: 'babel-loader?presets[]=es2015!ts-loader' },
       { test: /pixi.js/, loader: "script" },
       { test: /p2.js/, loader: "script" },
       { test: /phaser.js/, loader: "script" }
-
     ]
   }
 }

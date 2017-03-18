@@ -1,11 +1,10 @@
-import { GAME } from '../const';
+import { GAME, API }  from '../const';
 import gameState from '../game-state'
+import Planet    from '../entities/Planet';
+import LeaderBoardModal from '../modals/leaderboard'
+import fetch from '../mocks/mocked-fetch';
 
-class MainMenu extends Phaser.State {
-        private rabbit: Phaser.Sprite;
-        private spaceText: Phaser.Text;
-        private rabbitsText: Phaser.Text;
-  
+class MainMenu extends Phaser.State {  
         create() {
           gameState.load();
           
@@ -14,35 +13,32 @@ class MainMenu extends Phaser.State {
           let stars = this.game.add.sprite(0, 0, 'stars');
           stars.scale.setTo(0.5, 0.5);
 
-          this.rabbit = this.game.add.sprite(this.game.world.centerX-120, this.game.world.centerY-300, 'rabbit-intro');
+          const leaderboardModal = new LeaderBoardModal(200,
+             200, 
+             this.game.canvas.parentElement
+          );
 
-          this.spaceText = this.game.add.text(GAME.SCREEN.BASE_WIDTH+150, this.game.world.centerY-50, 'Space', {
-             font: 'bold 32px Tron',
-             fill: '#fff'
-           });
-
-         this.rabbitsText = this.game.add.text(-150, this.game.world.centerY-10, 'Rabbits', {
-            font: 'bold 32px Tron',
-            fill: '#fff'
-          });
+          new Planet(this.game, 0, this.game.world.centerY + 240);
           
-          let spaceTextTween = this.game.add.tween(this.spaceText);
-          let rabbitsTextTween = this.game.add.tween(this.rabbitsText);
+          this.game.add.sprite(this.game.world.centerX-90, this.game.world.centerY+80, 'rabbit-intro');
 
-          spaceTextTween.to({x: this.game.world.centerX-90}, 800, 'Linear', true, 0);
-          rabbitsTextTween.to({x: this.game.world.centerX-110}, 800, 'Linear', true, 0);
-
-          let enter = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-          enter.onDown.add(() => {
-            this.game.state.start('MainGame');
-          });
-
-          this.game.add.button(this.game.world.centerX - 160, this.game.world.centerY+100, 'new-game-button', () => {
+          // Buttons
+          this.game.add.button(this.game.world.centerX-60, this.game.world.centerY-250, 'new-game-button', () => {
             this.game.state.start('MainGame');
           }, this);
 
-          this.game.add.button(this.game.world.centerX - 120, this.game.world.centerY+200, 'leaderboard-button', () => {
-            this.game.state.start('Leaderboard');
+          this.game.add.button(this.game.world.centerX-60, this.game.world.centerY-200, 'leaderboard-button', () => {
+            fetch(API.leaderboard)
+              .then((response) => {
+                return response.json();
+              })
+              .then((leaderboard: any) => {
+                leaderboardModal.show(leaderboard, (e) => {
+                  e.preventDefault();
+                  this.game.state.start('MainGame');
+                  leaderboardModal.hide();
+                });
+              });
           }, this);
       }
 }

@@ -14,6 +14,7 @@
     "@types/form-data": "0.0.33",
     "@types/isomorphic-fetch": "0.0.32",
     "auth0-lock": "^10.7.3",
+    "babel-loader": "^6.3.2",
     "es6-promise": "^4.0.5",
     "express": "^4.14.0",
     "form-data": "^2.1.2",
@@ -22,11 +23,17 @@
     "normalize-css": "^2.3.1",
     "phaser": "^2.6.2",
     "phaser-swipe": "git+ssh://git@github.com/tehsis/phaser-swipe.git",
+    "preact": "^7.2.0",
     "script-loader": "^0.7.0",
     "typescript": "^2.0.3",
-    "webfontloader": "^1.6.27"
+    "webfontloader": "^1.6.27",
+    "webpack": "^1.12.9"
   },
   "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
     "gulp": "^3.9.1",
     "gulp-fontmin": "^0.7.3",
     "gulp-htmlmin": "^1.3.0",

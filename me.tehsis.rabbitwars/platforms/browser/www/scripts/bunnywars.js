@@ -45,17 +45,35 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	__webpack_require__(1);
 	__webpack_require__(4);
 	__webpack_require__(6);
-	const const_1 = __webpack_require__(8);
-	const game_1 = __webpack_require__(9);
-	const states = __webpack_require__(10);
-	class BunnyWars extends game_1.Game {
-	}
-	document.addEventListener('deviceready', () => {
-	    let c = window.cordova;
-	    const bunnywars = new BunnyWars({
+	var const_1 = __webpack_require__(8);
+	var game_1 = __webpack_require__(9);
+	var states = __webpack_require__(10);
+	
+	var BunnyWars = function (_game_1$Game) {
+	    _inherits(BunnyWars, _game_1$Game);
+	
+	    function BunnyWars() {
+	        _classCallCheck(this, BunnyWars);
+	
+	        return _possibleConstructorReturn(this, (BunnyWars.__proto__ || Object.getPrototypeOf(BunnyWars)).apply(this, arguments));
+	    }
+	
+	    return BunnyWars;
+	}(game_1.Game);
+	
+	document.addEventListener('deviceready', function () {
+	    var c = window.cordova;
+	    var bunnywars = new BunnyWars({
 	        width: const_1.GAME.SCREEN.BASE_WIDTH,
 	        height: const_1.GAME.SCREEN.BASE_HEIGHT,
 	        element: const_1.GAME.DOM_ELEMENT,
@@ -64,7 +82,6 @@
 	    });
 	    bunnywars.init();
 	});
-
 
 /***/ },
 /* 1 */
@@ -123,7 +140,8 @@
 /***/ function(module, exports) {
 
 	"use strict";
-	const GAME = {
+	
+	var GAME = {
 	    DEFAULT_STATE: 'Boot',
 	    DOM_ELEMENT: 'bunnywars-main',
 	    SCREEN: {
@@ -133,136 +151,209 @@
 	    NUMBER_OF_ASTEROIDS: 10
 	};
 	exports.GAME = GAME;
-	const API = {
-	    url: 'http://138.197.108.170:8080',
-	    leaderboard: 'http://138.197.108.170:8080/leaderboard'
+	var API = {
+	    url: 'http://localhost:8080',
+	    leaderboard: 'http://localhost:8080/leaderboard'
 	};
 	exports.API = API;
-
 
 /***/ },
 /* 9 */
 /***/ function(module, exports) {
 
 	"use strict";
-	class Game {
-	    constructor(args) {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Game = function () {
+	    function Game(args) {
+	        _classCallCheck(this, Game);
+	
 	        this.game = new Phaser.Game(args.width, args.height, Phaser.WEBGL, args.element);
 	        this.states = args.states;
 	        this.args = args;
 	    }
-	    loadStates(default_state) {
-	        Object.keys(this.states).forEach((state_name) => this.game.state.add(state_name, this.states[state_name]));
-	        this.game.state.start(default_state);
-	    }
-	    init() {
-	        this.loadStates(this.args.default_state || 'Boot');
-	    }
-	}
+	
+	    _createClass(Game, [{
+	        key: "loadStates",
+	        value: function loadStates(default_state) {
+	            var _this = this;
+	
+	            Object.keys(this.states).forEach(function (state_name) {
+	                return _this.game.state.add(state_name, _this.states[state_name]);
+	            });
+	            this.game.state.start(default_state);
+	        }
+	    }, {
+	        key: "init",
+	        value: function init() {
+	            this.loadStates(this.args.default_state || 'Boot');
+	        }
+	    }]);
+	
+	    return Game;
+	}();
+	
 	exports.Game = Game;
-
 
 /***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const boot_1 = __webpack_require__(11);
+	
+	var boot_1 = __webpack_require__(11);
 	exports.Boot = boot_1.default;
-	const loader_1 = __webpack_require__(12);
+	var loader_1 = __webpack_require__(12);
 	exports.Loader = loader_1.default;
-	const main_menu_1 = __webpack_require__(16);
+	var main_menu_1 = __webpack_require__(16);
 	exports.MainMenu = main_menu_1.default;
-	const main_game_1 = __webpack_require__(17);
+	var main_game_1 = __webpack_require__(21);
 	exports.MainGame = main_game_1.default;
-	const game_over_1 = __webpack_require__(24);
+	var game_over_1 = __webpack_require__(27);
 	exports.GameOver = game_over_1.default;
-	const leaderboard_1 = __webpack_require__(25);
+	var leaderboard_1 = __webpack_require__(28);
 	exports.Leaderboard = leaderboard_1.default;
-	const share_1 = __webpack_require__(28);
+	var share_1 = __webpack_require__(31);
 	exports.Share = share_1.default;
-
 
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const const_1 = __webpack_require__(8);
-	class Boot extends Phaser.State {
-	    scaleStage() {
-	        if (this.game.device.desktop) {
-	            this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-	            this.game.scale.minWidth = const_1.GAME.SCREEN.BASE_WIDTH / 2;
-	            this.game.scale.minHeight = const_1.GAME.SCREEN.BASE_HEIGHT / 2;
-	            this.game.scale.maxWidth = const_1.GAME.SCREEN.BASE_WIDTH;
-	            this.game.scale.maxHeight = const_1.GAME.SCREEN.BASE_HEIGHT;
-	            this.game.scale.pageAlignHorizontally = true;
-	            this.game.scale.pageAlignVertically = true;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var const_1 = __webpack_require__(8);
+	
+	var Boot = function (_Phaser$State) {
+	    _inherits(Boot, _Phaser$State);
+	
+	    function Boot() {
+	        _classCallCheck(this, Boot);
+	
+	        return _possibleConstructorReturn(this, (Boot.__proto__ || Object.getPrototypeOf(Boot)).apply(this, arguments));
+	    }
+	
+	    _createClass(Boot, [{
+	        key: 'scaleStage',
+	        value: function scaleStage() {
+	            if (this.game.device.desktop) {
+	                this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+	                this.game.scale.minWidth = const_1.GAME.SCREEN.BASE_WIDTH / 2;
+	                this.game.scale.minHeight = const_1.GAME.SCREEN.BASE_HEIGHT / 2;
+	                this.game.scale.maxWidth = const_1.GAME.SCREEN.BASE_WIDTH;
+	                this.game.scale.maxHeight = const_1.GAME.SCREEN.BASE_HEIGHT;
+	                this.game.scale.pageAlignHorizontally = true;
+	                this.game.scale.pageAlignVertically = true;
+	            }
 	        }
-	    }
-	    create() {
-	        this.scaleStage();
-	        this.game.state.start('Loader');
-	    }
-	}
+	    }, {
+	        key: 'create',
+	        value: function create() {
+	            this.scaleStage();
+	            this.game.state.start('Loader');
+	        }
+	    }]);
+	
+	    return Boot;
+	}(Phaser.State);
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Boot;
-
 
 /***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const assetHandlerManager_1 = __webpack_require__(13);
-	const game_state_1 = __webpack_require__(15);
-	class Loader extends Phaser.State {
-	    create() {
-	        this.assets = assetHandlerManager_1.default.getAssetsHandler(this.game);
-	        this.assets.loadImage('planet');
-	        this.assets.loadImage('stars');
-	        this.assets.loadImage('rabbit');
-	        this.assets.loadImage('rabbit-intro');
-	        this.assets.loadImage('bala');
-	        this.assets.loadImage('new-game-button');
-	        this.assets.loadImage('leaderboard-button');
-	        this.assets.loadImage('main-menu-button');
-	        this.assets.loadSound('shoot');
-	        this.assets.loadSound('explosion');
-	        this.assets.loadSound('jump');
-	        this.assets.loadSpreadSheet('destroyed', 20, 21);
-	        this.game.load.onLoadStart.add(this._loadStart, this);
-	        this.game.load.onLoadComplete.add(this._loadComplete, this);
-	        this.game.load.start();
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var assetHandlerManager_1 = __webpack_require__(13);
+	var game_state_1 = __webpack_require__(15);
+	
+	var Loader = function (_Phaser$State) {
+	    _inherits(Loader, _Phaser$State);
+	
+	    function Loader() {
+	        _classCallCheck(this, Loader);
+	
+	        return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
 	    }
-	    _loadStart() {
-	        this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY, 'Loading...', {
-	            font: 'bold 32px Tron',
-	            fill: '#fff'
-	        });
-	    }
-	    _loadComplete() {
-	        game_state_1.default.load().then(() => {
-	            this.game.state.start('MainMenu');
-	        }).catch(() => {
-	            this.game.state.start('MainMenu');
-	        });
-	    }
-	}
+	
+	    _createClass(Loader, [{
+	        key: 'create',
+	        value: function create() {
+	            this.assets = assetHandlerManager_1.default.getAssetsHandler(this.game);
+	            this.assets.loadImage('planet');
+	            this.assets.loadImage('stars');
+	            this.assets.loadImage('rabbit');
+	            this.assets.loadImage('rabbit-intro');
+	            this.assets.loadImage('bala');
+	            this.assets.loadImage('new-game-button');
+	            this.assets.loadImage('leaderboard-button');
+	            this.assets.loadImage('main-menu-button');
+	            this.assets.loadSound('shoot');
+	            this.assets.loadSound('explosion');
+	            this.assets.loadSound('jump');
+	            this.assets.loadSpreadSheet('destroyed', 20, 21);
+	            this.game.load.onLoadStart.add(this._loadStart, this);
+	            this.game.load.onLoadComplete.add(this._loadComplete, this);
+	            this.game.load.start();
+	        }
+	    }, {
+	        key: '_loadStart',
+	        value: function _loadStart() {
+	            this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY, 'Loading...', {
+	                font: 'bold 32px Tron',
+	                fill: '#fff'
+	            });
+	        }
+	    }, {
+	        key: '_loadComplete',
+	        value: function _loadComplete() {
+	            var _this2 = this;
+	
+	            game_state_1.default.load().then(function () {
+	                _this2.game.state.start('MainMenu');
+	            }).catch(function () {
+	                _this2.game.state.start('MainMenu');
+	            });
+	        }
+	    }]);
+	
+	    return Loader;
+	}(Phaser.State);
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Loader;
-
 
 /***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const AssetsHandler_1 = __webpack_require__(14);
-	let assetHandler = null;
-	let AssetHandlerManager = {
-	    getAssetsHandler: function (game) {
+	
+	var AssetsHandler_1 = __webpack_require__(14);
+	var assetHandler = null;
+	var AssetHandlerManager = {
+	    getAssetsHandler: function getAssetsHandler(game) {
 	        if (null === assetHandler) {
 	            assetHandler = new AssetsHandler_1.AssetsHandler(game);
 	        }
@@ -272,281 +363,254 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = AssetHandlerManager;
 
-
 /***/ },
 /* 14 */
 /***/ function(module, exports) {
 
 	"use strict";
-	class AssetsHandler {
-	    constructor(game) {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var AssetsHandler = function () {
+	    function AssetsHandler(game) {
+	        _classCallCheck(this, AssetsHandler);
+	
 	        this.game = game;
 	        this.base = './assets';
 	    }
-	    get(type, asset) {
-	        return `${this.base}/${type}/${asset}`;
-	    }
-	    getImage(asset) {
-	        return this.get('images', `${asset}.png`);
-	    }
-	    getAudio(asset) {
-	        return this.get('sounds', `${asset}.wav`);
-	    }
-	    loadImage(name) {
-	        this.game.load.image(name, this.getImage(name));
-	    }
-	    loadSpreadSheet(name, width, height) {
-	        this.game.load.spritesheet(name, this.getImage(name), width, height);
-	    }
-	    loadSound(name) {
-	        this.game.load.audio(name, this.getAudio(name));
-	    }
-	}
+	
+	    _createClass(AssetsHandler, [{
+	        key: 'get',
+	        value: function get(type, asset) {
+	            return this.base + '/' + type + '/' + asset;
+	        }
+	    }, {
+	        key: 'getImage',
+	        value: function getImage(asset) {
+	            return this.get('images', asset + '.png');
+	        }
+	    }, {
+	        key: 'getAudio',
+	        value: function getAudio(asset) {
+	            return this.get('sounds', asset + '.wav');
+	        }
+	    }, {
+	        key: 'loadImage',
+	        value: function loadImage(name) {
+	            this.game.load.image(name, this.getImage(name));
+	        }
+	    }, {
+	        key: 'loadSpreadSheet',
+	        value: function loadSpreadSheet(name, width, height) {
+	            this.game.load.spritesheet(name, this.getImage(name), width, height);
+	        }
+	    }, {
+	        key: 'loadSound',
+	        value: function loadSound(name) {
+	            this.game.load.audio(name, this.getAudio(name));
+	        }
+	    }]);
+	
+	    return AssetsHandler;
+	}();
+	
 	exports.AssetsHandler = AssetsHandler;
-
 
 /***/ },
 /* 15 */
 /***/ function(module, exports) {
 
 	"use strict";
-	const initialState = {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var initialState = {
 	    username: '',
 	    score: 0,
 	    life: 3
 	};
-	class GameState {
-	    constructor() {
+	
+	var GameState = function () {
+	    function GameState() {
+	        _classCallCheck(this, GameState);
+	
 	        this.state = initialState;
 	        this.load();
 	        this.reset();
 	    }
-	    reset() {
-	        const username = this.state.username;
-	        this.setState(initialState);
-	        this.setState({ username });
-	    }
-	    increaseScore(amount) {
-	        this.setState({ score: this.state.score + amount });
-	    }
-	    decreaseLife(amount) {
-	        this.setState({ life: this.state.life - amount });
-	    }
-	    save() {
-	        console.log('saving!');
-	        return new Promise((resolve, reject) => {
-	            console.log('ready to save');
-	            NativeStorage.setItem(`rabbit-wars`, this.state, () => {
-	                console.log('saved', arguments);
-	                resolve();
-	            }, function () {
-	                console.log('error saving', arguments);
-	                reject('error');
+	
+	    _createClass(GameState, [{
+	        key: "reset",
+	        value: function reset() {
+	            var username = this.state.username;
+	            this.setState(initialState);
+	            this.setState({ username: username });
+	        }
+	    }, {
+	        key: "increaseScore",
+	        value: function increaseScore(amount) {
+	            this.setState({ score: this.state.score + amount });
+	        }
+	    }, {
+	        key: "decreaseLife",
+	        value: function decreaseLife(amount) {
+	            this.setState({ life: this.state.life - amount });
+	        }
+	    }, {
+	        key: "save",
+	        value: function save() {
+	            var _this = this;
+	
+	            return new Promise(function (resolve, reject) {
+	                NativeStorage.setItem("rabbit-wars", _this.state, function () {
+	                    resolve();
+	                }, function (e) {
+	                    reject(e);
+	                });
 	            });
-	        });
-	    }
-	    getUserName() {
-	        return this.state.username;
-	    }
-	    setUsername(username) {
-	        this.setState({ username });
-	    }
-	    getScore() {
-	        return this.state.score;
-	    }
-	    getLifes() {
-	        return this.state.life;
-	    }
-	    load() {
-	        return new Promise((resolve, reject) => {
-	            NativeStorage.getItem(`rabbit-wars`, (state) => {
-	                this.setState(state);
-	                resolve();
-	            }, () => {
-	                this.setState(initialState);
-	                reject();
+	        }
+	    }, {
+	        key: "getUserName",
+	        value: function getUserName() {
+	            return this.state.username;
+	        }
+	    }, {
+	        key: "setUsername",
+	        value: function setUsername(username) {
+	            this.setState({ username: username });
+	        }
+	    }, {
+	        key: "getScore",
+	        value: function getScore() {
+	            return this.state.score;
+	        }
+	    }, {
+	        key: "getLifes",
+	        value: function getLifes() {
+	            return this.state.life;
+	        }
+	    }, {
+	        key: "load",
+	        value: function load() {
+	            var _this2 = this;
+	
+	            return new Promise(function (resolve, reject) {
+	                NativeStorage.getItem("rabbit-wars", function (state) {
+	                    _this2.setState(state);
+	                    resolve();
+	                }, function () {
+	                    _this2.setState(initialState);
+	                    reject();
+	                });
 	            });
-	        });
-	    }
-	    serialize() {
-	        return JSON.stringify(this.state);
-	    }
-	    setState(state) {
-	        this.state = Object.assign({}, this.state, state);
-	    }
-	}
+	        }
+	    }, {
+	        key: "serialize",
+	        value: function serialize() {
+	            return JSON.stringify(this.state);
+	        }
+	    }, {
+	        key: "getJSON",
+	        value: function getJSON() {
+	            return this.state;
+	        }
+	    }, {
+	        key: "setState",
+	        value: function setState(state) {
+	            this.state = Object.assign({}, this.state, state);
+	        }
+	    }]);
+	
+	    return GameState;
+	}();
+	
 	exports.GameState = GameState;
-	const gameState = new GameState();
+	var gameState = new GameState();
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = gameState;
-
 
 /***/ },
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const const_1 = __webpack_require__(8);
-	const game_state_1 = __webpack_require__(15);
-	class MainMenu extends Phaser.State {
-	    create() {
-	        game_state_1.default.load();
-	        this.game.stage.backgroundColor = '#1F1333';
-	        let stars = this.game.add.sprite(0, 0, 'stars');
-	        stars.scale.setTo(0.5, 0.5);
-	        this.rabbit = this.game.add.sprite(this.game.world.centerX - 120, this.game.world.centerY - 300, 'rabbit-intro');
-	        this.spaceText = this.game.add.text(const_1.GAME.SCREEN.BASE_WIDTH + 150, this.game.world.centerY - 50, 'Space', {
-	            font: 'bold 32px Tron',
-	            fill: '#fff'
-	        });
-	        this.rabbitsText = this.game.add.text(-150, this.game.world.centerY - 10, 'Rabbits', {
-	            font: 'bold 32px Tron',
-	            fill: '#fff'
-	        });
-	        let spaceTextTween = this.game.add.tween(this.spaceText);
-	        let rabbitsTextTween = this.game.add.tween(this.rabbitsText);
-	        spaceTextTween.to({ x: this.game.world.centerX - 90 }, 800, 'Linear', true, 0);
-	        rabbitsTextTween.to({ x: this.game.world.centerX - 110 }, 800, 'Linear', true, 0);
-	        let enter = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-	        enter.onDown.add(() => {
-	            this.game.state.start('MainGame');
-	        });
-	        this.game.add.button(this.game.world.centerX - 160, this.game.world.centerY + 100, 'new-game-button', () => {
-	            this.game.state.start('MainGame');
-	        }, this);
-	        this.game.add.button(this.game.world.centerX - 120, this.game.world.centerY + 200, 'leaderboard-button', () => {
-	            this.game.state.start('Leaderboard');
-	        }, this);
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var const_1 = __webpack_require__(8);
+	var game_state_1 = __webpack_require__(15);
+	var Planet_1 = __webpack_require__(17);
+	var leaderboard_1 = __webpack_require__(18);
+	var mocked_fetch_1 = __webpack_require__(20);
+	
+	var MainMenu = function (_Phaser$State) {
+	    _inherits(MainMenu, _Phaser$State);
+	
+	    function MainMenu() {
+	        _classCallCheck(this, MainMenu);
+	
+	        return _possibleConstructorReturn(this, (MainMenu.__proto__ || Object.getPrototypeOf(MainMenu)).apply(this, arguments));
 	    }
-	}
+	
+	    _createClass(MainMenu, [{
+	        key: 'create',
+	        value: function create() {
+	            var _this2 = this;
+	
+	            game_state_1.default.load();
+	            this.game.stage.backgroundColor = '#1F1333';
+	            var stars = this.game.add.sprite(0, 0, 'stars');
+	            stars.scale.setTo(0.5, 0.5);
+	            var leaderboardModal = new leaderboard_1.default(200, 200, this.game.canvas.parentElement);
+	            new Planet_1.default(this.game, 0, this.game.world.centerY + 240);
+	            this.game.add.sprite(this.game.world.centerX - 90, this.game.world.centerY + 80, 'rabbit-intro');
+	            this.game.add.button(this.game.world.centerX - 60, this.game.world.centerY - 250, 'new-game-button', function () {
+	                _this2.game.state.start('MainGame');
+	            }, this);
+	            this.game.add.button(this.game.world.centerX - 60, this.game.world.centerY - 200, 'leaderboard-button', function () {
+	                mocked_fetch_1.default(const_1.API.leaderboard).then(function (response) {
+	                    return response.json();
+	                }).then(function (leaderboard) {
+	                    leaderboardModal.show(leaderboard, function (e) {
+	                        e.preventDefault();
+	                        _this2.game.state.start('MainGame');
+	                        leaderboardModal.hide();
+	                    });
+	                });
+	            }, this);
+	        }
+	    }]);
+	
+	    return MainMenu;
+	}(Phaser.State);
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = MainMenu;
 
-
 /***/ },
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const const_1 = __webpack_require__(8);
-	const Asteroids_1 = __webpack_require__(18);
-	const Planet_1 = __webpack_require__(19);
-	const Rabbit_1 = __webpack_require__(20);
-	const game_state_1 = __webpack_require__(15);
-	const style = { font: "24px Arial", fill: "#ffffff", align: "center" };
-	const lifeChar = "❤️";
-	class MainGame extends Phaser.State {
-	    create() {
-	        this.game.stage.backgroundColor = '#1F1333';
-	        this.game.physics.startSystem(Phaser.Physics.ARCADE);
-	        this.state = game_state_1.default;
-	        this.state.reset();
-	        let background = this.game.add.sprite(0, 0, 'stars');
-	        background.scale.setTo(0.5, 0.5);
-	        this.planet = new Planet_1.default(this.game, 0, this.game.world.centerY + 150);
-	        this.asteroids = new Asteroids_1.default(this.game, const_1.GAME.NUMBER_OF_ASTEROIDS, () => {
-	        });
-	        this.rabbit = new Rabbit_1.default(this.game);
-	        this.score = this.game.add.text(32, 32, 'Score:', style);
-	        this.lifes = this._createLifes();
-	        this.score.text = "" + this.state.getScore();
-	    }
-	    _createLifes() {
-	        const lifes = [];
-	        for (let i = 0; i < this.state.getLifes(); i++) {
-	            lifes.push(this.game.add.text(332, 32 + (30 * i), lifeChar, style));
-	        }
-	        return lifes;
-	    }
-	    _updateLifes() {
-	        this.lifes.forEach((lifeText, index) => {
-	            lifeText.text = (index < this.state.getLifes()) ? lifeChar : '';
-	        });
-	    }
-	    update() {
-	        this.rabbit.move();
-	        this.game.physics.arcade.collide(this.asteroids.getGroup(), this.rabbit.getBullets(), (asteroid, bullet) => {
-	            asteroid.animations.play('destroyed');
-	            bullet.kill();
-	            this.state.increaseScore(10);
-	            this.score.text = "" + this.state.getScore();
-	            ;
-	        }, null, this);
-	        this.game.physics.arcade.collide(this.planet.getSprite(), this.asteroids.getGroup(), (planet, asteroid) => {
-	            asteroid.animations.play('destroyed');
-	            this.state.decreaseLife(1);
-	            asteroid.destroy();
-	        }, null, this);
-	        this._updateLifes();
-	        if (this.state.getLifes() <= 0) {
-	            this.game.state.start('GameOver');
-	        }
-	    }
-	}
-	exports.MainGame = MainGame;
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = MainGame;
-
-
-/***/ },
-/* 18 */
 /***/ function(module, exports) {
 
 	"use strict";
-	class Asteroids {
-	    constructor(game, quantity, onDestroyed) {
-	        this.game = game;
-	        this.resource = this.game.add.group();
-	        this.onDestroyed = onDestroyed;
-	        this.modifier = 0;
-	        this.destroyedSound = this.game.add.sound('explosion');
-	        this.init(quantity);
-	    }
-	    getGroup() {
-	        return this.resource;
-	    }
-	    init(quantity) {
-	        for (let i = 0; i < quantity; i++) {
-	            this.createAsteroid();
-	        }
-	    }
-	    createAsteroid() {
-	        const positions = [
-	            this.game.world.centerX - 68,
-	            this.game.world.centerX - 60,
-	            this.game.world.centerX + 65,
-	            this.game.world.centerX + 180,
-	        ];
-	        const index = Math.round(Math.random() * (positions.length - 1));
-	        let x = positions[index];
-	        let y = (Math.random() * 1000) - 900;
-	        let asteroid = this.getGroup().create(x, y, 'destroyed', 0);
-	        let animation = asteroid.animations.add('destroyed');
-	        this.game.physics.arcade.enable(asteroid);
-	        asteroid.body.setCircle(10);
-	        setInterval(() => {
-	            this.modifier++;
-	        }, 10000);
-	        asteroid.body.gravity.y = (Math.random() * this.modifier) + 10;
-	        animation.onComplete.add((desroyedAsteroid) => {
-	            this.onDestroyed();
-	            desroyedAsteroid.kill();
-	            this.destroyedSound.play();
-	            this.createAsteroid();
-	        }, this);
-	    }
-	}
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = Asteroids;
-
-
-/***/ },
-/* 19 */
-/***/ function(module, exports) {
-
-	"use strict";
-	class Planet {
-	    constructor(game, x, y) {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Planet = function () {
+	    function Planet(game, x, y) {
+	        _classCallCheck(this, Planet);
+	
 	        this.game = game;
 	        this.sprite = this.game.add.sprite(x, y, 'planet');
 	        this.game.physics.arcade.enable(this.sprite);
@@ -554,21 +618,828 @@
 	        this.sprite.body.setSize(20, 20);
 	        this.sprite.body.setCircle(230, -50, 0);
 	    }
-	    getSprite() {
-	        return this.sprite;
-	    }
-	}
+	
+	    _createClass(Planet, [{
+	        key: "getSprite",
+	        value: function getSprite() {
+	            return this.sprite;
+	        }
+	    }]);
+	
+	    return Planet;
+	}();
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Planet;
 
-
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const input_1 = __webpack_require__(21);
-	const bullets_1 = __webpack_require__(23);
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var preact_1 = __webpack_require__(19);
+	var LEADERBOARD_CLASSNAME = 'modal-leaderboard';
+	var MODAL_HIDE = 'modal-hide';
+	var MODAL_SHOW = 'modal-show';
+	
+	var LeaderBoardModal = function () {
+	    function LeaderBoardModal(x, y, parent) {
+	        _classCallCheck(this, LeaderBoardModal);
+	
+	        this.el = document.createElement('div');
+	        this.el.classList.add(LEADERBOARD_CLASSNAME);
+	        this.parent = parent;
+	    }
+	
+	    _createClass(LeaderBoardModal, [{
+	        key: 'show',
+	        value: function show(leaderboard, onPlayButton, hide) {
+	            preact_1.render(preact_1.h(
+	                'div',
+	                { className: LEADERBOARD_CLASSNAME + (' ' + (hide ? MODAL_HIDE : MODAL_SHOW)) },
+	                this._makeCloseButton(),
+	                this._makeHeader(),
+	                this._makeList(leaderboard),
+	                this._makeButton(onPlayButton)
+	            ), this.parent);
+	        }
+	    }, {
+	        key: 'hide',
+	        value: function hide() {
+	            this.show([], function () {
+	                return null;
+	            }, true);
+	        }
+	    }, {
+	        key: '_makeCloseButton',
+	        value: function _makeCloseButton() {
+	            return preact_1.h(
+	                'button',
+	                { className: 'close-button', onClick: this.hide.bind(this) },
+	                'x'
+	            );
+	        }
+	    }, {
+	        key: '_makeButton',
+	        value: function _makeButton(cb) {
+	            return preact_1.h(
+	                'button',
+	                { className: 'play-button', onClick: cb },
+	                'play'
+	            );
+	        }
+	    }, {
+	        key: '_makeHeader',
+	        value: function _makeHeader() {
+	            return preact_1.h(
+	                'div',
+	                null,
+	                preact_1.h(
+	                    'h2',
+	                    null,
+	                    'Leaderboard'
+	                )
+	            );
+	        }
+	    }, {
+	        key: '_makeList',
+	        value: function _makeList(leaderboard) {
+	            return preact_1.h(
+	                'ol',
+	                null,
+	                leaderboard.map(function (score, index) {
+	                    return preact_1.h(
+	                        'li',
+	                        null,
+	                        '$',
+	                        score.player,
+	                        ' - $',
+	                        score.points
+	                    );
+	                })
+	            );
+	        }
+	    }]);
+	
+	    return LeaderBoardModal;
+	}();
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = LeaderBoardModal;
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	!function(global, factory) {
+	     true ? factory(exports) : 'function' == typeof define && define.amd ? define([ 'exports' ], factory) : factory(global.preact = global.preact || {});
+	}(this, function(exports) {
+	    function VNode(nodeName, attributes, children) {
+	        this.nodeName = nodeName;
+	        this.attributes = attributes;
+	        this.children = children;
+	        this.key = attributes && attributes.key;
+	    }
+	    function h(nodeName, attributes) {
+	        var children, lastSimple, child, simple, i;
+	        for (i = arguments.length; i-- > 2; ) stack.push(arguments[i]);
+	        if (attributes && attributes.children) {
+	            if (!stack.length) stack.push(attributes.children);
+	            delete attributes.children;
+	        }
+	        while (stack.length) if ((child = stack.pop()) instanceof Array) for (i = child.length; i--; ) stack.push(child[i]); else if (null != child && child !== !0 && child !== !1) {
+	            if ('number' == typeof child) child = String(child);
+	            simple = 'string' == typeof child;
+	            if (simple && lastSimple) children[children.length - 1] += child; else {
+	                (children || (children = [])).push(child);
+	                lastSimple = simple;
+	            }
+	        }
+	        var p = new VNode(nodeName, attributes || void 0, children || EMPTY_CHILDREN);
+	        if (options.vnode) options.vnode(p);
+	        return p;
+	    }
+	    function extend(obj, props) {
+	        if (props) for (var i in props) obj[i] = props[i];
+	        return obj;
+	    }
+	    function clone(obj) {
+	        return extend({}, obj);
+	    }
+	    function delve(obj, key) {
+	        for (var p = key.split('.'), i = 0; i < p.length && obj; i++) obj = obj[p[i]];
+	        return obj;
+	    }
+	    function isFunction(obj) {
+	        return 'function' == typeof obj;
+	    }
+	    function isString(obj) {
+	        return 'string' == typeof obj;
+	    }
+	    function hashToClassName(c) {
+	        var str = '';
+	        for (var prop in c) if (c[prop]) {
+	            if (str) str += ' ';
+	            str += prop;
+	        }
+	        return str;
+	    }
+	    function cloneElement(vnode, props) {
+	        return h(vnode.nodeName, extend(clone(vnode.attributes), props), arguments.length > 2 ? [].slice.call(arguments, 2) : vnode.children);
+	    }
+	    function createLinkedState(component, key, eventPath) {
+	        var path = key.split('.');
+	        return function(e) {
+	            var t = e && e.target || this, state = {}, obj = state, v = isString(eventPath) ? delve(e, eventPath) : t.nodeName ? t.type.match(/^che|rad/) ? t.checked : t.value : e, i = 0;
+	            for (;i < path.length - 1; i++) obj = obj[path[i]] || (obj[path[i]] = !i && component.state[path[i]] || {});
+	            obj[path[i]] = v;
+	            component.setState(state);
+	        };
+	    }
+	    function enqueueRender(component) {
+	        if (!component._dirty && (component._dirty = !0) && 1 == items.push(component)) (options.debounceRendering || defer)(rerender);
+	    }
+	    function rerender() {
+	        var p, list = items;
+	        items = [];
+	        while (p = list.pop()) if (p._dirty) renderComponent(p);
+	    }
+	    function isFunctionalComponent(vnode) {
+	        var nodeName = vnode && vnode.nodeName;
+	        return nodeName && isFunction(nodeName) && !(nodeName.prototype && nodeName.prototype.render);
+	    }
+	    function buildFunctionalComponent(vnode, context) {
+	        return vnode.nodeName(getNodeProps(vnode), context || EMPTY);
+	    }
+	    function isSameNodeType(node, vnode) {
+	        if (isString(vnode)) return node instanceof Text;
+	        if (isString(vnode.nodeName)) return !node._componentConstructor && isNamedNode(node, vnode.nodeName);
+	        if (isFunction(vnode.nodeName)) return (node._componentConstructor ? node._componentConstructor === vnode.nodeName : !0) || isFunctionalComponent(vnode); else ;
+	    }
+	    function isNamedNode(node, nodeName) {
+	        return node.normalizedNodeName === nodeName || toLowerCase(node.nodeName) === toLowerCase(nodeName);
+	    }
+	    function getNodeProps(vnode) {
+	        var props = clone(vnode.attributes);
+	        props.children = vnode.children;
+	        var defaultProps = vnode.nodeName.defaultProps;
+	        if (defaultProps) for (var i in defaultProps) if (void 0 === props[i]) props[i] = defaultProps[i];
+	        return props;
+	    }
+	    function removeNode(node) {
+	        var p = node.parentNode;
+	        if (p) p.removeChild(node);
+	    }
+	    function setAccessor(node, name, old, value, isSvg) {
+	        if ('className' === name) name = 'class';
+	        if ('class' === name && value && 'object' == typeof value) value = hashToClassName(value);
+	        if ('key' === name) ; else if ('class' === name && !isSvg) node.className = value || ''; else if ('style' === name) {
+	            if (!value || isString(value) || isString(old)) node.style.cssText = value || '';
+	            if (value && 'object' == typeof value) {
+	                if (!isString(old)) for (var i in old) if (!(i in value)) node.style[i] = '';
+	                for (var i in value) node.style[i] = 'number' == typeof value[i] && !NON_DIMENSION_PROPS[i] ? value[i] + 'px' : value[i];
+	            }
+	        } else if ('dangerouslySetInnerHTML' === name) {
+	            if (value) node.innerHTML = value.__html || '';
+	        } else if ('o' == name[0] && 'n' == name[1]) {
+	            var l = node._listeners || (node._listeners = {});
+	            name = toLowerCase(name.substring(2));
+	            if (value) {
+	                if (!l[name]) node.addEventListener(name, eventProxy, !!NON_BUBBLING_EVENTS[name]);
+	            } else if (l[name]) node.removeEventListener(name, eventProxy, !!NON_BUBBLING_EVENTS[name]);
+	            l[name] = value;
+	        } else if ('list' !== name && 'type' !== name && !isSvg && name in node) {
+	            setProperty(node, name, null == value ? '' : value);
+	            if (null == value || value === !1) node.removeAttribute(name);
+	        } else {
+	            var ns = isSvg && name.match(/^xlink\:?(.+)/);
+	            if (null == value || value === !1) if (ns) node.removeAttributeNS('http://www.w3.org/1999/xlink', toLowerCase(ns[1])); else node.removeAttribute(name); else if ('object' != typeof value && !isFunction(value)) if (ns) node.setAttributeNS('http://www.w3.org/1999/xlink', toLowerCase(ns[1]), value); else node.setAttribute(name, value);
+	        }
+	    }
+	    function setProperty(node, name, value) {
+	        try {
+	            node[name] = value;
+	        } catch (e) {}
+	    }
+	    function eventProxy(e) {
+	        return this._listeners[e.type](options.event && options.event(e) || e);
+	    }
+	    function collectNode(node) {
+	        removeNode(node);
+	        if (node instanceof Element) {
+	            node._component = node._componentConstructor = null;
+	            var _name = node.normalizedNodeName || toLowerCase(node.nodeName);
+	            (nodes[_name] || (nodes[_name] = [])).push(node);
+	        }
+	    }
+	    function createNode(nodeName, isSvg) {
+	        var name = toLowerCase(nodeName), node = nodes[name] && nodes[name].pop() || (isSvg ? document.createElementNS('http://www.w3.org/2000/svg', nodeName) : document.createElement(nodeName));
+	        node.normalizedNodeName = name;
+	        return node;
+	    }
+	    function flushMounts() {
+	        var c;
+	        while (c = mounts.pop()) {
+	            if (options.afterMount) options.afterMount(c);
+	            if (c.componentDidMount) c.componentDidMount();
+	        }
+	    }
+	    function diff(dom, vnode, context, mountAll, parent, componentRoot) {
+	        if (!diffLevel++) {
+	            isSvgMode = parent && 'undefined' != typeof parent.ownerSVGElement;
+	            hydrating = dom && !(ATTR_KEY in dom);
+	        }
+	        var ret = idiff(dom, vnode, context, mountAll);
+	        if (parent && ret.parentNode !== parent) parent.appendChild(ret);
+	        if (!--diffLevel) {
+	            hydrating = !1;
+	            if (!componentRoot) flushMounts();
+	        }
+	        return ret;
+	    }
+	    function idiff(dom, vnode, context, mountAll) {
+	        var ref = vnode && vnode.attributes && vnode.attributes.ref;
+	        while (isFunctionalComponent(vnode)) vnode = buildFunctionalComponent(vnode, context);
+	        if (null == vnode) vnode = '';
+	        if (isString(vnode)) {
+	            if (dom && dom instanceof Text && dom.parentNode) {
+	                if (dom.nodeValue != vnode) dom.nodeValue = vnode;
+	            } else {
+	                if (dom) recollectNodeTree(dom);
+	                dom = document.createTextNode(vnode);
+	            }
+	            return dom;
+	        }
+	        if (isFunction(vnode.nodeName)) return buildComponentFromVNode(dom, vnode, context, mountAll);
+	        var out = dom, nodeName = String(vnode.nodeName), prevSvgMode = isSvgMode, vchildren = vnode.children;
+	        isSvgMode = 'svg' === nodeName ? !0 : 'foreignObject' === nodeName ? !1 : isSvgMode;
+	        if (!dom) out = createNode(nodeName, isSvgMode); else if (!isNamedNode(dom, nodeName)) {
+	            out = createNode(nodeName, isSvgMode);
+	            while (dom.firstChild) out.appendChild(dom.firstChild);
+	            if (dom.parentNode) dom.parentNode.replaceChild(out, dom);
+	            recollectNodeTree(dom);
+	        }
+	        var fc = out.firstChild, props = out[ATTR_KEY];
+	        if (!props) {
+	            out[ATTR_KEY] = props = {};
+	            for (var a = out.attributes, i = a.length; i--; ) props[a[i].name] = a[i].value;
+	        }
+	        if (!hydrating && vchildren && 1 === vchildren.length && 'string' == typeof vchildren[0] && fc && fc instanceof Text && !fc.nextSibling) {
+	            if (fc.nodeValue != vchildren[0]) fc.nodeValue = vchildren[0];
+	        } else if (vchildren && vchildren.length || fc) innerDiffNode(out, vchildren, context, mountAll, !!props.dangerouslySetInnerHTML);
+	        diffAttributes(out, vnode.attributes, props);
+	        if (ref) (props.ref = ref)(out);
+	        isSvgMode = prevSvgMode;
+	        return out;
+	    }
+	    function innerDiffNode(dom, vchildren, context, mountAll, absorb) {
+	        var j, c, vchild, child, originalChildren = dom.childNodes, children = [], keyed = {}, keyedLen = 0, min = 0, len = originalChildren.length, childrenLen = 0, vlen = vchildren && vchildren.length;
+	        if (len) for (var i = 0; i < len; i++) {
+	            var _child = originalChildren[i], props = _child[ATTR_KEY], key = vlen ? (c = _child._component) ? c.__key : props ? props.key : null : null;
+	            if (null != key) {
+	                keyedLen++;
+	                keyed[key] = _child;
+	            } else if (hydrating || absorb || props || _child instanceof Text) children[childrenLen++] = _child;
+	        }
+	        if (vlen) for (var i = 0; i < vlen; i++) {
+	            vchild = vchildren[i];
+	            child = null;
+	            var key = vchild.key;
+	            if (null != key) {
+	                if (keyedLen && key in keyed) {
+	                    child = keyed[key];
+	                    keyed[key] = void 0;
+	                    keyedLen--;
+	                }
+	            } else if (!child && min < childrenLen) for (j = min; j < childrenLen; j++) {
+	                c = children[j];
+	                if (c && isSameNodeType(c, vchild)) {
+	                    child = c;
+	                    children[j] = void 0;
+	                    if (j === childrenLen - 1) childrenLen--;
+	                    if (j === min) min++;
+	                    break;
+	                }
+	            }
+	            child = idiff(child, vchild, context, mountAll);
+	            if (child && child !== dom) if (i >= len) dom.appendChild(child); else if (child !== originalChildren[i]) {
+	                if (child === originalChildren[i + 1]) removeNode(originalChildren[i]);
+	                dom.insertBefore(child, originalChildren[i] || null);
+	            }
+	        }
+	        if (keyedLen) for (var i in keyed) if (keyed[i]) recollectNodeTree(keyed[i]);
+	        while (min <= childrenLen) {
+	            child = children[childrenLen--];
+	            if (child) recollectNodeTree(child);
+	        }
+	    }
+	    function recollectNodeTree(node, unmountOnly) {
+	        var component = node._component;
+	        if (component) unmountComponent(component, !unmountOnly); else {
+	            if (node[ATTR_KEY] && node[ATTR_KEY].ref) node[ATTR_KEY].ref(null);
+	            if (!unmountOnly) collectNode(node);
+	            var c;
+	            while (c = node.lastChild) recollectNodeTree(c, unmountOnly);
+	        }
+	    }
+	    function diffAttributes(dom, attrs, old) {
+	        var name;
+	        for (name in old) if (!(attrs && name in attrs) && null != old[name]) setAccessor(dom, name, old[name], old[name] = void 0, isSvgMode);
+	        if (attrs) for (name in attrs) if (!('children' === name || 'innerHTML' === name || name in old && attrs[name] === ('value' === name || 'checked' === name ? dom[name] : old[name]))) setAccessor(dom, name, old[name], old[name] = attrs[name], isSvgMode);
+	    }
+	    function collectComponent(component) {
+	        var name = component.constructor.name, list = components[name];
+	        if (list) list.push(component); else components[name] = [ component ];
+	    }
+	    function createComponent(Ctor, props, context) {
+	        var inst = new Ctor(props, context), list = components[Ctor.name];
+	        Component.call(inst, props, context);
+	        if (list) for (var i = list.length; i--; ) if (list[i].constructor === Ctor) {
+	            inst.nextBase = list[i].nextBase;
+	            list.splice(i, 1);
+	            break;
+	        }
+	        return inst;
+	    }
+	    function setComponentProps(component, props, opts, context, mountAll) {
+	        if (!component._disable) {
+	            component._disable = !0;
+	            if (component.__ref = props.ref) delete props.ref;
+	            if (component.__key = props.key) delete props.key;
+	            if (!component.base || mountAll) {
+	                if (component.componentWillMount) component.componentWillMount();
+	            } else if (component.componentWillReceiveProps) component.componentWillReceiveProps(props, context);
+	            if (context && context !== component.context) {
+	                if (!component.prevContext) component.prevContext = component.context;
+	                component.context = context;
+	            }
+	            if (!component.prevProps) component.prevProps = component.props;
+	            component.props = props;
+	            component._disable = !1;
+	            if (0 !== opts) if (1 === opts || options.syncComponentUpdates !== !1 || !component.base) renderComponent(component, 1, mountAll); else enqueueRender(component);
+	            if (component.__ref) component.__ref(component);
+	        }
+	    }
+	    function renderComponent(component, opts, mountAll, isChild) {
+	        if (!component._disable) {
+	            var skip, rendered, inst, cbase, props = component.props, state = component.state, context = component.context, previousProps = component.prevProps || props, previousState = component.prevState || state, previousContext = component.prevContext || context, isUpdate = component.base, nextBase = component.nextBase, initialBase = isUpdate || nextBase, initialChildComponent = component._component;
+	            if (isUpdate) {
+	                component.props = previousProps;
+	                component.state = previousState;
+	                component.context = previousContext;
+	                if (2 !== opts && component.shouldComponentUpdate && component.shouldComponentUpdate(props, state, context) === !1) skip = !0; else if (component.componentWillUpdate) component.componentWillUpdate(props, state, context);
+	                component.props = props;
+	                component.state = state;
+	                component.context = context;
+	            }
+	            component.prevProps = component.prevState = component.prevContext = component.nextBase = null;
+	            component._dirty = !1;
+	            if (!skip) {
+	                if (component.render) rendered = component.render(props, state, context);
+	                if (component.getChildContext) context = extend(clone(context), component.getChildContext());
+	                while (isFunctionalComponent(rendered)) rendered = buildFunctionalComponent(rendered, context);
+	                var toUnmount, base, childComponent = rendered && rendered.nodeName;
+	                if (isFunction(childComponent)) {
+	                    var childProps = getNodeProps(rendered);
+	                    inst = initialChildComponent;
+	                    if (inst && inst.constructor === childComponent && childProps.key == inst.__key) setComponentProps(inst, childProps, 1, context); else {
+	                        toUnmount = inst;
+	                        inst = createComponent(childComponent, childProps, context);
+	                        inst.nextBase = inst.nextBase || nextBase;
+	                        inst._parentComponent = component;
+	                        component._component = inst;
+	                        setComponentProps(inst, childProps, 0, context);
+	                        renderComponent(inst, 1, mountAll, !0);
+	                    }
+	                    base = inst.base;
+	                } else {
+	                    cbase = initialBase;
+	                    toUnmount = initialChildComponent;
+	                    if (toUnmount) cbase = component._component = null;
+	                    if (initialBase || 1 === opts) {
+	                        if (cbase) cbase._component = null;
+	                        base = diff(cbase, rendered, context, mountAll || !isUpdate, initialBase && initialBase.parentNode, !0);
+	                    }
+	                }
+	                if (initialBase && base !== initialBase && inst !== initialChildComponent) {
+	                    var baseParent = initialBase.parentNode;
+	                    if (baseParent && base !== baseParent) {
+	                        baseParent.replaceChild(base, initialBase);
+	                        if (!toUnmount) {
+	                            initialBase._component = null;
+	                            recollectNodeTree(initialBase);
+	                        }
+	                    }
+	                }
+	                if (toUnmount) unmountComponent(toUnmount, base !== initialBase);
+	                component.base = base;
+	                if (base && !isChild) {
+	                    var componentRef = component, t = component;
+	                    while (t = t._parentComponent) (componentRef = t).base = base;
+	                    base._component = componentRef;
+	                    base._componentConstructor = componentRef.constructor;
+	                }
+	            }
+	            if (!isUpdate || mountAll) mounts.unshift(component); else if (!skip) {
+	                if (component.componentDidUpdate) component.componentDidUpdate(previousProps, previousState, previousContext);
+	                if (options.afterUpdate) options.afterUpdate(component);
+	            }
+	            var fn, cb = component._renderCallbacks;
+	            if (cb) while (fn = cb.pop()) fn.call(component);
+	            if (!diffLevel && !isChild) flushMounts();
+	        }
+	    }
+	    function buildComponentFromVNode(dom, vnode, context, mountAll) {
+	        var c = dom && dom._component, originalComponent = c, oldDom = dom, isDirectOwner = c && dom._componentConstructor === vnode.nodeName, isOwner = isDirectOwner, props = getNodeProps(vnode);
+	        while (c && !isOwner && (c = c._parentComponent)) isOwner = c.constructor === vnode.nodeName;
+	        if (c && isOwner && (!mountAll || c._component)) {
+	            setComponentProps(c, props, 3, context, mountAll);
+	            dom = c.base;
+	        } else {
+	            if (originalComponent && !isDirectOwner) {
+	                unmountComponent(originalComponent, !0);
+	                dom = oldDom = null;
+	            }
+	            c = createComponent(vnode.nodeName, props, context);
+	            if (dom && !c.nextBase) {
+	                c.nextBase = dom;
+	                oldDom = null;
+	            }
+	            setComponentProps(c, props, 1, context, mountAll);
+	            dom = c.base;
+	            if (oldDom && dom !== oldDom) {
+	                oldDom._component = null;
+	                recollectNodeTree(oldDom);
+	            }
+	        }
+	        return dom;
+	    }
+	    function unmountComponent(component, remove) {
+	        if (options.beforeUnmount) options.beforeUnmount(component);
+	        var base = component.base;
+	        component._disable = !0;
+	        if (component.componentWillUnmount) component.componentWillUnmount();
+	        component.base = null;
+	        var inner = component._component;
+	        if (inner) unmountComponent(inner, remove); else if (base) {
+	            if (base[ATTR_KEY] && base[ATTR_KEY].ref) base[ATTR_KEY].ref(null);
+	            component.nextBase = base;
+	            if (remove) {
+	                removeNode(base);
+	                collectComponent(component);
+	            }
+	            var c;
+	            while (c = base.lastChild) recollectNodeTree(c, !remove);
+	        }
+	        if (component.__ref) component.__ref(null);
+	        if (component.componentDidUnmount) component.componentDidUnmount();
+	    }
+	    function Component(props, context) {
+	        this._dirty = !0;
+	        this.context = context;
+	        this.props = props;
+	        if (!this.state) this.state = {};
+	    }
+	    function render(vnode, parent, merge) {
+	        return diff(merge, vnode, {}, !1, parent);
+	    }
+	    var options = {};
+	    var stack = [];
+	    var EMPTY_CHILDREN = [];
+	    var lcCache = {};
+	    var toLowerCase = function(s) {
+	        return lcCache[s] || (lcCache[s] = s.toLowerCase());
+	    };
+	    var resolved = 'undefined' != typeof Promise && Promise.resolve();
+	    var defer = resolved ? function(f) {
+	        resolved.then(f);
+	    } : setTimeout;
+	    var EMPTY = {};
+	    var ATTR_KEY = 'undefined' != typeof Symbol ? Symbol.for('preactattr') : '__preactattr_';
+	    var NON_DIMENSION_PROPS = {
+	        boxFlex: 1,
+	        boxFlexGroup: 1,
+	        columnCount: 1,
+	        fillOpacity: 1,
+	        flex: 1,
+	        flexGrow: 1,
+	        flexPositive: 1,
+	        flexShrink: 1,
+	        flexNegative: 1,
+	        fontWeight: 1,
+	        lineClamp: 1,
+	        lineHeight: 1,
+	        opacity: 1,
+	        order: 1,
+	        orphans: 1,
+	        strokeOpacity: 1,
+	        widows: 1,
+	        zIndex: 1,
+	        zoom: 1
+	    };
+	    var NON_BUBBLING_EVENTS = {
+	        blur: 1,
+	        error: 1,
+	        focus: 1,
+	        load: 1,
+	        resize: 1,
+	        scroll: 1
+	    };
+	    var items = [];
+	    var nodes = {};
+	    var mounts = [];
+	    var diffLevel = 0;
+	    var isSvgMode = !1;
+	    var hydrating = !1;
+	    var components = {};
+	    extend(Component.prototype, {
+	        linkState: function(key, eventPath) {
+	            var c = this._linkedStates || (this._linkedStates = {});
+	            return c[key + eventPath] || (c[key + eventPath] = createLinkedState(this, key, eventPath));
+	        },
+	        setState: function(state, callback) {
+	            var s = this.state;
+	            if (!this.prevState) this.prevState = clone(s);
+	            extend(s, isFunction(state) ? state(s, this.props) : state);
+	            if (callback) (this._renderCallbacks = this._renderCallbacks || []).push(callback);
+	            enqueueRender(this);
+	        },
+	        forceUpdate: function() {
+	            renderComponent(this, 2);
+	        },
+	        render: function() {}
+	    });
+	    exports.h = h;
+	    exports.cloneElement = cloneElement;
+	    exports.Component = Component;
+	    exports.render = render;
+	    exports.rerender = rerender;
+	    exports.options = options;
+	});
+	//# sourceMappingURL=preact.js.map
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	var THROTTLING = 500;
+	var leaderboard = [{
+	    player: "tehsis",
+	    points: 340
+	}, {
+	    player: "0xBunny",
+	    points: 200
+	}, {
+	    player: "Mauro J.",
+	    points: 120
+	}, {
+	    player: "Pablo T.",
+	    points: 60
+	}, {
+	    player: "Yohanna E.",
+	    points: 14
+	}];
+	var leadboardResponse = {
+	    json: function json() {}
+	};
+	function fetch(url) {
+	    return {
+	        then: function then(cb) {
+	            cb(leadboardResponse);
+	            return {
+	                then: function then(cb) {
+	                    cb(leaderboard);
+	                }
+	            };
+	        }
+	    };
+	}
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = fetch;
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var const_1 = __webpack_require__(8);
+	var Asteroids_1 = __webpack_require__(22);
+	var Planet_1 = __webpack_require__(17);
+	var Rabbit_1 = __webpack_require__(23);
+	var game_state_1 = __webpack_require__(15);
+	var style = { font: "24px Arial", fill: "#ffffff", align: "center" };
+	var lifeChar = "❤️";
+	
+	var MainGame = function (_Phaser$State) {
+	    _inherits(MainGame, _Phaser$State);
+	
+	    function MainGame() {
+	        _classCallCheck(this, MainGame);
+	
+	        return _possibleConstructorReturn(this, (MainGame.__proto__ || Object.getPrototypeOf(MainGame)).apply(this, arguments));
+	    }
+	
+	    _createClass(MainGame, [{
+	        key: 'create',
+	        value: function create() {
+	            this.game.stage.backgroundColor = '#1F1333';
+	            this.game.physics.startSystem(Phaser.Physics.ARCADE);
+	            this.state = game_state_1.default;
+	            this.state.reset();
+	            console.log('STATE', this.state.getJSON());
+	            var background = this.game.add.sprite(0, 0, 'stars');
+	            background.scale.setTo(0.5, 0.5);
+	            this.planet = new Planet_1.default(this.game, 0, this.game.world.centerY + 150);
+	            this.asteroids = new Asteroids_1.default(this.game, const_1.GAME.NUMBER_OF_ASTEROIDS, function () {});
+	            this.rabbit = new Rabbit_1.default(this.game);
+	            this.score = this.game.add.text(32, 32, 'Score:', style);
+	            this.lifes = this._createLifes();
+	            this.score.text = "" + this.state.getScore();
+	        }
+	    }, {
+	        key: '_createLifes',
+	        value: function _createLifes() {
+	            var lifes = [];
+	            for (var i = 0; i < this.state.getLifes(); i++) {
+	                lifes.push(this.game.add.text(332, 32 + 30 * i, lifeChar, style));
+	            }
+	            return lifes;
+	        }
+	    }, {
+	        key: '_updateLifes',
+	        value: function _updateLifes() {
+	            var _this2 = this;
+	
+	            this.lifes.forEach(function (lifeText, index) {
+	                lifeText.text = index < _this2.state.getLifes() ? lifeChar : '';
+	            });
+	        }
+	    }, {
+	        key: 'update',
+	        value: function update() {
+	            var _this3 = this;
+	
+	            this.rabbit.move();
+	            this.game.physics.arcade.collide(this.asteroids.getGroup(), this.rabbit.getBullets(), function (asteroid, bullet) {
+	                asteroid.animations.play('destroyed');
+	                bullet.kill();
+	                _this3.state.increaseScore(10);
+	                _this3.score.text = "" + _this3.state.getScore();
+	                ;
+	            }, null, this);
+	            this.game.physics.arcade.collide(this.planet.getSprite(), this.asteroids.getGroup(), function (planet, asteroid) {
+	                asteroid.animations.play('destroyed');
+	                _this3.state.decreaseLife(1);
+	                asteroid.destroy();
+	            }, null, this);
+	            this._updateLifes();
+	            if (this.state.getLifes() <= 0) {
+	                this.game.state.start('GameOver');
+	            }
+	        }
+	    }]);
+	
+	    return MainGame;
+	}(Phaser.State);
+	
+	exports.MainGame = MainGame;
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = MainGame;
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Asteroids = function () {
+	    function Asteroids(game, quantity, onDestroyed) {
+	        _classCallCheck(this, Asteroids);
+	
+	        this.game = game;
+	        this.resource = this.game.add.group();
+	        this.onDestroyed = onDestroyed;
+	        this.modifier = 0;
+	        this.destroyedSound = this.game.add.sound('explosion');
+	        this.init(quantity);
+	    }
+	
+	    _createClass(Asteroids, [{
+	        key: 'getGroup',
+	        value: function getGroup() {
+	            return this.resource;
+	        }
+	    }, {
+	        key: 'init',
+	        value: function init(quantity) {
+	            for (var i = 0; i < quantity; i++) {
+	                this.createAsteroid();
+	            }
+	        }
+	    }, {
+	        key: 'createAsteroid',
+	        value: function createAsteroid() {
+	            var _this = this;
+	
+	            var positions = [this.game.world.centerX - 68, this.game.world.centerX - 60, this.game.world.centerX + 65, this.game.world.centerX + 180];
+	            var index = Math.round(Math.random() * (positions.length - 1));
+	            var x = positions[index];
+	            var y = Math.random() * 1000 - 900;
+	            var asteroid = this.getGroup().create(x, y, 'destroyed', 0);
+	            var animation = asteroid.animations.add('destroyed');
+	            this.game.physics.arcade.enable(asteroid);
+	            asteroid.body.setCircle(10);
+	            setInterval(function () {
+	                _this.modifier++;
+	            }, 10000);
+	            asteroid.body.gravity.y = Math.random() * this.modifier + 10;
+	            animation.onComplete.add(function (desroyedAsteroid) {
+	                _this.onDestroyed();
+	                desroyedAsteroid.kill();
+	                _this.destroyedSound.play();
+	                _this.createAsteroid();
+	            }, this);
+	        }
+	    }]);
+	
+	    return Asteroids;
+	}();
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Asteroids;
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var input_1 = __webpack_require__(24);
+	var bullets_1 = __webpack_require__(26);
 	var Positions;
 	(function (Positions) {
 	    Positions[Positions["LEFT_CORNER"] = 0] = "LEFT_CORNER";
@@ -578,37 +1449,36 @@
 	    Positions[Positions["RIGHT_CORNER"] = 4] = "RIGHT_CORNER";
 	})(Positions || (Positions = {}));
 	;
-	class Rabbit {
-	    constructor(game) {
+	
+	var Rabbit = function () {
+	    function Rabbit(game) {
+	        var _this = this;
+	
+	        _classCallCheck(this, Rabbit);
+	
 	        this.game = game;
 	        this.lock = false;
-	        this.availablePositions = [
-	            {
-	                x: this.game.world.centerX - 200,
-	                y: this.game.world.centerY + 100,
-	                rotation: -0.50
-	            },
-	            {
-	                x: this.game.world.centerX - 150,
-	                y: this.game.world.centerY + 70,
-	                rotation: -0.25
-	            },
-	            {
-	                x: this.game.world.centerX - 60,
-	                y: this.game.world.centerY + 34,
-	                rotation: 0
-	            },
-	            {
-	                x: this.game.world.centerX + 50,
-	                y: this.game.world.centerY + 34,
-	                rotation: 0.25
-	            },
-	            {
-	                x: this.game.world.centerX + 100,
-	                y: this.game.world.centerY + 34,
-	                rotation: 0.50
-	            }
-	        ];
+	        this.availablePositions = [{
+	            x: this.game.world.centerX - 200,
+	            y: this.game.world.centerY + 100,
+	            rotation: -0.50
+	        }, {
+	            x: this.game.world.centerX - 150,
+	            y: this.game.world.centerY + 70,
+	            rotation: -0.25
+	        }, {
+	            x: this.game.world.centerX - 60,
+	            y: this.game.world.centerY + 34,
+	            rotation: 0
+	        }, {
+	            x: this.game.world.centerX + 50,
+	            y: this.game.world.centerY + 34,
+	            rotation: 0.25
+	        }, {
+	            x: this.game.world.centerX + 100,
+	            y: this.game.world.centerY + 34,
+	            rotation: 0.50
+	        }];
 	        this.bulletTime = 0;
 	        this.currentPosition = Positions.CENTER;
 	        this.sprite = this.game.add.sprite(this.availablePositions[this.currentPosition].x, this.availablePositions[this.currentPosition].y, 'rabbit');
@@ -616,88 +1486,116 @@
 	        this.jumpSound = this.game.add.sound('jump');
 	        this.input = new input_1.default(this.game);
 	        this.bullets = new bullets_1.default(this.game, 20);
-	        this.game.input.onTap.add((pointer) => {
-	            this.shoot();
+	        this.game.input.onTap.add(function (pointer) {
+	            _this.shoot();
 	        });
 	    }
-	    move() {
-	        const action = this.input.checkAction();
-	        if (action === 'LEFT') {
-	            if (Positions.LEFT_CORNER !== this.currentPosition) {
-	                this.currentPosition--;
+	
+	    _createClass(Rabbit, [{
+	        key: 'move',
+	        value: function move() {
+	            var action = this.input.checkAction();
+	            if (action === 'LEFT') {
+	                if (Positions.LEFT_CORNER !== this.currentPosition) {
+	                    this.currentPosition--;
+	                }
+	            }
+	            if (action === 'RIGHT') {
+	                if (Positions.RIGHT_CORNER !== this.currentPosition) {
+	                    this.currentPosition++;
+	                }
+	            }
+	            this.moveTo(this.currentPosition);
+	        }
+	    }, {
+	        key: 'moveTo',
+	        value: function moveTo(position) {
+	            var new_position = this.availablePositions[position];
+	            if (this.getSprite().x !== new_position.x && this.getSprite().y !== new_position.y) {
+	                this.jumpSound.play();
+	            }
+	            this.getSprite().x = new_position.x;
+	            this.getSprite().y = new_position.y;
+	            this.getSprite().rotation = new_position.rotation;
+	        }
+	    }, {
+	        key: 'getSprite',
+	        value: function getSprite() {
+	            return this.sprite;
+	        }
+	    }, {
+	        key: 'getBullets',
+	        value: function getBullets() {
+	            return this.bullets.getGroup();
+	        }
+	    }, {
+	        key: 'shoot',
+	        value: function shoot() {
+	            if (this.game.time.now > this.bulletTime) {
+	                var bullet = this.bullets.getGroup().getFirstExists(false);
+	                if (bullet) {
+	                    bullet.reset(this.getSprite().x + 130, this.getSprite().y - 8);
+	                    bullet.body.velocity.y = -300;
+	                    this.bulletTime = this.game.time.now + 150;
+	                    this.shootSound.play();
+	                }
 	            }
 	        }
-	        if (action === 'RIGHT') {
-	            if (Positions.RIGHT_CORNER !== this.currentPosition) {
-	                this.currentPosition++;
-	            }
-	        }
-	        this.moveTo(this.currentPosition);
-	    }
-	    moveTo(position) {
-	        let new_position = this.availablePositions[position];
-	        if (this.getSprite().x !== new_position.x && this.getSprite().y !== new_position.y) {
-	            this.jumpSound.play();
-	        }
-	        this.getSprite().x = new_position.x;
-	        this.getSprite().y = new_position.y;
-	        this.getSprite().rotation = new_position.rotation;
-	    }
-	    getSprite() {
-	        return this.sprite;
-	    }
-	    getBullets() {
-	        return this.bullets.getGroup();
-	    }
-	    shoot() {
-	        if (this.game.time.now > this.bulletTime) {
-	            const bullet = this.bullets.getGroup().getFirstExists(false);
-	            if (bullet) {
-	                bullet.reset(this.getSprite().x + 130, this.getSprite().y - 8);
-	                bullet.body.velocity.y = -300;
-	                this.bulletTime = this.game.time.now + 150;
-	                this.shootSound.play();
-	            }
-	        }
-	    }
-	}
+	    }]);
+	
+	    return Rabbit;
+	}();
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Rabbit;
 
-
 /***/ },
-/* 21 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const phaser_swipe_1 = __webpack_require__(22);
-	class Input {
-	    constructor(game) {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var phaser_swipe_1 = __webpack_require__(25);
+	
+	var Input = function () {
+	    function Input(game) {
+	        _classCallCheck(this, Input);
+	
 	        this.swipe = new phaser_swipe_1(game);
 	    }
-	    checkAction() {
-	        const direction = this.swipe.check();
-	        switch (direction && direction.direction) {
-	            case this.swipe.DIRECTION_UP_LEFT:
-	            case this.swipe.DIRECTION_DOWN_LEFT:
-	            case this.swipe.DIRECTION_LEFT:
-	                return 'LEFT';
-	            case this.swipe.DIRECTION_UP_RIGHT:
-	            case this.swipe.DIRECTION_DOWN_RIGHT:
-	            case this.swipe.DIRECTION_RIGHT:
-	                return 'RIGHT';
-	            case this.swipe.DIRECTION_UP:
-	                return 'UP';
+	
+	    _createClass(Input, [{
+	        key: 'checkAction',
+	        value: function checkAction() {
+	            var direction = this.swipe.check();
+	            switch (direction && direction.direction) {
+	                case this.swipe.DIRECTION_UP_LEFT:
+	                case this.swipe.DIRECTION_DOWN_LEFT:
+	                case this.swipe.DIRECTION_LEFT:
+	                    return 'LEFT';
+	                case this.swipe.DIRECTION_UP_RIGHT:
+	                case this.swipe.DIRECTION_DOWN_RIGHT:
+	                case this.swipe.DIRECTION_RIGHT:
+	                    return 'RIGHT';
+	                case this.swipe.DIRECTION_UP:
+	                    return 'UP';
+	            }
+	            return null;
 	        }
-	        return null;
-	    }
-	}
+	    }]);
+	
+	    return Input;
+	}();
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Input;
 
-
 /***/ },
-/* 22 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -926,127 +1824,191 @@
 
 
 /***/ },
-/* 23 */
+/* 26 */
 /***/ function(module, exports) {
 
 	"use strict";
-	class Bullets {
-	    constructor(game, amount) {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Bullets = function () {
+	    function Bullets(game, amount) {
+	        _classCallCheck(this, Bullets);
+	
 	        this.game = game;
 	        this.group = this.game.add.group();
 	        this.group.enableBody = true;
 	        this.group.physicsBodyType = Phaser.Physics.ARCADE;
-	        for (let i = 0; i < 20; i++) {
-	            const bullet = this.group.create(0, 0, 'bala');
-	            bullet.name = `bullet{i}`;
+	        for (var i = 0; i < 20; i++) {
+	            var bullet = this.group.create(0, 0, 'bala');
+	            bullet.name = "bullet{i}";
 	            bullet.exists = false;
 	            bullet.visible = false;
 	            bullet.checkWorldBounds = true;
 	            bullet.events.onOutOfBounds.add(this.reset);
 	        }
 	    }
-	    reset(bullet) {
-	        bullet.kill();
-	    }
-	    getGroup() {
-	        return this.group;
-	    }
-	}
+	
+	    _createClass(Bullets, [{
+	        key: "reset",
+	        value: function reset(bullet) {
+	            bullet.kill();
+	        }
+	    }, {
+	        key: "getGroup",
+	        value: function getGroup() {
+	            return this.group;
+	        }
+	    }]);
+	
+	    return Bullets;
+	}();
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Bullets;
 
-
 /***/ },
-/* 24 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const game_state_1 = __webpack_require__(15);
-	class GameOver extends Phaser.State {
-	    create() {
-	        let stars = this.game.add.sprite(0, 0, 'stars');
-	        stars.scale.setTo(0.5, 0.5);
-	        this.game.add.text(this.game.world.centerX - 80, this.game.world.centerY - 100, 'Game', {
-	            font: 'bold 32px Tron',
-	            fill: '#fff'
-	        });
-	        this.game.add.text(this.game.world.centerX - 80, this.game.world.centerY - 50, 'Over', {
-	            font: 'bold 32px Tron',
-	            fill: '#fff'
-	        });
-	        this.game.add.text(this.game.world.centerX - 90, this.game.world.centerY + 150, "Your score: " + game_state_1.default.getScore(), {
-	            font: 'bold 20px spacemono',
-	            fill: '#fff'
-	        });
-	        const share = this.game.add.text(this.game.world.centerX - 40, this.game.world.centerY + 200, "Share", {
-	            font: 'bold 20px spacemono',
-	            fill: '#fff'
-	        });
-	        share.inputEnabled = true;
-	        share.events.onInputUp.add(this.onShare, this);
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var game_state_1 = __webpack_require__(15);
+	
+	var GameOver = function (_Phaser$State) {
+	    _inherits(GameOver, _Phaser$State);
+	
+	    function GameOver() {
+	        _classCallCheck(this, GameOver);
+	
+	        return _possibleConstructorReturn(this, (GameOver.__proto__ || Object.getPrototypeOf(GameOver)).apply(this, arguments));
 	    }
-	    onShare() {
-	        this.game.state.start('Share');
-	    }
-	}
+	
+	    _createClass(GameOver, [{
+	        key: 'create',
+	        value: function create() {
+	            var stars = this.game.add.sprite(0, 0, 'stars');
+	            stars.scale.setTo(0.5, 0.5);
+	            this.game.add.text(this.game.world.centerX - 80, this.game.world.centerY - 100, 'Game', {
+	                font: 'bold 32px Tron',
+	                fill: '#fff'
+	            });
+	            this.game.add.text(this.game.world.centerX - 80, this.game.world.centerY - 50, 'Over', {
+	                font: 'bold 32px Tron',
+	                fill: '#fff'
+	            });
+	            this.game.add.text(this.game.world.centerX - 90, this.game.world.centerY + 150, "Your score: " + game_state_1.default.getScore(), {
+	                font: 'bold 20px spacemono',
+	                fill: '#fff'
+	            });
+	            var share = this.game.add.text(this.game.world.centerX - 40, this.game.world.centerY + 200, "Share", {
+	                font: 'bold 20px spacemono',
+	                fill: '#fff'
+	            });
+	            share.inputEnabled = true;
+	            share.events.onInputUp.add(this.onShare, this);
+	        }
+	    }, {
+	        key: 'onShare',
+	        value: function onShare() {
+	            this.game.state.start('Share');
+	        }
+	    }]);
+	
+	    return GameOver;
+	}(Phaser.State);
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = GameOver;
 
-
 /***/ },
-/* 25 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	const const_1 = __webpack_require__(8);
-	const fetch = __webpack_require__(26);
-	class Leaderboard extends Phaser.State {
-	    create() {
-	        this.game.stage.backgroundColor = '#1F1333';
-	        let stars = this.game.add.sprite(0, 0, 'stars');
-	        stars.scale.setTo(0.5, 0.5);
-	        this.game.add.text(this.game.world.centerX - 170, this.game.world.centerY - 250, 'Leaderboard', {
-	            font: 'bold 20px spacemono',
-	            fill: '#fff'
-	        });
-	        fetch(const_1.API.leaderboard)
-	            .then((response) => {
-	            return response.json();
-	        }).then((leaderboad) => {
-	            leaderboad.forEach((r, i) => {
-	                this.game.add.text(this.game.world.centerX - 150, this.game.world.centerY - 200 + (i * 40), `${i + 1}. ${r.Username}`, {
-	                    font: 'bold 20px spacemono',
-	                    fill: '#fff'
-	                });
-	                this.game.add.text(this.game.world.centerX + 20, this.game.world.centerY - 200 + (i * 40), r.Points, {
-	                    font: 'bold 20px spacemono',
-	                    fill: '#fff'
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var const_1 = __webpack_require__(8);
+	var fetch = __webpack_require__(29);
+	
+	var Leaderboard = function (_Phaser$State) {
+	    _inherits(Leaderboard, _Phaser$State);
+	
+	    function Leaderboard() {
+	        _classCallCheck(this, Leaderboard);
+	
+	        return _possibleConstructorReturn(this, (Leaderboard.__proto__ || Object.getPrototypeOf(Leaderboard)).apply(this, arguments));
+	    }
+	
+	    _createClass(Leaderboard, [{
+	        key: 'create',
+	        value: function create() {
+	            var _this2 = this;
+	
+	            this.game.stage.backgroundColor = '#1F1333';
+	            var stars = this.game.add.sprite(0, 0, 'stars');
+	            stars.scale.setTo(0.5, 0.5);
+	            this.game.add.text(this.game.world.centerX - 170, this.game.world.centerY - 250, 'Leaderboard', {
+	                font: 'bold 20px spacemono',
+	                fill: '#fff'
+	            });
+	            fetch(const_1.API.leaderboard).then(function (response) {
+	                return response.json();
+	            }).then(function (leaderboad) {
+	                leaderboad.forEach(function (r, i) {
+	                    _this2.game.add.text(_this2.game.world.centerX - 150, _this2.game.world.centerY - 200 + i * 40, i + 1 + '. ' + r.Username, {
+	                        font: 'bold 20px spacemono',
+	                        fill: '#fff'
+	                    });
+	                    _this2.game.add.text(_this2.game.world.centerX + 20, _this2.game.world.centerY - 200 + i * 40, r.Points, {
+	                        font: 'bold 20px spacemono',
+	                        fill: '#fff'
+	                    });
 	                });
 	            });
-	        });
-	        this.game.add.button(this.game.world.centerX - 170, this.game.world.centerY + 250, 'main-menu-button', () => {
-	            this.game.state.start('MainMenu');
-	        }, this);
-	    }
-	}
+	            this.game.add.button(this.game.world.centerX - 170, this.game.world.centerY + 250, 'main-menu-button', function () {
+	                _this2.game.state.start('MainMenu');
+	            }, this);
+	        }
+	    }]);
+	
+	    return Leaderboard;
+	}(Phaser.State);
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Leaderboard;
 
-
 /***/ },
-/* 26 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(27);
+	__webpack_require__(30);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 27 */
+/* 30 */
 /***/ function(module, exports) {
 
 	(function(self) {
@@ -1510,126 +2472,340 @@
 
 
 /***/ },
-/* 28 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, P, generator) {
 	    return new (P || (P = Promise))(function (resolve, reject) {
-	        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-	        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
-	        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+	        function fulfilled(value) {
+	            try {
+	                step(generator.next(value));
+	            } catch (e) {
+	                reject(e);
+	            }
+	        }
+	        function rejected(value) {
+	            try {
+	                step(generator.throw(value));
+	            } catch (e) {
+	                reject(e);
+	            }
+	        }
+	        function step(result) {
+	            result.done ? resolve(result.value) : new P(function (resolve) {
+	                resolve(result.value);
+	            }).then(fulfilled, rejected);
+	        }
 	        step((generator = generator.apply(thisArg, _arguments)).next());
 	    });
 	};
-	const input_1 = __webpack_require__(29);
-	const const_1 = __webpack_require__(8);
-	const game_state_1 = __webpack_require__(15);
-	const write_1 = __webpack_require__(30);
-	class Share extends Phaser.State {
-	    create() {
-	        let stars = this.game.add.sprite(0, 0, 'stars');
-	        stars.scale.setTo(0.5, 0.5);
-	        this.inputElement = new input_1.default(document.getElementById(this.game.parent), 70, 200, 200);
-	        console.log('@@username', game_state_1.default.getUserName());
-	        if ('' !== game_state_1.default.getUserName()) {
-	            this.inputElement.hide();
+	var login_1 = __webpack_require__(32);
+	var input_1 = __webpack_require__(33);
+	var const_1 = __webpack_require__(8);
+	var game_state_1 = __webpack_require__(15);
+	var write_1 = __webpack_require__(34);
+	
+	var Share = function (_Phaser$State) {
+	    _inherits(Share, _Phaser$State);
+	
+	    function Share() {
+	        _classCallCheck(this, Share);
+	
+	        return _possibleConstructorReturn(this, (Share.__proto__ || Object.getPrototypeOf(Share)).apply(this, arguments));
+	    }
+	
+	    _createClass(Share, [{
+	        key: 'create',
+	        value: function create() {
+	            var stars = this.game.add.sprite(0, 0, 'stars');
+	            stars.scale.setTo(0.5, 0.5);
+	            this.inputElement = new input_1.default(document.getElementById(this.game.parent), 70, 200, 200);
+	            if ('' !== game_state_1.default.getUserName().trim()) {
+	                this.inputElement.hide();
+	            }
+	            this.fbTxt = write_1.writeActionText(this.game, 'Send score!', 60, 300);
+	            this.menuTxt = write_1.writeActionText(this.game, 'Return to Main Menu', 60, 400);
+	            this.menuTxt.inputEnabled = true;
+	            this.menuTxt.events.onInputUp.add(this.onMenuTap, this);
+	            this.fbTxt.inputEnabled = true;
+	            this.fbTxt.events.onInputUp.add(this.onFbTap, this);
 	        }
-	        this.fbTxt = write_1.writeActionText(this.game, 'Send score!', 60, 300);
-	        this.menuTxt = write_1.writeActionText(this.game, 'Return to Main Menu', 60, 400);
-	        this.menuTxt.inputEnabled = true;
-	        this.menuTxt.events.onInputUp.add(this.onMenuTap, this);
-	        this.fbTxt.inputEnabled = true;
-	        this.fbTxt.events.onInputUp.add(this.onFbTap, this);
-	    }
-	    onMenuTap() {
-	        this.game.state.start('MainMenu');
-	    }
-	    onFbTap() {
-	        return __awaiter(this, void 0, void 0, function* () {
-	            const form = new FormData();
-	            const accessToken = '123';
-	            write_1.writeActionText(this.game, 'Sending Score...', 70, 200);
-	            this.fbTxt.destroy();
-	            this.inputElement.hide();
-	            game_state_1.default.setUsername(this.inputElement.value());
-	            game_state_1.default.save()
-	                .then(() => {
-	                form.append('username', game_state_1.default.getUserName());
-	                form.append('score', game_state_1.default.getScore());
-	                fetch(const_1.API.leaderboard, {
-	                    method: 'POST',
-	                    headers: {
-	                        'Authorization': accessToken
-	                    },
-	                    body: form
-	                }).then(() => {
-	                    this.game.state.start('Leaderboard');
-	                }).catch(() => {
-	                    this.game.state.start('Leaderboard');
-	                });
-	            })
-	                .catch(() => {
-	                console.trace();
-	                console.log('ERRRORRRR', arguments);
-	            });
-	        });
-	    }
-	    shutdown() {
-	        this.inputElement.remove();
-	    }
-	}
+	    }, {
+	        key: 'onMenuTap',
+	        value: function onMenuTap() {
+	            this.game.state.start('MainMenu');
+	        }
+	    }, {
+	        key: 'onFbTap',
+	        value: function onFbTap() {
+	            return __awaiter(this, void 0, void 0, regeneratorRuntime.mark(function _callee() {
+	                var _this2 = this,
+	                    _arguments2 = arguments;
+	
+	                var accessToken, form;
+	                return regeneratorRuntime.wrap(function _callee$(_context) {
+	                    while (1) {
+	                        switch (_context.prev = _context.next) {
+	                            case 0:
+	                                _context.next = 2;
+	                                return login_1.default.login();
+	
+	                            case 2:
+	                                accessToken = _context.sent;
+	                                form = new FormData();
+	
+	                                write_1.writeActionText(this.game, 'Sending Score...', 70, 200);
+	                                this.fbTxt.destroy();
+	                                this.inputElement.hide();
+	                                if ('' === game_state_1.default.getUserName().trim()) {
+	                                    game_state_1.default.setUsername(this.inputElement.value().trim());
+	                                }
+	                                console.log('SCORE', game_state_1.default.getScore());
+	                                console.log('USERNAME', game_state_1.default.getUserName());
+	                                game_state_1.default.save().then(function () {
+	                                    form.append('username', game_state_1.default.getUserName());
+	                                    form.append('score', game_state_1.default.getScore());
+	                                    login_1.default.share(game_state_1.default.getScore());
+	                                    fetch(const_1.API.leaderboard, {
+	                                        method: 'POST',
+	                                        headers: {
+	                                            'Authorization': accessToken
+	                                        },
+	                                        body: form
+	                                    }).then(function () {
+	                                        _this2.game.state.start('Leaderboard');
+	                                    }).catch(function () {
+	                                        _this2.game.state.start('Leaderboard');
+	                                    });
+	                                }).catch(function () {
+	                                    console.trace();
+	                                    console.log('ERRRORRRR', _arguments2);
+	                                });
+	
+	                            case 11:
+	                            case 'end':
+	                                return _context.stop();
+	                        }
+	                    }
+	                }, _callee, this);
+	            }));
+	        }
+	    }, {
+	        key: 'shutdown',
+	        value: function shutdown() {
+	            this.inputElement.remove();
+	        }
+	    }]);
+	
+	    return Share;
+	}(Phaser.State);
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Share;
 
-
 /***/ },
-/* 29 */
+/* 32 */
 /***/ function(module, exports) {
 
 	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, P, generator) {
+	    return new (P || (P = Promise))(function (resolve, reject) {
+	        function fulfilled(value) {
+	            try {
+	                step(generator.next(value));
+	            } catch (e) {
+	                reject(e);
+	            }
+	        }
+	        function rejected(value) {
+	            try {
+	                step(generator.throw(value));
+	            } catch (e) {
+	                reject(e);
+	            }
+	        }
+	        function step(result) {
+	            result.done ? resolve(result.value) : new P(function (resolve) {
+	                resolve(result.value);
+	            }).then(fulfilled, rejected);
+	        }
+	        step((generator = generator.apply(thisArg, _arguments)).next());
+	    });
+	};
+	
+	var Login = function () {
+	    function Login() {
+	        _classCallCheck(this, Login);
+	    }
+	
+	    _createClass(Login, [{
+	        key: 'getToken',
+	        value: function getToken() {
+	            return new Promise(function (resolve, reject) {
+	                facebookConnectPlugin.getLoginStatus(function (response) {
+	                    console.log('get login status', response);
+	                    if (response.status === 'connected') {
+	                        return resolve(response.authResponse.accessToken);
+	                    } else if (response.status === 'not_authorized') {
+	                        return reject();
+	                    } else {
+	                        facebookConnectPlugin.login([''], function (response) {
+	                            console.log(arguments);
+	                            if (response.authResponse) {
+	                                resolve(response.authResponse.accessToken);
+	                            } else {
+	                                reject(response);
+	                            }
+	                        }, function (error) {
+	                            reject(error);
+	                        });
+	                    }
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'share',
+	        value: function share(points) {
+	            return new Promise(function (resolve, reject) {
+	                facebookConnectPlugin.showDialog({
+	                    method: "share",
+	                    href: "https://rabbitwars.com",
+	                    caption: 'Wow! I\'ve made ' + points + ' in Space Rabbits!',
+	                    description: "I've helped Robbit to save his planet!",
+	                    picture: 'http://example.com/image.png',
+	                    share_feedWeb: true
+	                }, function () {
+	                    resolve(arguments);
+	                }, function () {
+	                    reject(arguments);
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'logout',
+	        value: function logout() {
+	            delete this.profile;
+	            delete this.token;
+	        }
+	    }, {
+	        key: 'login',
+	        value: function login() {
+	            return __awaiter(this, void 0, void 0, regeneratorRuntime.mark(function _callee() {
+	                var response;
+	                return regeneratorRuntime.wrap(function _callee$(_context) {
+	                    while (1) {
+	                        switch (_context.prev = _context.next) {
+	                            case 0:
+	                                _context.next = 2;
+	                                return this.getToken();
+	
+	                            case 2:
+	                                response = _context.sent;
+	                                return _context.abrupt('return', response);
+	
+	                            case 4:
+	                            case 'end':
+	                                return _context.stop();
+	                        }
+	                    }
+	                }, _callee, this);
+	            }));
+	        }
+	    }]);
+	
+	    return Login;
+	}();
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = new Login();
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
 	function getNumberInPx(n) {
-	    let r = parseInt(n.replace('px', ''), 10);
+	    var r = parseInt(n.replace('px', ''), 10);
 	    return isNaN(r) ? 0 : r;
 	}
-	class InputField {
-	    constructor(parent, x, y, length) {
+	
+	var InputField = function () {
+	    function InputField(parent, x, y, length) {
+	        _classCallCheck(this, InputField);
+	
 	        this.element = document.createElement("input");
 	        this.element.style.position = 'fixed';
-	        this.element.style.width = `${length}px`;
+	        this.element.style.width = length + 'px';
 	        this.baseCanvas = parent.getElementsByTagName('canvas')[0];
 	        window.t = this.baseCanvas;
 	        this.move(x, y);
 	        parent.appendChild(this.element);
 	    }
-	    move(x, y) {
-	        window.setTimeout(() => {
-	            this.element.style.left = `${getNumberInPx(this.baseCanvas.style.marginLeft) + x}px`;
-	            this.element.style.top = `${getNumberInPx(this.baseCanvas.style.marginTop) + y}px`;
-	        }, 100);
-	    }
-	    value() {
-	        return this.element.value;
-	    }
-	    hide() {
-	        this.element.style.display = 'none';
-	    }
-	    show() {
-	        this.element.style.display = 'block';
-	    }
-	    remove() {
-	        this.element.remove();
-	    }
-	}
+	
+	    _createClass(InputField, [{
+	        key: 'move',
+	        value: function move(x, y) {
+	            var _this = this;
+	
+	            window.setTimeout(function () {
+	                _this.element.style.left = getNumberInPx(_this.baseCanvas.style.marginLeft) + x + 'px';
+	                _this.element.style.top = getNumberInPx(_this.baseCanvas.style.marginTop) + y + 'px';
+	            }, 100);
+	        }
+	    }, {
+	        key: 'value',
+	        value: function value() {
+	            return this.element.value;
+	        }
+	    }, {
+	        key: 'hide',
+	        value: function hide() {
+	            this.element.style.display = 'none';
+	        }
+	    }, {
+	        key: 'show',
+	        value: function show() {
+	            this.element.style.display = 'block';
+	        }
+	    }, {
+	        key: 'remove',
+	        value: function remove() {
+	            this.element.remove();
+	        }
+	    }]);
+	
+	    return InputField;
+	}();
+	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = InputField;
 
-
 /***/ },
-/* 30 */
+/* 34 */
 /***/ function(module, exports) {
 
 	"use strict";
+	
 	function write(game, size, x, y, font, text) {
 	    game.add.text(x, y, text, {
 	        font: 'bold 32px' + font,
@@ -1644,7 +2820,6 @@
 	    });
 	}
 	exports.writeActionText = writeActionText;
-
 
 /***/ }
 /******/ ]);
