@@ -13,11 +13,6 @@ class MainMenu extends Phaser.State {
           let stars = this.game.add.sprite(0, 0, 'stars');
           stars.scale.setTo(0.5, 0.5);
 
-          const leaderboardModal = new LeaderBoardModal(200,
-             200, 
-             this.game.canvas.parentElement
-          );
-
           new Planet(this.game, 0, this.game.world.centerY + 240);
           
           this.game.add.sprite(this.game.world.centerX-90, this.game.world.centerY+80, 'rabbit-intro');
@@ -27,20 +22,24 @@ class MainMenu extends Phaser.State {
             this.game.state.start('MainGame');
           }, this);
 
+          const leaderboardModal = new LeaderBoardModal(
+            (e) => {
+              this.game.state.start('MainGame');
+            }, 
+            (e) => {}, 
+            document.body
+          );
+
           this.game.add.button(this.game.world.centerX-60, this.game.world.centerY-200, 'leaderboard-button', () => {
             fetch(API.leaderboard)
               .then((response) => {
                 return response.json();
               })
               .then((leaderboard: any) => {
-                leaderboardModal.show(leaderboard, (e) => {
-                  e.preventDefault();
-                  this.game.state.start('MainGame');
-                  leaderboardModal.hide();
-                });
+                leaderboardModal.show(leaderboard);
               });
-          }, this);
+        });
       }
-}
+};
 
 export default MainMenu;

@@ -1,11 +1,56 @@
 .modal-leaderboard {
   position: absolute;
-  top: 31px;
-  left: 213px;
+  top: 55px;
+  left: 5%;
   background: white;
   border-radius: 3%;
-  width: 45%;
-  height: 480px;
+  width: 90%;
+  height: 440px;
+  animation: 'fade-from-up' 200ms;
+
+  @keyframes fade-from-up {
+    from {
+      top: -100px;
+    }
+
+    to {
+      top: 55;
+    }
+  }
+
+  .leaderboard-header {
+    background-image: url('../assets/images/asteroids-bg.png');
+    background-size: cover;
+    height: 85px;
+    text-align: center;
+
+    h2 {
+      padding-top: 25px;
+      font-weight: 400;
+    }
+  }
+
+  ol {
+    margin-top: 20px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 0;
+    counter-reset: item;
+    list-style-type: none;
+
+    > li {
+      counter-increment: item;
+      line-height: 40px;
+
+      &:before {
+        content: counter(item) ' - ';
+      }
+    }
+
+    .player-points {
+      float: right;
+    }
+  }
 
   &.modal-show {
     display: block;
@@ -21,11 +66,13 @@
     border-radius: 100%;
     right: 20px;
     top: 20px;
-    width: 24px;
+    width: 13px;
+    height: 13px;
     position: absolute;
-    height: 26px;
     text-align: center;
     vertical-align: middle;
+    background-image: url('../assets/images/close-button.png');
+    background-repeat: no-repeat;
   }
 
   .play-button {

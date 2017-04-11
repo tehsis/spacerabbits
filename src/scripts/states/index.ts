@@ -7,4 +7,12 @@ import Leaderboard from './leaderboard';
 import Share       from './share';
 
 
-export { Boot, Loader, MainMenu, MainGame, GameOver, Leaderboard, Share };
+export { 
+  Boot, 
+  Loader, 
+  MainMenu,
+  MainGame, 
+  GameOver, 
+  Leaderboard, 
+  Share
+};

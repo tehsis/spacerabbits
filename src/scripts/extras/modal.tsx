@@ -6,7 +6,8 @@ interface LeaderboardModalState {
 }
 
 interface LeaderboardModalProps {
-  onCloseButtonClick: (e: Event) => void
+  onCloseButtonClick: (e: Event) => void,
+  onPlayButtonClick: (e: Event) => void
 }
 
 class LeaderboardModal extends Component<LeaderboardModalProps, LeaderboardModalState> {
@@ -21,7 +22,7 @@ class LeaderboardModal extends Component<LeaderboardModalProps, LeaderboardModal
       <ol>
         {this.state.leaderboard.map((score, index) => <li>${score.player} - ${score.points}</li>)}
       </ol>
-      <button className="play-button" onClick={this.onPlayButtonClick.bind(this)}>
+      <button className="play-button" onClick={this.props.onPlayButtonClick.bind(this)}>
         play
       </button>
     </div>

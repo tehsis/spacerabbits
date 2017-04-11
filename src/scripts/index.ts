@@ -10,16 +10,17 @@ import * as webfont from 'webfontloader';
 
 class BunnyWars extends Game {}
 
-document.addEventListener('deviceready', () => {
-    let c = (<any>window).cordova;
-    const bunnywars = new BunnyWars({
-        width: GAME.SCREEN.BASE_WIDTH,
-        height: GAME.SCREEN.BASE_HEIGHT,
-        element: GAME.DOM_ELEMENT,
-        states: states,
-        default_state: GAME.DEFAULT_STATE
-    });
-
-    bunnywars.init();
+const bunnywars = new BunnyWars({
+    width: GAME.SCREEN.BASE_WIDTH,
+    height: GAME.SCREEN.BASE_HEIGHT,
+    element: GAME.DOM_ELEMENT,
+    states,
+    default_state: GAME.DEFAULT_STATE
 });
+
+document.addEventListener('deviceready', () => {
+  bunnywars.init();
+});
+
+
 

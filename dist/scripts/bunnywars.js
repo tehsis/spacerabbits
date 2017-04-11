@@ -71,15 +71,14 @@
 	    return BunnyWars;
 	}(game_1.Game);
 	
+	var bunnywars = new BunnyWars({
+	    width: const_1.GAME.SCREEN.BASE_WIDTH,
+	    height: const_1.GAME.SCREEN.BASE_HEIGHT,
+	    element: const_1.GAME.DOM_ELEMENT,
+	    states: states,
+	    default_state: const_1.GAME.DEFAULT_STATE
+	});
 	document.addEventListener('deviceready', function () {
-	    var c = window.cordova;
-	    var bunnywars = new BunnyWars({
-	        width: const_1.GAME.SCREEN.BASE_WIDTH,
-	        height: const_1.GAME.SCREEN.BASE_HEIGHT,
-	        element: const_1.GAME.DOM_ELEMENT,
-	        states: states,
-	        default_state: const_1.GAME.DEFAULT_STATE
-	    });
 	    bunnywars.init();
 	});
 
@@ -145,8 +144,8 @@
 	    DEFAULT_STATE: 'Boot',
 	    DOM_ELEMENT: 'bunnywars-main',
 	    SCREEN: {
-	        BASE_WIDTH: 375,
-	        BASE_HEIGHT: 667
+	        BASE_WIDTH: '100',
+	        BASE_HEIGHT: '100'
 	    },
 	    NUMBER_OF_ASTEROIDS: 10
 	};
@@ -189,7 +188,7 @@
 	    }, {
 	        key: "init",
 	        value: function init() {
-	            this.loadStates(this.args.default_state || 'Boot');
+	            this.loadStates(this.args.default_state);
 	        }
 	    }]);
 	
@@ -221,7 +220,7 @@
 
 /***/ },
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -233,8 +232,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var const_1 = __webpack_require__(8);
-	
 	var Boot = function (_Phaser$State) {
 	    _inherits(Boot, _Phaser$State);
 	
@@ -245,22 +242,11 @@
 	    }
 	
 	    _createClass(Boot, [{
-	        key: 'scaleStage',
-	        value: function scaleStage() {
-	            if (this.game.device.desktop) {
-	                this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-	                this.game.scale.minWidth = const_1.GAME.SCREEN.BASE_WIDTH / 2;
-	                this.game.scale.minHeight = const_1.GAME.SCREEN.BASE_HEIGHT / 2;
-	                this.game.scale.maxWidth = const_1.GAME.SCREEN.BASE_WIDTH;
-	                this.game.scale.maxHeight = const_1.GAME.SCREEN.BASE_HEIGHT;
-	                this.game.scale.pageAlignHorizontally = true;
-	                this.game.scale.pageAlignVertically = true;
-	            }
-	        }
+	        key: "scaleStage",
+	        value: function scaleStage() {}
 	    }, {
-	        key: 'create',
+	        key: "create",
 	        value: function create() {
-	            this.scaleStage();
 	            this.game.state.start('Loader');
 	        }
 	    }]);
@@ -571,29 +557,28 @@
 	            this.game.stage.backgroundColor = '#1F1333';
 	            var stars = this.game.add.sprite(0, 0, 'stars');
 	            stars.scale.setTo(0.5, 0.5);
-	            var leaderboardModal = new leaderboard_1.default(200, 200, this.game.canvas.parentElement);
 	            new Planet_1.default(this.game, 0, this.game.world.centerY + 240);
 	            this.game.add.sprite(this.game.world.centerX - 90, this.game.world.centerY + 80, 'rabbit-intro');
 	            this.game.add.button(this.game.world.centerX - 60, this.game.world.centerY - 250, 'new-game-button', function () {
 	                _this2.game.state.start('MainGame');
 	            }, this);
+	            var leaderboardModal = new leaderboard_1.default(function (e) {
+	                _this2.game.state.start('MainGame');
+	            }, function (e) {}, document.body);
 	            this.game.add.button(this.game.world.centerX - 60, this.game.world.centerY - 200, 'leaderboard-button', function () {
 	                mocked_fetch_1.default(const_1.API.leaderboard).then(function (response) {
 	                    return response.json();
 	                }).then(function (leaderboard) {
-	                    leaderboardModal.show(leaderboard, function (e) {
-	                        e.preventDefault();
-	                        _this2.game.state.start('MainGame');
-	                        leaderboardModal.hide();
-	                    });
+	                    leaderboardModal.show(leaderboard);
 	                });
-	            }, this);
+	            });
 	        }
 	    }]);
 	
 	    return MainMenu;
 	}(Phaser.State);
 	
+	;
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = MainMenu;
 
@@ -642,87 +627,123 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	var preact_1 = __webpack_require__(19);
 	var LEADERBOARD_CLASSNAME = 'modal-leaderboard';
 	var MODAL_HIDE = 'modal-hide';
 	var MODAL_SHOW = 'modal-show';
 	
+	var LeaderBoardComponent = function (_preact_1$Component) {
+	    _inherits(LeaderBoardComponent, _preact_1$Component);
+	
+	    function LeaderBoardComponent(props) {
+	        _classCallCheck(this, LeaderBoardComponent);
+	
+	        var _this = _possibleConstructorReturn(this, (LeaderBoardComponent.__proto__ || Object.getPrototypeOf(LeaderBoardComponent)).call(this, props));
+	
+	        _this.state = {
+	            show: true
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(LeaderBoardComponent, [{
+	        key: 'onCloseButtonClick',
+	        value: function onCloseButtonClick(e) {
+	            this.hide();
+	            this.props.onCloseButtonClick(e);
+	        }
+	    }, {
+	        key: 'onPlayButtonClick',
+	        value: function onPlayButtonClick(e) {
+	            console.log('hiding');
+	            this.hide();
+	            this.props.onPlayButtonClick(e);
+	        }
+	    }, {
+	        key: 'show',
+	        value: function show() {
+	            this.setState({
+	                show: true
+	            });
+	        }
+	    }, {
+	        key: 'hide',
+	        value: function hide() {
+	            this.setState({
+	                show: false
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return preact_1.h(
+	                'div',
+	                { 'class': LEADERBOARD_CLASSNAME + ' ' + (this.state.show ? MODAL_SHOW : MODAL_HIDE) },
+	                preact_1.h('button', { 'class': 'close-button', onClick: this.onCloseButtonClick.bind(this) }),
+	                preact_1.h(
+	                    'div',
+	                    { 'class': 'leaderboard-header' },
+	                    preact_1.h(
+	                        'h2',
+	                        null,
+	                        'Leaderboard'
+	                    )
+	                ),
+	                preact_1.h(
+	                    'ol',
+	                    null,
+	                    this.props.leaderboard.map(function (score, index) {
+	                        return preact_1.h(
+	                            'li',
+	                            null,
+	                            preact_1.h(
+	                                'span',
+	                                { 'class': 'player-name' },
+	                                score.player
+	                            ),
+	                            '  ',
+	                            preact_1.h(
+	                                'span',
+	                                { 'class': 'player-points' },
+	                                score.points
+	                            )
+	                        );
+	                    })
+	                ),
+	                preact_1.h(
+	                    'button',
+	                    { 'class': 'play-button', onClick: this.onPlayButtonClick.bind(this) },
+	                    'play'
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return LeaderBoardComponent;
+	}(preact_1.Component);
+	
 	var LeaderBoardModal = function () {
-	    function LeaderBoardModal(x, y, parent) {
+	    function LeaderBoardModal(onPlay, onClose, parent) {
 	        _classCallCheck(this, LeaderBoardModal);
 	
-	        this.el = document.createElement('div');
-	        this.el.classList.add(LEADERBOARD_CLASSNAME);
+	        this.onPlay = onPlay;
+	        this.onClose = onClose;
 	        this.parent = parent;
 	    }
 	
 	    _createClass(LeaderBoardModal, [{
 	        key: 'show',
-	        value: function show(leaderboard, onPlayButton, hide) {
-	            preact_1.render(preact_1.h(
-	                'div',
-	                { className: LEADERBOARD_CLASSNAME + (' ' + (hide ? MODAL_HIDE : MODAL_SHOW)) },
-	                this._makeCloseButton(),
-	                this._makeHeader(),
-	                this._makeList(leaderboard),
-	                this._makeButton(onPlayButton)
-	            ), this.parent);
-	        }
-	    }, {
-	        key: 'hide',
-	        value: function hide() {
-	            this.show([], function () {
-	                return null;
-	            }, true);
-	        }
-	    }, {
-	        key: '_makeCloseButton',
-	        value: function _makeCloseButton() {
-	            return preact_1.h(
-	                'button',
-	                { className: 'close-button', onClick: this.hide.bind(this) },
-	                'x'
-	            );
-	        }
-	    }, {
-	        key: '_makeButton',
-	        value: function _makeButton(cb) {
-	            return preact_1.h(
-	                'button',
-	                { className: 'play-button', onClick: cb },
-	                'play'
-	            );
-	        }
-	    }, {
-	        key: '_makeHeader',
-	        value: function _makeHeader() {
-	            return preact_1.h(
-	                'div',
-	                null,
-	                preact_1.h(
-	                    'h2',
-	                    null,
-	                    'Leaderboard'
-	                )
-	            );
-	        }
-	    }, {
-	        key: '_makeList',
-	        value: function _makeList(leaderboard) {
-	            return preact_1.h(
-	                'ol',
-	                null,
-	                leaderboard.map(function (score, index) {
-	                    return preact_1.h(
-	                        'li',
-	                        null,
-	                        '$',
-	                        score.player,
-	                        ' - $',
-	                        score.points
-	                    );
-	                })
-	            );
+	        value: function show(leaderboard) {
+	            try {
+	                return void this.component.show();
+	            } catch (e) {
+	                this.element = preact_1.render(preact_1.h(LeaderBoardComponent, { onCloseButtonClick: this.onClose, onPlayButtonClick: this.onPlay, leaderboard: leaderboard }), this.parent);
+	                this.component = this.element._component;
+	            }
 	        }
 	    }]);
 	

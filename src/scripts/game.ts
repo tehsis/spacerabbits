@@ -1,9 +1,9 @@
 interface IGameConstructorArgs {
-    width: number;
-    height: number;
+    width: number|string;
+    height: number|string;
     element: string;
     states: {};
-    default_state?: string;
+    default_state: string;
 }
 
 class Game {
@@ -25,7 +25,7 @@ class Game {
     }
 
     init () {
-       this.loadStates(this.args.default_state || 'Boot');
+       this.loadStates(this.args.default_state);
     }
 }
 
