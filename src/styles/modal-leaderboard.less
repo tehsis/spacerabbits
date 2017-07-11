@@ -1,4 +1,4 @@
-.modal-leaderboard {
+.modal {
   position: absolute;
   top: 55px;
   left: 5%;
@@ -18,20 +18,25 @@
     }
   }
 
-  .leaderboard-header {
+  .modal-header {
     background-image: url('../assets/images/asteroids-bg.png');
     background-size: cover;
-    height: 85px;
+    height: 115px;
     text-align: center;
 
     h2 {
-      padding-top: 25px;
+      padding-top: 40px;
       font-weight: 400;
     }
   }
 
+  .modal-footer {
+    background-image: url('../assets/images/modal-footer-bg.png');
+    background-repeat: no-repeat;
+    height: 55px;
+  }
+
   ol {
-    margin-top: 20px;
     width: 70%;
     margin-left: 15%;
     padding: 0;
@@ -61,7 +66,6 @@
   }
 
   .close-button {
-    background-color: #D0D2D3;
     border: none;
     border-radius: 100%;
     right: 20px;
@@ -73,6 +77,47 @@
     vertical-align: middle;
     background-image: url('../assets/images/close-button.png');
     background-repeat: no-repeat;
+  }
+
+  .game-over-points {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  .game-over-instructions {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .game-over-share {
+    text-align: center;
+    width: 40%;
+    margin-left: 33%;
+    margin-top: 40px;
+
+    .logo {
+      width: 44px;
+      height: 42px;
+      background-color: #fff;
+      border: 1px solid #2E364E;
+      border-radius: 16%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      margin-right: 20px;
+
+      &.logo-facebook {
+        background-image: url('../assets/images/facebook.png')
+      }
+
+      &.logo-twitter {
+        background-image: url('../assets/images/twitter.png')
+      }
+    }
+
   }
 
   .play-button {

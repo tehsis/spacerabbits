@@ -5,6 +5,9 @@ import "Phaser";
 import {GAME} from './const';
 import { Game } from './game';
 import * as states from './states/index';
+import gameState from './game-state';
+
+import DOMApp from './HTMLComponents';
 
 import * as webfont from 'webfontloader';
 
@@ -15,11 +18,13 @@ const bunnywars = new BunnyWars({
     height: GAME.SCREEN.BASE_HEIGHT,
     element: GAME.DOM_ELEMENT,
     states,
+    gameState,
     default_state: GAME.DEFAULT_STATE
 });
 
 document.addEventListener('deviceready', () => {
   bunnywars.init();
+  DOMApp(document.body);
 });
 
 

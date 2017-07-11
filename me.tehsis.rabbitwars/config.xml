@@ -30,4 +30,6 @@
         <variable name="APP_ID" value="358865204487691" />
         <variable name="APP_NAME" value="rabbit wars" />
     </plugin>
+    <preference name="TwitterConsumerKey" value="<Twitter Consumer Key>" />
+    <preference name="TwitterConsumerSecret" value="<Twitter Consumer Secret>" />
 </widget>

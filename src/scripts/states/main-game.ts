@@ -3,11 +3,14 @@ import { GAME } from '../const';
 import Asteroids    from '../entities/Asteroids';
 import Planet       from '../entities/Planet';
 import Rabbit       from '../entities/Rabbit';
-import {GameState}  from '../game-state';
+import { GameState }  from '../game-state';
 import gameState    from '../game-state';
 
-const style = { font: "24px Arial", fill: "#ffffff", align: "center" };
-const lifeChar = "❤️";
+const style = { font: "24px spacemono", fill: "#ffffff", align: "center" };
+
+const SCORES = {
+  SIMPLE_ASTEROID: 10
+}
 
 export class MainGame extends Phaser.State {
   asteroids : Asteroids;
@@ -26,26 +29,25 @@ export class MainGame extends Phaser.State {
     this.state = gameState;
     this.state.reset();
 
-    console.log('STATE', this.state.getJSON());
-
     let background = this.game.add.sprite(0, 0, 'stars');
-    background.scale.setTo(0.5, 0.5);
 
-    this.planet = new Planet(this.game, 0, this.game.world.centerY + 150);
+    this.game.add.sprite(32, 32, 'gunpoints');
+
+    this.planet = new Planet(this.game, 0, this.game.world.centerY + 240);
     this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, () => {
     });
     this.rabbit = new Rabbit(this.game);
-    this.score = this.game.add.text(32, 32, 'Score:', style);
+    this.score = this.game.add.text(64, 38, '0', style);
 
     this.lifes = this._createLifes();
 
-    this.score.text = "" + this.state.getScore();
+    this.score.text = `${this.state.getScore()}`;
   }
 
   _createLifes () {
     const lifes = [];
     for (let i=0;i<this.state.getLifes();i++) {
-      lifes.push(this.game.add.text(332, 32 + (30*i), lifeChar, style));   
+      lifes.push(this.game.add.sprite(332, 32 + (30*i), 'heart'));   
     }
 
     return lifes;
@@ -53,10 +55,9 @@ export class MainGame extends Phaser.State {
 
   _updateLifes () {
     this.lifes.forEach((lifeText, index) => {
-      lifeText.text = (index < this.state.getLifes()) ? lifeChar : '';
+      lifeText.visible = index < this.state.getLifes();
     });
   }
- 
 
   update() {
     this.rabbit.move();
@@ -64,8 +65,8 @@ export class MainGame extends Phaser.State {
     this.game.physics.arcade.collide(this.asteroids.getGroup(), this.rabbit.getBullets(), (asteroid, bullet) => {
       asteroid.animations.play('destroyed');
       bullet.kill();
-      this.state.increaseScore(10);
-      this.score.text = "" + this.state.getScore();;
+      this.state.increaseScore(SCORES.SIMPLE_ASTEROID);
+      this.score.text = `${this.state.getScore()}`;
     }, null, this);
 
     this.game.physics.arcade.collide(this.planet.getSprite(), this.asteroids.getGroup(), (planet: Phaser.Sprite, asteroid: Phaser.Sprite) => {
@@ -77,7 +78,8 @@ export class MainGame extends Phaser.State {
     this._updateLifes();
 
     if (this.state.getLifes() <= 0) {
-      this.game.state.start('GameOver');
+      this.state.isOver(true);
+      this.game.state.start('MainMenu');
     }
   }
 }

@@ -1,11 +1,12 @@
 import {GAME} from '../const';
+import gameState from '../game-state';
 
 class Boot extends Phaser.State {
   scaleStage() {
   }
 
   create() {
-    this.game.state.start('Loader');
+    gameState.goTo('Loader');
   }
 }
 

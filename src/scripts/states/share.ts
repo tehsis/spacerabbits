@@ -35,7 +35,7 @@ export default class Share extends Phaser.State {
   }
 
   async onFbTap () {
-    const accessToken = await login.login();
+    const accessToken = await login.login('facebook');
     const form = new FormData();
     writeActionText(this.game, 'Sending Score...', 70, 200);
     this.fbTxt.destroy();

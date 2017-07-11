@@ -20,6 +20,10 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "me.tehsis.rabbitwars"
+        },
+        "twitter-connect-plugin": {
+            "FABRIC_KEY": "a60a174ae63d1b523973a55c9a2a753d933ac057",
+            "PACKAGE_NAME": "me.tehsis.rabbitwars"
         }
     },
     "dependent_plugins": {}

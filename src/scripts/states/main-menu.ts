@@ -1,44 +1,34 @@
 import { GAME, API }  from '../const';
 import gameState from '../game-state'
 import Planet    from '../entities/Planet';
-import LeaderBoardModal from '../modals/leaderboard'
+import Rabbit       from '../entities/Rabbit';  
+
 import fetch from '../mocks/mocked-fetch';
 
 class MainMenu extends Phaser.State {  
         create() {
-          gameState.load();
+          // gameState.load();
           
           this.game.stage.backgroundColor = '#1F1333';
 
           let stars = this.game.add.sprite(0, 0, 'stars');
-          stars.scale.setTo(0.5, 0.5);
 
           new Planet(this.game, 0, this.game.world.centerY + 240);
           
-          this.game.add.sprite(this.game.world.centerX-90, this.game.world.centerY+80, 'rabbit-intro');
+          new Rabbit(this.game, true);
 
-          // Buttons
-          this.game.add.button(this.game.world.centerX-60, this.game.world.centerY-250, 'new-game-button', () => {
-            this.game.state.start('MainGame');
+          this.game.add.button(128, 75, 'new-game-button', () => {
+            gameState.goTo('MainGame');
           }, this);
 
-          const leaderboardModal = new LeaderBoardModal(
-            (e) => {
-              this.game.state.start('MainGame');
-            }, 
-            (e) => {}, 
-            document.body
-          );
+          if (gameState.isOver()) {
+            gameState.openModal('game-over');
+          }
 
-          this.game.add.button(this.game.world.centerX-60, this.game.world.centerY-200, 'leaderboard-button', () => {
-            fetch(API.leaderboard)
-              .then((response) => {
-                return response.json();
-              })
-              .then((leaderboard: any) => {
-                leaderboardModal.show(leaderboard);
-              });
-        });
+          this.game.add.button(128, 140, 'leaderboard-button', () => {
+            gameState.openModal('leaderboard');
+            gameState.getLeaderboard();
+          });
       }
 };
 

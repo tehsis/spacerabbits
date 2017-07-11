@@ -87,5 +87,12 @@
       <string>UIInterfaceOrientationPortraitUpsideDown</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+    <key>Fabric</key>
+    <dict>
+      <key>APIKey</key>
+      <string>a60a174ae63d1b523973a55c9a2a753d933ac057</string>
+      <key>Kits</key>
+      <array/>
+    </dict>
   </dict>
 </plist>

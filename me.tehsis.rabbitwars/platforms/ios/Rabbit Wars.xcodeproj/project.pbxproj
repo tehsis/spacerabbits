@@ -20,6 +20,18 @@
 		8768A1271D664DE3AB2AAA5F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F0D4AE71284692AFFE4D3F /* FBSDKLoginKit.framework */; };
 		DCE0A373CAED46269F446FF5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87DC7D3385A44AFB4ADA8BD /* FBSDKShareKit.framework */; };
 		68B5848CBD374913B15B9AE9 /* NativeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A948687DA64ADFA07BD374 /* NativeStorage.m */; };
+		68C3109C989C4C618903D68A /* TwitterConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 34642DE987F84365AA0FF7ED /* TwitterConnect.m */; };
+		0625FA2DB553475695797153 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B5E8CC8C64EE445C9A697A75 /* TwitterKitResources.bundle */; };
+		7D283AA9CF9E4A9D9784B7DB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4291DDE31624C72B9CF5C8A /* Fabric.framework */; };
+		40107321E4574C9F99FB9E1D /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C7E152DF6D4DCBB21417B6 /* TwitterKit.framework */; };
+		EBC33BB1997F4A999AFA2739 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7B7DAC645649B2B798F741 /* TwitterCore.framework */; };
+		D2A405F119324FB6AE559E2F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FBDF81475545A89562B19E /* CoreText.framework */; };
+		3FA0931E31474FB3AE14D072 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF6138DD71D4729AC13DD5B /* AddressBook.framework */; };
+		FB38C1CF0BB045009D62958D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD13446575684AE39A80301A /* QuartzCore.framework */; };
+		9015579AE6FE468F8061EF90 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317483CB8CC244EF9284A01E /* Security.framework */; };
+		1C829BA97AD64A188EE32389 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A72FA6433824CF48E4694A1 /* Accounts.framework */; };
+		E52189CE38F6496FAD92A0A6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD78D0FE8764795BCAC77BD /* Social.framework */; };
+		2596742D4A664DA099DA0545 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04B46AB88EB4472A8086BCC /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +83,19 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Rabbit Wars/config.xml"; sourceTree = "<group>"; };
 		05A948687DA64ADFA07BD374 /* NativeStorage.m */ = {isa = PBXFileReference; name = "NativeStorage.m"; path = "cordova-plugin-nativestorage/NativeStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		8B939C5FEBFE45698A15E8F3 /* NativeStorage.h */ = {isa = PBXFileReference; name = "NativeStorage.h"; path = "cordova-plugin-nativestorage/NativeStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		34642DE987F84365AA0FF7ED /* TwitterConnect.m */ = {isa = PBXFileReference; name = "TwitterConnect.m"; path = "twitter-connect-plugin/TwitterConnect.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		FACFF23C521F48A39598C6AA /* TwitterConnect.h */ = {isa = PBXFileReference; name = "TwitterConnect.h"; path = "twitter-connect-plugin/TwitterConnect.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		B5E8CC8C64EE445C9A697A75 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; name = "TwitterKitResources.bundle"; path = "TwitterKitResources.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		D4291DDE31624C72B9CF5C8A /* Fabric.framework */ = {isa = PBXFileReference; name = "Fabric.framework"; path = "Rabbit Wars/Plugins/twitter-connect-plugin/Fabric.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		B4C7E152DF6D4DCBB21417B6 /* TwitterKit.framework */ = {isa = PBXFileReference; name = "TwitterKit.framework"; path = "Rabbit Wars/Plugins/twitter-connect-plugin/TwitterKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CD7B7DAC645649B2B798F741 /* TwitterCore.framework */ = {isa = PBXFileReference; name = "TwitterCore.framework"; path = "Rabbit Wars/Plugins/twitter-connect-plugin/TwitterCore.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		09FBDF81475545A89562B19E /* CoreText.framework */ = {isa = PBXFileReference; name = "CoreText.framework"; path = "System/Library/Frameworks/CoreText.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		0EF6138DD71D4729AC13DD5B /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CD13446575684AE39A80301A /* QuartzCore.framework */ = {isa = PBXFileReference; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		317483CB8CC244EF9284A01E /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		6A72FA6433824CF48E4694A1 /* Accounts.framework */ = {isa = PBXFileReference; name = "Accounts.framework"; path = "System/Library/Frameworks/Accounts.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9FD78D0FE8764795BCAC77BD /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		D04B46AB88EB4472A8086BCC /* CoreData.framework */ = {isa = PBXFileReference; name = "CoreData.framework"; path = "System/Library/Frameworks/CoreData.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +108,16 @@
 				4A979C37695C4D9EA8D72CE4 /* FBSDKCoreKit.framework in Frameworks */,
 				8768A1271D664DE3AB2AAA5F /* FBSDKLoginKit.framework in Frameworks */,
 				DCE0A373CAED46269F446FF5 /* FBSDKShareKit.framework in Frameworks */,
+				7D283AA9CF9E4A9D9784B7DB /* Fabric.framework in Frameworks */,
+				40107321E4574C9F99FB9E1D /* TwitterKit.framework in Frameworks */,
+				EBC33BB1997F4A999AFA2739 /* TwitterCore.framework in Frameworks */,
+				D2A405F119324FB6AE559E2F /* CoreText.framework in Frameworks */,
+				3FA0931E31474FB3AE14D072 /* AddressBook.framework in Frameworks */,
+				FB38C1CF0BB045009D62958D /* QuartzCore.framework in Frameworks */,
+				9015579AE6FE468F8061EF90 /* Security.framework in Frameworks */,
+				1C829BA97AD64A188EE32389 /* Accounts.framework in Frameworks */,
+				E52189CE38F6496FAD92A0A6 /* Social.framework in Frameworks */,
+				2596742D4A664DA099DA0545 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +181,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Rabbit Wars-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				B5E8CC8C64EE445C9A697A75 /* TwitterKitResources.bundle */,
 			);
 			name = Resources;
 			path = "Rabbit Wars/Resources";
@@ -158,6 +194,16 @@
 				3124D59184D54AC699D6637A /* FBSDKCoreKit.framework */,
 				69F0D4AE71284692AFFE4D3F /* FBSDKLoginKit.framework */,
 				D87DC7D3385A44AFB4ADA8BD /* FBSDKShareKit.framework */,
+				D4291DDE31624C72B9CF5C8A /* Fabric.framework */,
+				B4C7E152DF6D4DCBB21417B6 /* TwitterKit.framework */,
+				CD7B7DAC645649B2B798F741 /* TwitterCore.framework */,
+				09FBDF81475545A89562B19E /* CoreText.framework */,
+				0EF6138DD71D4729AC13DD5B /* AddressBook.framework */,
+				CD13446575684AE39A80301A /* QuartzCore.framework */,
+				317483CB8CC244EF9284A01E /* Security.framework */,
+				6A72FA6433824CF48E4694A1 /* Accounts.framework */,
+				9FD78D0FE8764795BCAC77BD /* Social.framework */,
+				D04B46AB88EB4472A8086BCC /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +235,8 @@
 				19916079F0EA46FF9768A8F3 /* FacebookConnectPlugin.h */,
 				05A948687DA64ADFA07BD374 /* NativeStorage.m */,
 				8B939C5FEBFE45698A15E8F3 /* NativeStorage.h */,
+				34642DE987F84365AA0FF7ED /* TwitterConnect.m */,
+				FACFF23C521F48A39598C6AA /* TwitterConnect.h */,
 			);
 			name = Plugins;
 			path = "Rabbit Wars/Plugins";
@@ -283,6 +331,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				0625FA2DB553475695797153 /* TwitterKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +366,7 @@
 				7EB7473F50374847AF07B954 /* CDVInAppBrowser.m in Sources */,
 				564F6DF6E16747C6AC4367A0 /* FacebookConnectPlugin.m in Sources */,
 				68B5848CBD374913B15B9AE9 /* NativeStorage.m in Sources */,
+				68C3109C989C4C618903D68A /* TwitterConnect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +404,9 @@
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
+					"\"Rabbit Wars/Plugins/twitter-connect-plugin\"",
+					"\"Rabbit Wars/Plugins/twitter-connect-plugin\"",
+					"\"Rabbit Wars/Plugins/twitter-connect-plugin\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -392,6 +445,9 @@
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
+					"\"Rabbit Wars/Plugins/twitter-connect-plugin\"",
+					"\"Rabbit Wars/Plugins/twitter-connect-plugin\"",
+					"\"Rabbit Wars/Plugins/twitter-connect-plugin\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rabbit Wars/Rabbit Wars-Prefix.pch";

@@ -12,7 +12,5 @@ export {
   Loader, 
   MainMenu,
   MainGame, 
-  GameOver, 
-  Leaderboard, 
-  Share
+  Leaderboard
 };

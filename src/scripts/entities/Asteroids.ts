@@ -1,5 +1,8 @@
 import IGroupEntity from './IEntity';
 
+// FIXME this positions should be always aligned with the rabbit bullets
+const positions = [ 106, 156, 216, 256, 306 ];
+
 class Asteroids implements IGroupEntity {
   game: Phaser.Game;
   resource : Phaser.Group;
@@ -29,13 +32,6 @@ class Asteroids implements IGroupEntity {
   }
 
   createAsteroid() {
-    const positions = [
-      this.game.world.centerX-68, 
-      this.game.world.centerX-60, 
-      this.game.world.centerX+65,
-      this.game.world.centerX+180,  
-    ];
-
     const index = Math.round(Math.random() * (positions.length-1));
     let x = positions[index];
     let y = (Math.random() * 1000) - 900;

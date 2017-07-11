@@ -1,3 +1,5 @@
+import { API } from '../const';
+
 declare global {
   interface FacebookAuthResponse {
     accessToken: string,
@@ -20,21 +22,18 @@ declare global {
   let facebookConnectPlugin: FacebookConnectPlugin;
 }
 
-class Login {
-  token: string
-  profile: string
-
-   private getToken(): Promise<string> {
-     return new Promise(function (resolve, reject) {
+const Credentials = {
+  Facebook: function () {
+    return new Promise((resolve, reject) => {
+      console.log("Login with facebook api");
       facebookConnectPlugin.getLoginStatus(function(response) {  
-        console.log('get login status', response)
+        console.log('facebookConnectPlugin.getLoginStatus', response);
         if (response.status === 'connected') {
           return resolve(response.authResponse.accessToken);
         } else if (response.status === 'not_authorized') {
           return reject()
         } else {
           facebookConnectPlugin.login([''], function (response) {
-            console.log(arguments)
             if (response.authResponse) {
               resolve(response.authResponse.accessToken);
             } else {
@@ -45,7 +44,50 @@ class Login {
             });
         }
       });
+    });
+  }
+};
+
+class Login {
+  auth_token: string
+  profile: string
+
+   private getAuthToken(method): Promise<string> {
+     return new Promise((resolve, reject) => {
+      if (this.auth_token) {
+        return resolve(this.auth_token);
+      }
+      console.log('cred method', method)
+      Credentials[method]()
+        .then((credentials) => {
+          this.auth(method, credentials)
+            .then((auth_token) => {
+              this.auth_token = auth_token;
+              return resolve(this.auth_token);
+            });
+        });
      });
+  }
+
+  auth (method: string, credentials: string): Promise<string> {
+    const form = new FormData();
+    form.append('method', method);
+    form.append('credentials', credentials);
+
+    return fetch(API.login, {
+      method: 'POST',
+      body: form
+    }).then(res => {
+        if (res.status >= 400) {
+			    throw new Error("Bad response from server");
+		    }
+
+        return res.json()
+      })  
+      .then(json => json.access_token)
+      .catch((res) => {
+        alert(res);
+      })
   }
 
   share (points: number) {
@@ -68,14 +110,12 @@ class Login {
 
   logout() {
     delete this.profile;
-    delete this.token;
+    delete this.auth_token;
   }
 
-  async login() {
-    let response = await this.getToken();
-
-    return response;
+  login(method) {
+    return this.getAuthToken(method);
   }
-  }
+}
 
 export default new Login();

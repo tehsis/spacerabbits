@@ -11,8 +11,10 @@ class Loader extends Phaser.State {
       this.assets.loadImage('planet');
       this.assets.loadImage('stars');
       this.assets.loadImage('rabbit');
+      this.assets.loadImage('heart');
       this.assets.loadImage('rabbit-intro');
       this.assets.loadImage('bala');
+      this.assets.loadImage('gunpoints');
       this.assets.loadImage('new-game-button')
       this.assets.loadImage('leaderboard-button')
       this.assets.loadImage('main-menu-button')
