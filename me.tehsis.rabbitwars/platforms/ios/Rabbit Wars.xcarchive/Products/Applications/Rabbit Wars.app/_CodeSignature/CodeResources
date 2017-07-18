@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		PpxZAPEpZKvHQeMN3mQ/WKEYQZI=
+		z7YRejfmF47pDoftdnONk07iIdw=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		Djj5YbC281xy5MJhSwVfCjPk3ZI=
+		IU8iTM8v0nFolnN1tYIEJA0tUOY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		v8qJARuSem6sC/4oLJJdQeL9oa8=
+		xknzkau8NHzmydWLx2lz+G9l/pc=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -107,6 +107,22 @@
 		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
 		SSQaBzC8MgJWeN4IXrktab76oA0=
+		</data>
+		<key>LaunchImage-700-Landscape@2x~ipad.png</key>
+		<data>
+		xRyEF53rPvncge6mEvNPPHMZLPI=
+		</data>
+		<key>LaunchImage-700-Landscape~ipad.png</key>
+		<data>
+		UF+hYZaxWJ4hTvpnQI0CDpVZAng=
+		</data>
+		<key>LaunchImage-700-Portrait@2x~ipad.png</key>
+		<data>
+		Nim0AhsbkZJKWuKHPZTZfiq67lg=
+		</data>
+		<key>LaunchImage-700-Portrait~ipad.png</key>
+		<data>
+		EziB8rHFrGAAmA+auXVgT39OIl0=
 		</data>
 		<key>LaunchImage-700@2x.png</key>
 		<data>
@@ -124,6 +140,14 @@
 		<data>
 		GYTtM/NySuwN4RG2xYrkIZKJBpE=
 		</data>
+		<key>LaunchImage-Portrait@2x~ipad.png</key>
+		<data>
+		Nim0AhsbkZJKWuKHPZTZfiq67lg=
+		</data>
+		<key>LaunchImage-Portrait~ipad.png</key>
+		<data>
+		EziB8rHFrGAAmA+auXVgT39OIl0=
+		</data>
 		<key>LaunchImage.png</key>
 		<data>
 		YoZtszKfAdealzoQT3ofuk1FLDw=
@@ -134,445 +158,23 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		Z5JmGYh1gUYgIzSJZh/79IJbfCY=
+		IRVCm0wPtJwl+a3o49ECh64IrYc=
 		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
-		<key>TwitterKitResources.bundle/TFSScribe.momd/TFSScribe.mom</key>
-		<data>
-		IOTY7Zo0gXgcr+oNo5IBfTSaoak=
-		</data>
-		<key>TwitterKitResources.bundle/TFSScribe.momd/VersionInfo.plist</key>
-		<data>
-		gJKkIp8RmNJN60x1Q9xdtDFqeOE=
-		</data>
-		<key>TwitterKitResources.bundle/ar.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NEDK+7dErKnM2z/zxaSsmISM9lc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/bn.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jogdsOM/RmLqYYyAduRrTPNaEJo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/cs.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8RF0uqL/r57CntBjX2XpZL81u5w=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/da.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			OCTi4la60sZ5PhKizFHrKQ9tHYE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/de.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EdS+UkBA4n+cg7WUoVx/FquOizo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/emailshare.png</key>
-		<data>
-		l3uxVnXNSSF2yIQ+I46tcyyS0UI=
-		</data>
-		<key>TwitterKitResources.bundle/emailshare@2x.png</key>
-		<data>
-		1YAAV7REX5dtQGAsvMWV4JHA5YQ=
-		</data>
-		<key>TwitterKitResources.bundle/emailshare@3x.png</key>
-		<data>
-		aVSPrFVlTl9GcEG5hCuRLRZSmeE=
-		</data>
-		<key>TwitterKitResources.bundle/en-gb.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FUpkPUHgEXIJYdDVPOflIIV/ME0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/en.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ztSEEzdTE4iVMjRCUpedNKWZOcU=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/es.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1SmQJI2ZyuSpAiJu9WpIASHrABg=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/fa.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2DBaDhbzn0v37JcomrnibT9K+Bk=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/fi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YkJ7O3TLe2zvvQ+LlcuhQ78UroA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/fr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oIWWYUsULF6zsrw7UTtNRW2DrgQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/he.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QGi+xG/GWjQghEMYdYk5TpOogLA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/hi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wyH1sm90gUB6wVxK/qChrTMNGGA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/hu.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BI9weTqxWxDIvsdScfdmaeqFWuA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/id.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			F2+Guf+wJTZ2tmCJ0wgd8GcXyAs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/it.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JnPMhSRXS6lZz534xnD921PopYg=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ja.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XSkhNNuCPF5kXpBOK7zt4X+RZA0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ko.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			VVH1YES83renW0U2NkqbV/QEA84=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ms.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			h3ggLowm1QUjeEQJIay2v8zgW1U=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/nb.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QKw+Kim+ack6aLxwvceaFxF+/7s=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/nl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WvVyiTCo6FORxjsSrubg9FfzKgw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/pl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eFTgZgAszhcz7PpiYJVKsH4IdYw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/pt.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/zMWAlYCQYccM/3T4qF4aPfmxPw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ro.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uhfhsfWU0XLJliLibgXPgrv6PUQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ru.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8R1tnojEEkqvTT1ROM5brnGGQxU=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/sv.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			b9bv/3om3W0rnMgwj7TPbTtnTg0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/th.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Z6lv1xlHd0CZoCmNSnT3atBofrM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/tl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DlIvv2LXmJcQ7UxVvYfan0Rvh1A=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/tr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2KG7Rl6KDzYX4Ufp5QqYJRI0NIA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo-white.png</key>
-		<data>
-		DGyTpSVPrGp6XWy01a2V+TuIWGM=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-logo-white@2x.png</key>
-		<data>
-		nzZd8l2kfvGZcZ+yuwGmJly0ZuU=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-logo-white@3x.png</key>
-		<data>
-		FVD3TYqcCf48FZMod5bDH4ugNxA=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-logo.png</key>
-		<data>
-		4Xnr6m9RFzhrJpmOLThLmbbCu2E=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-logo@2x.png</key>
-		<data>
-		9TcIKb0YopE0OlZF2JykyLNoZXc=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-logo@3x.png</key>
-		<data>
-		2yyo7Wdo2zOBD0e2mVNShUlpVvI=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo-error.png</key>
-		<data>
-		uwd2dGsVZy2NYMT21dETR/vLDqo=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo-error@2x.png</key>
-		<data>
-		O/3ru94fFmxoxtp8GD8H/PKgl1o=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo-error@3x.png</key>
-		<data>
-		V8WEwBCVhOPJS3wpwiAR3aGlKj0=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo.png</key>
-		<data>
-		o7u51OM8PPJ7z6z5BhWZQnnahy8=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo@2x.png</key>
-		<data>
-		6cE6P1xPvhukNRFt5uPZTXXoO4U=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo@3x.png</key>
-		<data>
-		9EUKsFKV2TDh1+djQ2F3qbVW2BM=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-dark.png</key>
-		<data>
-		yPjMAaYvhYw2fRqpn+rcwalHREc=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-dark@2x.png</key>
-		<data>
-		zNYxwYjXGtRZfG+ysInIAKeFOc8=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-dark@3x.png</key>
-		<data>
-		dBADlNtw67OVHNs78USw5pIYEgw=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-light.png</key>
-		<data>
-		A/0HM16Ed45g67C6Lzo+El0OGGc=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-light@2x.png</key>
-		<data>
-		GVi/U+Vfp9XG7RR/Gfkro9s8uLw=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-light@3x.png</key>
-		<data>
-		XFSXWKWnV3B+dcztfxnLaYF2350=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified-pressed.png</key>
-		<data>
-		yQRGja7cYlXjUMHtVXM9eM7/aa0=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified-pressed@2x.png</key>
-		<data>
-		a7rNHYUBZXOK+4XWRG/bwraOHvU=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified-pressed@3x.png</key>
-		<data>
-		4n3CpMRzW5VC8H8GIxXXow6PfZM=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified.png</key>
-		<data>
-		Dr1DclGLhLfmu8zDWzzKLzT5k4E=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified@2x.png</key>
-		<data>
-		JL5MmZlkptAmGKqQW8ylTs34mwI=
-		</data>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified@3x.png</key>
-		<data>
-		vL9iQNwWkx729WgHiAJ+5nxtsDA=
-		</data>
-		<key>TwitterKitResources.bundle/uk.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jHV6w0BKyqRWABUPuvQJ4MOOILg=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ur.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ycQHH1UhkVbtKlnbiSq4OYEtpyw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/vi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MxBIYQSBRNNW4AbiIffaLVK2wu0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/zh-Hans.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DDIrm8qrsEfF0gVNuUi8/CC9owA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/zh-Hant.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RRmM4jasJgujOk3JVjhWivIHhYE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
 		<data>
 		vO/gVYVVkU1zHBaxd4xJ53/ga5k=
 		</data>
 		<key>config.xml</key>
 		<data>
-		QVSH3G0Cs9XtgFMJRRMLr/FbOgc=
+		7rgp4BzyF2p/MnT3HGivE5PS2go=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		GHNKQl8I96Ffugek1DDjY4tjSN4=
+		fWtFZGvmtbqM8svFPWSGP6v9z/U=
 		</data>
 		<key>www/assets/fonts/sharetech.eot</key>
 		<data>
@@ -752,11 +354,11 @@
 		</data>
 		<key>www/cordova.js</key>
 		<data>
-		hYeg9zH5hCPufSL3lQ4iz/z1w5U=
+		U5qD+h8czHzRSMNDeKZnVmgA3ao=
 		</data>
 		<key>www/cordova_plugins.js</key>
 		<data>
-		XaQR4qUAAW5z9MFEf4jCZlq+y1g=
+		q6dsBy6hHDRdr/Y+MX+xTnqY4gU=
 		</data>
 		<key>www/index.html</key>
 		<data>
@@ -764,7 +366,7 @@
 		</data>
 		<key>www/plugins/cordova-plugin-facebook4/www/facebook-native.js</key>
 		<data>
-		fZ/TKnRky2P66tS/Q2hXxqhYzG0=
+		tSIvUVJFOiexVH7nR3ZE0U9jzm8=
 		</data>
 		<key>www/plugins/cordova-plugin-inappbrowser/www/inappbrowser.js</key>
 		<data>
@@ -772,15 +374,15 @@
 		</data>
 		<key>www/plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js</key>
 		<data>
-		78ykm6BfGmY9oPZxgOIrsKSoRLQ=
+		7Z//HjqdzHbpc9YPdYb5V8uyvHU=
 		</data>
 		<key>www/plugins/cordova-plugin-nativestorage/www/NativeStorageError.js</key>
 		<data>
-		MvHxdygizAp99m0mqxazhzI9n/k=
+		zVklss2cgMGsle8iVFJwfwRxa9c=
 		</data>
 		<key>www/plugins/cordova-plugin-nativestorage/www/mainHandle.js</key>
 		<data>
-		FoZWl8P6poz3J5T4bMQIDpFsxnE=
+		QHRTH9bZvtRFiCdID26NIkj8kqc=
 		</data>
 		<key>www/plugins/twitter-connect-plugin/www/TwitterConnect.js</key>
 		<data>
@@ -788,11 +390,11 @@
 		</data>
 		<key>www/scripts/bunnywars.js</key>
 		<data>
-		TdYAJWNI3IxYial5oWxV659m2IM=
+		27rmSYDvUawx+7X6fI5f3Vf0IZU=
 		</data>
 		<key>www/scripts/bunnywars.js.map</key>
 		<data>
-		HZNY4YaR+BHiOPRAEK6c2nuSdwU=
+		Cz/b93Dbu5NSTuRgLFH74rWLIVA=
 		</data>
 		<key>www/styles/index.css</key>
 		<data>
@@ -1025,11 +627,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PpxZAPEpZKvHQeMN3mQ/WKEYQZI=
+			z7YRejfmF47pDoftdnONk07iIdw=
 			</data>
 			<key>hash2</key>
 			<data>
-			F+Caz7UxXSiF9KrNIkvK6U9xfxWsDCA9DNXGcIpMcK8=
+			P4W81h/M1snFwyO8nRbY+cv+oW8SsCr8mKTYRyilRHY=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1047,11 +649,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Djj5YbC281xy5MJhSwVfCjPk3ZI=
+			IU8iTM8v0nFolnN1tYIEJA0tUOY=
 			</data>
 			<key>hash2</key>
 			<data>
-			3JoiI6yUZJYEOPQyLtqJD6vaWjy6eh+uZewDjelHu2c=
+			SgVFeUVqtkTARztfBH0I7loLm+C89WICS92ZAKoVe+U=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1074,6 +676,50 @@
 			<key>hash2</key>
 			<data>
 			6Sr8Jt/Y3s+nfYBOHJdDIMtmTtSl/YJmjSwV7Cg6XYc=
+			</data>
+		</dict>
+		<key>LaunchImage-700-Landscape@2x~ipad.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xRyEF53rPvncge6mEvNPPHMZLPI=
+			</data>
+			<key>hash2</key>
+			<data>
+			sjUlHkO2f5gV/Y0XGVomoVoTyqCM7jvtZV7JIBm3SBs=
+			</data>
+		</dict>
+		<key>LaunchImage-700-Landscape~ipad.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UF+hYZaxWJ4hTvpnQI0CDpVZAng=
+			</data>
+			<key>hash2</key>
+			<data>
+			0uL9xYUzUXpqEBF3yHHkHSwjjs/+5W6WoEf/AMqwgEE=
+			</data>
+		</dict>
+		<key>LaunchImage-700-Portrait@2x~ipad.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nim0AhsbkZJKWuKHPZTZfiq67lg=
+			</data>
+			<key>hash2</key>
+			<data>
+			BVGcD/hoBZ4eHcMinfBIu2IEtvkorxvJB0OIhsOKQdc=
+			</data>
+		</dict>
+		<key>LaunchImage-700-Portrait~ipad.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EziB8rHFrGAAmA+auXVgT39OIl0=
+			</data>
+			<key>hash2</key>
+			<data>
+			2sB8TdduUroNPFpqOeW7gVXT2qN021HPUnAPwobhtNQ=
 			</data>
 		</dict>
 		<key>LaunchImage-700@2x.png</key>
@@ -1120,6 +766,28 @@
 			C/zTY5pQ2JvhG3YSY+cfWiLeQjXr8PZspYGB5zOP6iU=
 			</data>
 		</dict>
+		<key>LaunchImage-Portrait@2x~ipad.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nim0AhsbkZJKWuKHPZTZfiq67lg=
+			</data>
+			<key>hash2</key>
+			<data>
+			BVGcD/hoBZ4eHcMinfBIu2IEtvkorxvJB0OIhsOKQdc=
+			</data>
+		</dict>
+		<key>LaunchImage-Portrait~ipad.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EziB8rHFrGAAmA+auXVgT39OIl0=
+			</data>
+			<key>hash2</key>
+			<data>
+			2sB8TdduUroNPFpqOeW7gVXT2qN021HPUnAPwobhtNQ=
+			</data>
+		</dict>
 		<key>LaunchImage.png</key>
 		<dict>
 			<key>hash</key>
@@ -1146,773 +814,12 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Z5JmGYh1gUYgIzSJZh/79IJbfCY=
+			IRVCm0wPtJwl+a3o49ECh64IrYc=
 			</data>
 			<key>hash2</key>
 			<data>
-			KsaH2dx0ERIxru5f6C66NvYCb+LwkeFylut6WtRDyWI=
+			vQT3XAHnqo4h/T2xDiBSoxYQ1UfNS08sNq9r0NrCXuM=
 			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/TFSScribe.momd/TFSScribe.mom</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IOTY7Zo0gXgcr+oNo5IBfTSaoak=
-			</data>
-			<key>hash2</key>
-			<data>
-			hgOAf6pEIESUWPR8TFLYeqrjGL5zv4JvqzOT5UJY/jw=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/TFSScribe.momd/VersionInfo.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gJKkIp8RmNJN60x1Q9xdtDFqeOE=
-			</data>
-			<key>hash2</key>
-			<data>
-			kScfLEYO21unBjTawwYsiZw+zRZ6ErU1zcAbhsx0XA8=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/ar.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NEDK+7dErKnM2z/zxaSsmISM9lc=
-			</data>
-			<key>hash2</key>
-			<data>
-			V5ZXJ5SZysP6mg0vvx+83wUYAwmUPVMIkZIZSnNMyVI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/bn.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jogdsOM/RmLqYYyAduRrTPNaEJo=
-			</data>
-			<key>hash2</key>
-			<data>
-			WSJ9bJ1PzP70mdAy+MElrc8igih2ZS72d26b8VK1uIk=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/cs.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8RF0uqL/r57CntBjX2XpZL81u5w=
-			</data>
-			<key>hash2</key>
-			<data>
-			MHTT3jnuxjEZNAowm0MSOa7W6syOOr/fnekgXEW48gI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/da.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			OCTi4la60sZ5PhKizFHrKQ9tHYE=
-			</data>
-			<key>hash2</key>
-			<data>
-			m/YPquXCDoWm3Wyh5m1eLhK2D+VBc0pCVxeqmoWSt78=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/de.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EdS+UkBA4n+cg7WUoVx/FquOizo=
-			</data>
-			<key>hash2</key>
-			<data>
-			lRqJXsP8/domUCeGMn3FX4W3EytzRqRW6dhFGatuhwc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/emailshare.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			l3uxVnXNSSF2yIQ+I46tcyyS0UI=
-			</data>
-			<key>hash2</key>
-			<data>
-			rnO1nRfNrNbOCB0uh5ZdaAlIQkKDLRjdMY3Om9p6uRk=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/emailshare@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1YAAV7REX5dtQGAsvMWV4JHA5YQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			Jtim7LgK3mOnU9Af/oN2sJXzyPXAq7bmN7KurOMpUQs=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/emailshare@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			aVSPrFVlTl9GcEG5hCuRLRZSmeE=
-			</data>
-			<key>hash2</key>
-			<data>
-			sG7apKkVaPzZQXH2WY4WOLP91j0yqMyo3vJc19YUtLU=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/en-gb.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FUpkPUHgEXIJYdDVPOflIIV/ME0=
-			</data>
-			<key>hash2</key>
-			<data>
-			JVPvLjMvN4MbYdgOun6nT0O6lridRb43KIFEBdd4YVI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/en.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ztSEEzdTE4iVMjRCUpedNKWZOcU=
-			</data>
-			<key>hash2</key>
-			<data>
-			GuuOlGk+gN+AMJ45M+BK62y+ggit/S78HzauUljjBv8=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/es.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1SmQJI2ZyuSpAiJu9WpIASHrABg=
-			</data>
-			<key>hash2</key>
-			<data>
-			RG7CoDA0cVLg81pYwCo+3cavPDAn1jedj8f+s659kyg=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/fa.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2DBaDhbzn0v37JcomrnibT9K+Bk=
-			</data>
-			<key>hash2</key>
-			<data>
-			TOjmjlmMN6JyF/eoqTMzvtLPwB2hwwS1ARoC4rPSi7o=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/fi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YkJ7O3TLe2zvvQ+LlcuhQ78UroA=
-			</data>
-			<key>hash2</key>
-			<data>
-			/o2KCt5lOfueC6Cwp91OxsBNHKMP6uqrhV2q6dZ9tn0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/fr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oIWWYUsULF6zsrw7UTtNRW2DrgQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			UQF/d1oaKAVfOSdRYbQVBLAGE5B8s9lEe3pkA01XvKM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/he.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QGi+xG/GWjQghEMYdYk5TpOogLA=
-			</data>
-			<key>hash2</key>
-			<data>
-			JhVr4FycKObqrZAs3Oas4gXP1iojh6ttXEPxNP8KmBc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/hi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wyH1sm90gUB6wVxK/qChrTMNGGA=
-			</data>
-			<key>hash2</key>
-			<data>
-			XdMbA0WEc0tMPgplLlOxD/gFiT62quWHD929M2Msud0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/hu.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BI9weTqxWxDIvsdScfdmaeqFWuA=
-			</data>
-			<key>hash2</key>
-			<data>
-			Gu3C6024fdZsOSGnoRCYPuUbI09HHOpGWnh8jKS+2xg=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/id.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			F2+Guf+wJTZ2tmCJ0wgd8GcXyAs=
-			</data>
-			<key>hash2</key>
-			<data>
-			9DoQzFfbK27yXu26df874ibjPJCpkrBaVN+ZanahtBI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/it.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JnPMhSRXS6lZz534xnD921PopYg=
-			</data>
-			<key>hash2</key>
-			<data>
-			rzTc7JXJVKUu8Ht0dw2Jrd+fIDYslaE46OHeDFXF5v8=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ja.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XSkhNNuCPF5kXpBOK7zt4X+RZA0=
-			</data>
-			<key>hash2</key>
-			<data>
-			gBATRLoKzPAWa82Ctt2Af8FjYpv41q2I9j45l3HlnP8=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ko.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			VVH1YES83renW0U2NkqbV/QEA84=
-			</data>
-			<key>hash2</key>
-			<data>
-			Rf+T5W2SMY8yAOw4Ot3qEJ5CrK23uXLAiVKJiJ1wCek=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ms.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			h3ggLowm1QUjeEQJIay2v8zgW1U=
-			</data>
-			<key>hash2</key>
-			<data>
-			jYPmUJf4OSUPArqElvuBXqPLIVfTJovczvtPSkkVN+k=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/nb.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QKw+Kim+ack6aLxwvceaFxF+/7s=
-			</data>
-			<key>hash2</key>
-			<data>
-			CO7PMl0Gu5jWFbkJ3F8NTWj0fpyDXYYttyQTUXO+R6U=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/nl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WvVyiTCo6FORxjsSrubg9FfzKgw=
-			</data>
-			<key>hash2</key>
-			<data>
-			R/gK4trm/1nUNDHzHVGpfLC7VjHOBw4fpvLgJ6hLAuE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/pl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eFTgZgAszhcz7PpiYJVKsH4IdYw=
-			</data>
-			<key>hash2</key>
-			<data>
-			KulH0F1KUmUYmgrpcbQ945yAqmIetDVwXp8dR1h4/e4=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/pt.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/zMWAlYCQYccM/3T4qF4aPfmxPw=
-			</data>
-			<key>hash2</key>
-			<data>
-			xuD8gaZr8fxYXQetHSLQpQcCwxxlWxPd6zEveCf1rOI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ro.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uhfhsfWU0XLJliLibgXPgrv6PUQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			P0Rucvi88zCW/m15ppW+zjTwPG/1mZwVfaMTJzkLlGk=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ru.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8R1tnojEEkqvTT1ROM5brnGGQxU=
-			</data>
-			<key>hash2</key>
-			<data>
-			m5T1aeiyQ2Kg3ypYlAwCoEieAwW1UZdWDBZQSSrEzkQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/sv.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			b9bv/3om3W0rnMgwj7TPbTtnTg0=
-			</data>
-			<key>hash2</key>
-			<data>
-			XUpMEpwspZTplSWAvYtgNLyfkUBzCy/ph7aqrNNbMtc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/th.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Z6lv1xlHd0CZoCmNSnT3atBofrM=
-			</data>
-			<key>hash2</key>
-			<data>
-			GRhc/Ef0n0Yy0aXUrLK05yPDN+xUOgj7iNuipiAe/Es=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/tl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DlIvv2LXmJcQ7UxVvYfan0Rvh1A=
-			</data>
-			<key>hash2</key>
-			<data>
-			CMk95e2kUD79ZNm+bvoyvSDEDMpHR4+WWgdIkHaBtzk=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/tr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2KG7Rl6KDzYX4Ufp5QqYJRI0NIA=
-			</data>
-			<key>hash2</key>
-			<data>
-			vWL9RmGLh3Ta2qJRDL2PFkOW0ZS/hyOuWNQvNFXr7g0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo-white.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DGyTpSVPrGp6XWy01a2V+TuIWGM=
-			</data>
-			<key>hash2</key>
-			<data>
-			ToglWxfJnDPEH66KWg9eQ342owFtgbRKoysiOs4ndCQ=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo-white@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nzZd8l2kfvGZcZ+yuwGmJly0ZuU=
-			</data>
-			<key>hash2</key>
-			<data>
-			AdXQSRg8Tr0lAvariMhz+Gfsb7WOXrcGAHNAeE01Y9M=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo-white@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FVD3TYqcCf48FZMod5bDH4ugNxA=
-			</data>
-			<key>hash2</key>
-			<data>
-			b65+ygsrnE6PV3VgAkgsVm7S6pFZXVQyoAtksOWsv7Q=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4Xnr6m9RFzhrJpmOLThLmbbCu2E=
-			</data>
-			<key>hash2</key>
-			<data>
-			42bNo/FVIGtkvAmGnuogJ2+KXsPYWCbMNMqZbHtQ7nw=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9TcIKb0YopE0OlZF2JykyLNoZXc=
-			</data>
-			<key>hash2</key>
-			<data>
-			K68mNHV8C7m3mVvxNXNESqzvyfzXYBjnaKmoZd0OBdM=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-logo@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2yyo7Wdo2zOBD0e2mVNShUlpVvI=
-			</data>
-			<key>hash2</key>
-			<data>
-			K2jk+v1v8Is7ckMxznJgk9NpYSrMvnsI7P9eFp5RR18=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo-error.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uwd2dGsVZy2NYMT21dETR/vLDqo=
-			</data>
-			<key>hash2</key>
-			<data>
-			7X11gGMW9qkpYqPXpranRsPk14wJ/pV89fafXG5VTDE=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo-error@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			O/3ru94fFmxoxtp8GD8H/PKgl1o=
-			</data>
-			<key>hash2</key>
-			<data>
-			8K6FpuD0YRDNBHuspv3RaLaCJ5crjgphw/uWkmbkU6M=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo-error@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			V8WEwBCVhOPJS3wpwiAR3aGlKj0=
-			</data>
-			<key>hash2</key>
-			<data>
-			pvWcrk/UgJbbaUvGBZ/YSywLYrpgKGoqXJq6uOek6YE=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			o7u51OM8PPJ7z6z5BhWZQnnahy8=
-			</data>
-			<key>hash2</key>
-			<data>
-			BeXiKKtek+X4+NNZ6wuKL3yZy2BSJFHPq+PKRIeBy0M=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6cE6P1xPvhukNRFt5uPZTXXoO4U=
-			</data>
-			<key>hash2</key>
-			<data>
-			Re7EiBc7Sm4tnasfVqoRB5C4VxTfrUeZdnAw5LKwmNs=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-place-holder-photo@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9EUKsFKV2TDh1+djQ2F3qbVW2BM=
-			</data>
-			<key>hash2</key>
-			<data>
-			Gri1QovvMhihGeGI/t2uKdQhLNTgstgSPgf9Q02gXts=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-dark.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yPjMAaYvhYw2fRqpn+rcwalHREc=
-			</data>
-			<key>hash2</key>
-			<data>
-			Uu6xTKVeXguhK2tZfIxjndyyqloH83dItnjIHxWhRIA=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-dark@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zNYxwYjXGtRZfG+ysInIAKeFOc8=
-			</data>
-			<key>hash2</key>
-			<data>
-			vu08Z70MSDJv72gYgTTdEGf24A6cuXZjCqro+mtD8Rs=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-dark@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dBADlNtw67OVHNs78USw5pIYEgw=
-			</data>
-			<key>hash2</key>
-			<data>
-			sAIQ67yPvIDLdPPvU6xZ1Rdl8ZFddP1UUn3B9xNeHpE=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-light.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			A/0HM16Ed45g67C6Lzo+El0OGGc=
-			</data>
-			<key>hash2</key>
-			<data>
-			PlgOGJq6hWcy63XtyKd5nuDDpkRsYnQTi+74LUtT6Jg=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-light@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GVi/U+Vfp9XG7RR/Gfkro9s8uLw=
-			</data>
-			<key>hash2</key>
-			<data>
-			PmFRNDi5a2z8L7RCdqe4XO/7xxflpPb4A70DhtnAdi8=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-retweeted-by-light@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XFSXWKWnV3B+dcztfxnLaYF2350=
-			</data>
-			<key>hash2</key>
-			<data>
-			JB3ZcXXpRiXkciDKEE3/K4oiC9Gf4UnAO2LXifs+ZUM=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified-pressed.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yQRGja7cYlXjUMHtVXM9eM7/aa0=
-			</data>
-			<key>hash2</key>
-			<data>
-			f4QcgRBR2scsyLYPx2D/m7B6vLT3gswbTEMjlGZUdWk=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified-pressed@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			a7rNHYUBZXOK+4XWRG/bwraOHvU=
-			</data>
-			<key>hash2</key>
-			<data>
-			5rahr47OeJxmxkIR2nIixarUF3lESAy3WtWk9kFrGqE=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified-pressed@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4n3CpMRzW5VC8H8GIxXXow6PfZM=
-			</data>
-			<key>hash2</key>
-			<data>
-			BEkjKBTkLz90gan1zDm72vrQXWXLi0D7nNJLl2DnDWo=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Dr1DclGLhLfmu8zDWzzKLzT5k4E=
-			</data>
-			<key>hash2</key>
-			<data>
-			cACPkeRBGeBn5OFDkhvIeCN/luiL/YB7XRM2BAzn3zU=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified@2x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JL5MmZlkptAmGKqQW8ylTs34mwI=
-			</data>
-			<key>hash2</key>
-			<data>
-			0qDs6EsSF0DoZ15il9bhMmah7kWeVHSoVJNmhIQA+kE=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/twttr-icn-tweet-verified@3x.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vL9iQNwWkx729WgHiAJ+5nxtsDA=
-			</data>
-			<key>hash2</key>
-			<data>
-			C9irMC1qJBdO3B5HjDZKa/pI0Tt9xsHp9ImYMUpwf1c=
-			</data>
-		</dict>
-		<key>TwitterKitResources.bundle/uk.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jHV6w0BKyqRWABUPuvQJ4MOOILg=
-			</data>
-			<key>hash2</key>
-			<data>
-			9d71/miHo9aP/SfhoJIrWnXl3eZygQ1TErh86uuMct0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/ur.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ycQHH1UhkVbtKlnbiSq4OYEtpyw=
-			</data>
-			<key>hash2</key>
-			<data>
-			UUbou8K41x6coefpPurjhI6M64sfDb0Kq7obcLReYLY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/vi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MxBIYQSBRNNW4AbiIffaLVK2wu0=
-			</data>
-			<key>hash2</key>
-			<data>
-			qxp81gjYuHSETwiVk2CUv3lRcfkOh/D/3MKshpM+OPc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/zh-Hans.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DDIrm8qrsEfF0gVNuUi8/CC9owA=
-			</data>
-			<key>hash2</key>
-			<data>
-			aSsz5Sju6OFDRq5raAv66gZoTLw/P6dH5H9PPdzGWWs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>TwitterKitResources.bundle/zh-Hant.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RRmM4jasJgujOk3JVjhWivIHhYE=
-			</data>
-			<key>hash2</key>
-			<data>
-			Vi0K1jh2Ugt5JKsaMhscJRCwyyp7sAOOIfT7JEpd++o=
-			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
 		<dict>
@@ -1929,22 +836,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QVSH3G0Cs9XtgFMJRRMLr/FbOgc=
+			7rgp4BzyF2p/MnT3HGivE5PS2go=
 			</data>
 			<key>hash2</key>
 			<data>
-			xXJGgtZRi5DGkT0v2TXKQbsca51daxe+ORDaT6f8T84=
+			XAOl7YRKDHlFVzl+LswE7K6fm55GCp8tCb52mB78T4s=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GHNKQl8I96Ffugek1DDjY4tjSN4=
+			fWtFZGvmtbqM8svFPWSGP6v9z/U=
 			</data>
 			<key>hash2</key>
 			<data>
-			XrsQwg1DfO4D34cTJRapXMKVTpaZBOJ5gT9X++MaETk=
+			CSVJYa0vjC+g50xFLLGWPhX+Bd1TqG1+QMVpsQFUnwM=
 			</data>
 		</dict>
 		<key>www/assets/fonts/sharetech.eot</key>
@@ -2435,22 +1342,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hYeg9zH5hCPufSL3lQ4iz/z1w5U=
+			U5qD+h8czHzRSMNDeKZnVmgA3ao=
 			</data>
 			<key>hash2</key>
 			<data>
-			dfmFgVVKEylAM88S8U6sOC51nA/iWk1KrTshtEvuBmo=
+			vvROt4nAghiz/nS7ekznMtV1kOKlu40f/Me6P8Npd+4=
 			</data>
 		</dict>
 		<key>www/cordova_plugins.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XaQR4qUAAW5z9MFEf4jCZlq+y1g=
+			q6dsBy6hHDRdr/Y+MX+xTnqY4gU=
 			</data>
 			<key>hash2</key>
 			<data>
-			PM/GRWiwkKE6NVesZYfs+/RZaK6Sze9iFVIndwlUmcw=
+			0BfI81iz7Uspax4QyTyTUOqh7+tGQCJumT6a9WWDuXs=
 			</data>
 		</dict>
 		<key>www/index.html</key>
@@ -2468,11 +1375,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fZ/TKnRky2P66tS/Q2hXxqhYzG0=
+			tSIvUVJFOiexVH7nR3ZE0U9jzm8=
 			</data>
 			<key>hash2</key>
 			<data>
-			M/Uphffrxu5OLUD7Vejiz6JE8sneBcM+AO/YBFoTwO4=
+			60CDjo4GdMno+Lgv3+ppxkz35m5oRVdz31VXj12Mf7M=
 			</data>
 		</dict>
 		<key>www/plugins/cordova-plugin-inappbrowser/www/inappbrowser.js</key>
@@ -2490,33 +1397,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			78ykm6BfGmY9oPZxgOIrsKSoRLQ=
+			7Z//HjqdzHbpc9YPdYb5V8uyvHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			mHN9OBZL3LMLKjkAL6vCT+1KUXox6xA67w03K0UtfB4=
+			HdMRrUVw4LyZQkV512UJXXCMloX3dEH+cnCcGbJzX2g=
 			</data>
 		</dict>
 		<key>www/plugins/cordova-plugin-nativestorage/www/NativeStorageError.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MvHxdygizAp99m0mqxazhzI9n/k=
+			zVklss2cgMGsle8iVFJwfwRxa9c=
 			</data>
 			<key>hash2</key>
 			<data>
-			LhZeknAThubs5XMXHVEDI+6xOKIH0An+uCv/99Y2jPw=
+			bt1lVvwlBL0Z00dAAeIdYtcVL4OYJpOdsclXBIA30kY=
 			</data>
 		</dict>
 		<key>www/plugins/cordova-plugin-nativestorage/www/mainHandle.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FoZWl8P6poz3J5T4bMQIDpFsxnE=
+			QHRTH9bZvtRFiCdID26NIkj8kqc=
 			</data>
 			<key>hash2</key>
 			<data>
-			5rhaOPin0iZ3VFUh1bklOIxbIRAiZQ4w8yBa8dNFAdY=
+			OuaSbm13nTtHkay9Egdtg+5TlWMBS3hjvKsw9ynppMg=
 			</data>
 		</dict>
 		<key>www/plugins/twitter-connect-plugin/www/TwitterConnect.js</key>
@@ -2534,22 +1441,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TdYAJWNI3IxYial5oWxV659m2IM=
+			27rmSYDvUawx+7X6fI5f3Vf0IZU=
 			</data>
 			<key>hash2</key>
 			<data>
-			IQNa/hpVxYXGN/SGICkW96DDG9tECIApQuGCcK3oof4=
+			VD2+GO88JTibZs7Yt+K0M0gd0iikCXZH076hum2JV/k=
 			</data>
 		</dict>
 		<key>www/scripts/bunnywars.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HZNY4YaR+BHiOPRAEK6c2nuSdwU=
+			Cz/b93Dbu5NSTuRgLFH74rWLIVA=
 			</data>
 			<key>hash2</key>
 			<data>
-			SHJmGg4/cY7C1AlSB83F4frdKfwzOoL+ECijWgLyYC4=
+			8EqdzltEZ+1Ci/m/nJHFGo1NZd12kEfULDI6p2jlm8E=
 			</data>
 		</dict>
 		<key>www/styles/index.css</key>

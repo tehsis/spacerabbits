@@ -1,0 +1,26 @@
+{
+    "name": "me.tehsis.rabbitwars",
+    "version": "1.0.0",
+    "displayName": "Rabbit Wars",
+    "cordova": {
+        "platforms": [
+            "browser",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-nativestorage": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "358865204487691",
+                "APP_NAME": "rabbitwars"
+            }
+        }
+    },
+    "dependencies": {
+        "cordova-browser": "^4.1.0",
+        "cordova-ios": "~4.4.0",
+        "cordova-plugin-facebook4": "^1.9.1",
+        "cordova-plugin-nativestorage": "^2.2.2",
+        "cordova-plugin-whitelist": "1"
+    }
+}

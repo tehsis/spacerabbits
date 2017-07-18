@@ -13,6 +13,10 @@ exports.login = function login (permissions, s, f) {
   exec(s, f, 'FacebookConnectPlugin', 'login', permissions)
 }
 
+exports.checkHasCorrectPermissions = function checkHasCorrectPermissions (permissions, s, f) {
+  exec(s, f, 'FacebookConnectPlugin', 'checkHasCorrectPermissions', permissions)
+}
+
 exports.logEvent = function logEvent (name, params, valueToSum, s, f) {
   // Prevent NSNulls getting into iOS, messes up our [command.argument count]
   if (!params && !valueToSum) {
@@ -54,6 +58,10 @@ exports.getDeferredApplink = function (s, f) {
 
 exports.activateApp = function (s, f) {
   exec(s, f, 'FacebookConnectPlugin', 'activateApp', [])
+}
+
+exports.getDeferredApplink = function (s, f) {
+	  exec(s, f, 'FacebookConnectPlugin', 'getDeferredApplink', [])
 }
 
 });

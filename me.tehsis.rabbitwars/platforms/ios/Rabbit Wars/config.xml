@@ -18,6 +18,12 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="TwitterConnect">
+        <param name="ios-package" value="TwitterConnect" />
+    </feature>
+    <feature name="NativeStorage">
+        <param name="ios-package" value="NativeStorage" />
+    </feature>
     <feature name="FacebookConnectPlugin">
         <param name="ios-package" value="FacebookConnectPlugin" />
         <param name="onload" value="true" />
@@ -28,12 +34,6 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
-    <feature name="NativeStorage">
-        <param name="ios-package" value="NativeStorage" />
-    </feature>
-    <feature name="TwitterConnect">
-        <param name="ios-package" value="TwitterConnect" />
-    </feature>
     <name>Rabbit Wars</name>
     <description>
       Save the rabbit planet!

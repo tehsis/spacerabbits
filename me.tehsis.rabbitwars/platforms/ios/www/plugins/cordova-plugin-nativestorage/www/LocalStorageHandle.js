@@ -32,6 +32,19 @@ function LocalStorageHandle(success, error, intent, operation, args) {
         } catch (err) {
             error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
         }
+    } else if (operation === 'keys') {
+      var keys = [];
+      var key = localStorage.key(0);
+      if(!key) {
+        return success(keys);
+      }
+      var i = 0;
+      while(key) {
+        keys.push(key);
+        i++;
+        key = localStorage.key(i);
+      }
+      success(keys);
     }
 }
 module.exports = LocalStorageHandle;

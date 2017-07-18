@@ -7,6 +7,9 @@
     "sourceMap": true,
     "jsx": "preserve"
   },
+  "files": [
+    "node_modules/phaser/typescript/phaser.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

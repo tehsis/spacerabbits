@@ -53,7 +53,7 @@ export default class Share extends Phaser.State {
     gameState.save()
       .then(() => {
         form.append('username', gameState.getUserName());
-        form.append('score', gameState.getScore());
+        form.append('score', `${gameState.getScore()}`);
         login.share(gameState.getScore());
         fetch(API.leaderboard, {
           method: 'POST',

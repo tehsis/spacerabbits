@@ -18,11 +18,13 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.FacebookAuthorizationException;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.applinks.AppLinkData;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.share.ShareApi;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.GameRequestContent;
+import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.ShareOpenGraphObject;
 import com.facebook.share.model.ShareOpenGraphAction;
@@ -332,6 +334,9 @@ public class ConnectPlugin extends CordovaPlugin {
             executeAppInvite(args, callbackContext);
 
             return true;
+        } else if (action.equals("getDeferredApplink")) {
+            executeGetDeferredApplink(args, callbackContext);
+            return true;
         } else if (action.equals("activateApp")) {
             cordova.getThreadPool().execute(new Runnable() {
                 @Override
@@ -343,6 +348,26 @@ public class ConnectPlugin extends CordovaPlugin {
             return true;
         }
         return false;
+    }
+
+    private void executeGetDeferredApplink(JSONArray args,
+                                           final CallbackContext callbackContext) {
+        AppLinkData.fetchDeferredAppLinkData(cordova.getActivity().getApplicationContext(),
+                new AppLinkData.CompletionHandler() {
+                    @Override
+                    public void onDeferredAppLinkDataFetched(
+                            AppLinkData appLinkData) {
+                        PluginResult pr;
+                        if (appLinkData == null) {
+                            pr = new PluginResult(PluginResult.Status.OK, "");
+                        } else {
+                            pr = new PluginResult(PluginResult.Status.OK, appLinkData.getTargetUri().toString());
+                        }
+
+                        callbackContext.sendPluginResult(pr);
+                        return;
+                    }
+                });
     }
 
     private void executeAppInvite(JSONArray args, CallbackContext callbackContext) {
@@ -630,6 +655,7 @@ public class ConnectPlugin extends CordovaPlugin {
 
         if (declinedPermission != null) {
             graphContext.error("This request needs declined permission: " + declinedPermission);
+			return;
         }
 
         if (publishPermissions && readPermissions) {
@@ -779,6 +805,9 @@ public class ConnectPlugin extends CordovaPlugin {
             builder.setImageUrl(Uri.parse(paramBundle.get("picture")));
         if (paramBundle.containsKey("quote"))
             builder.setQuote(paramBundle.get("quote"));
+        if (paramBundle.containsKey("hashtag"))
+            builder.setShareHashtag(new ShareHashtag.Builder().setHashtag(paramBundle.get("hashtag")).build());
+
         return builder.build();
     }
 

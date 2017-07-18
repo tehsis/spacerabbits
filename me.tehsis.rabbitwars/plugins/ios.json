@@ -13,16 +13,16 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "me.tehsis.rabbitwars"
         },
-        "cordova-plugin-facebook4": {
-            "APP_ID": "358865204487691",
-            "APP_NAME": "rabbit wars",
+        "twitter-connect-plugin": {
+            "FABRIC_KEY": "a60a174ae63d1b523973a55c9a2a753d933ac057",
             "PACKAGE_NAME": "me.tehsis.rabbitwars"
         },
         "cordova-plugin-nativestorage": {
             "PACKAGE_NAME": "me.tehsis.rabbitwars"
         },
-        "twitter-connect-plugin": {
-            "FABRIC_KEY": "a60a174ae63d1b523973a55c9a2a753d933ac057",
+        "cordova-plugin-facebook4": {
+            "APP_ID": "358865204487691",
+            "APP_NAME": "rabbitwars",
             "PACKAGE_NAME": "me.tehsis.rabbitwars"
         }
     },

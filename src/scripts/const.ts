@@ -9,7 +9,7 @@ const GAME = {
     NUMBER_OF_ASTEROIDS: 10
 };
 
-const baseAPI = 'http://100.77.127.150:8080';
+const baseAPI = 'http://192.168.0.7:8080';
 
 const API = {
     login: `${baseAPI}/login`,

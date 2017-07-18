@@ -10,11 +10,11 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
-        "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
-        "pluginId": "cordova-plugin-facebook4",
+        "id": "twitter-connect-plugin.TwitterConnect",
+        "file": "plugins/twitter-connect-plugin/www/TwitterConnect.js",
+        "pluginId": "twitter-connect-plugin",
         "clobbers": [
-            "facebookConnectPlugin"
+            "TwitterConnect"
         ]
     },
     {
@@ -36,11 +36,11 @@ module.exports = [
         "pluginId": "cordova-plugin-nativestorage"
     },
     {
-        "id": "twitter-connect-plugin.TwitterConnect",
-        "file": "plugins/twitter-connect-plugin/www/TwitterConnect.js",
-        "pluginId": "twitter-connect-plugin",
+        "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
+        "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
+        "pluginId": "cordova-plugin-facebook4",
         "clobbers": [
-            "TwitterConnect"
+            "facebookConnectPlugin"
         ]
     }
 ];
@@ -49,9 +49,9 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.3.1",
     "cordova-plugin-inappbrowser": "1.6.1",
-    "cordova-plugin-facebook4": "1.7.4",
-    "cordova-plugin-nativestorage": "2.2.0",
-    "twitter-connect-plugin": "0.6.0"
+    "twitter-connect-plugin": "0.6.0",
+    "cordova-plugin-nativestorage": "2.2.2",
+    "cordova-plugin-facebook4": "1.9.1"
 };
 // BOTTOM OF METADATA
 });

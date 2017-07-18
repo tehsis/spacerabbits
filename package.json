@@ -12,7 +12,6 @@
   "dependencies": {
     "@types/es6-promise": "0.0.32",
     "@types/form-data": "0.0.33",
-    "@types/isomorphic-fetch": "0.0.32",
     "auth0-lock": "^10.7.3",
     "babel-loader": "^6.3.2",
     "es6-promise": "^4.0.5",
@@ -25,7 +24,7 @@
     "phaser-swipe": "git+ssh://git@github.com/tehsis/phaser-swipe.git",
     "preact": "^7.2.0",
     "script-loader": "^0.7.0",
-    "typescript": "^2.0.3",
+    "typescript": "^2.3.4",
     "webfontloader": "^1.6.27",
     "webpack": "^1.12.9"
   },

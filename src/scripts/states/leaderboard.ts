@@ -1,5 +1,5 @@
 import { GAME, API } from '../const';
-import * as fetch from 'isomorphic-fetch'
+import 'isomorphic-fetch'
 
 class Leaderboard extends Phaser.State {
         private rabbit: Phaser.Sprite;

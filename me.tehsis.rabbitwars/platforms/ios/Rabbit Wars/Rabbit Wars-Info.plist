@@ -24,6 +24,47 @@
     <string>1.0.0</string>
     <key>CFBundleSignature</key>
     <string>????</string>
+    <key>CFBundleVersion</key>
+    <string>1.0.0</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>NSMainNibFile</key>
+    <string/>
+    <key>NSMainNibFile~ipad</key>
+    <string/>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UIRequiresFullScreen</key>
+    <true/>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
+    </array>
+    <key>Fabric</key>
+    <dict>
+      <key>APIKey</key>
+      <string>a60a174ae63d1b523973a55c9a2a753d933ac057</string>
+      <key>Kits</key>
+      <array/>
+    </dict>
+    <key>FacebookAppID</key>
+    <string>358865204487691</string>
+    <key>FacebookDisplayName</key>
+    <string>rabbitwars</string>
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -33,21 +74,6 @@
         </array>
       </dict>
     </array>
-    <key>CFBundleVersion</key>
-    <string>1.0.0</string>
-    <key>FacebookAppID</key>
-    <string>358865204487691</string>
-    <key>FacebookDisplayName</key>
-    <string>rabbit wars</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>fbapi</string>
-      <string>fb-messenger-api</string>
-      <string>fbauth2</string>
-      <string>fbshareextension</string>
-    </array>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSExceptionDomains</key>
@@ -69,30 +95,6 @@
           <true/>
         </dict>
       </dict>
-    </dict>
-    <key>NSMainNibFile~ipad</key>
-    <string/>
-    <key>UIMainStoryboardFile</key>
-    <string>CDVLaunchScreen</string>
-    <key>UIRequiresFullScreen</key>
-    <true/>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-    </array>
-    <key>UISupportedInterfaceOrientations~ipad</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>Fabric</key>
-    <dict>
-      <key>APIKey</key>
-      <string>a60a174ae63d1b523973a55c9a2a753d933ac057</string>
-      <key>Kits</key>
-      <array/>
     </dict>
   </dict>
 </plist>

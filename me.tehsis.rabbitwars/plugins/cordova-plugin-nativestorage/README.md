@@ -27,8 +27,10 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 	* [Supported data types] (#supported_data_types)
 	* [Storing values](#storing_values)
 	* [Retrieving values](#retrieving_values)
+	* [Retrieving all keys](#retrieving_keys)
 	* [Removing values](#removing_values)
 	* [Demo Example](#demo_example)
+- [Security](#security)
 - [Errors](#errors)
 - [Problems](#problems)
 - [F.A.Q](#FAQ)
@@ -123,6 +125,11 @@ NativeStorage.setItem("reference_to_value",<value>, <success-callback>, <error-c
 ###<a name="retrieving_values"></a>Retrieving values
 ```javascript
 NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>);
+```
+
+###<a name="retrieving_keys"></a>Retrieving all keys
+```javascript
+NativeStorage.keys(<success-callback>, <error-callback>);
 ```
 
 ###<a name="removing_values"></a>Removing values
@@ -238,6 +245,10 @@ cordova run browser
 cordova run windows
 ```
 
+##<a name="security"></a>Security
+Is it safe to store sensitive data via this plugin?
+ - Yes and No, all stored values are only accessible by your application, which makes it safe. However, the values can be viewed when the attacker has access to your phone's password (e.g. lock-pattern) through an un-encrypted back-up on Android (if back-up is enabled) or through root-access. The latter is only possible if the phone is rooted. An extra encryption mechanism would be of value when an extra user-supplied password is used. This mode is on our [Future Track](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Future-track) list.
+
 ##<a name="errors"></a>Errors
 Error object contains:
 - code
@@ -276,6 +287,8 @@ If you have code issues, things not related to a bug of the plugin please consid
 ##<a name="FAQ"></a>F.A.Q.
 - Is data persistent between app updates?
 	* Yes. The data should persistent till the app has been deleted from the device. This because the plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS.
+- Oh no my stored data is not cleared after reinstalling my application. How do I resolve this 'issue'?
+	* You need to set `android:allowBackup=false` in the application tag of AndroidManifest.xml. More information at [this issue](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/issues/57) and [this StackOverflow question](http://stackoverflow.com/questions/42538421/ionic-nativestorage-not-clear-when-reinstal-application-release).
 - What database are you using and why?
 	* None.Tthe plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS. These strategies are designed for storing data quick and easy. See the [usage of the plugin](#when) for more info about DB vs NativeStorage.
 - Is it possible to save images and audio with the plugin?
