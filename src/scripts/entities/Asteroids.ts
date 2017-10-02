@@ -1,5 +1,7 @@
 import IGroupEntity from './IEntity';
 
+import {GAME} from '../const';
+
 // FIXME this positions should be always aligned with the rabbit bullets
 const positions = [ 106, 156, 216, 256, 306 ];
 
@@ -9,6 +11,8 @@ class Asteroids implements IGroupEntity {
   onDestroyed : () => void;
   destroyedSound: Phaser.Sound;
   modifier: number;
+  init_quantity: number;
+  current_quantity: number;
 
   constructor (game: Phaser.Game, quantity: number, onDestroyed) {
     this.game = game;
@@ -18,17 +22,19 @@ class Asteroids implements IGroupEntity {
     this.modifier = 0;
 
     this.destroyedSound = this.game.add.sound('explosion')
-    this.init(quantity);
+    this.init_quantity = quantity;
+    this.init();
   }
 
   getGroup(): Phaser.Group {
     return this.resource;
   }
 
-  init (quantity: number) {
-    for (let i = 0; i<quantity; i++) {
+  init () {
+    for (let i = 0; i<this.init_quantity; i++) {
       this.createAsteroid();
     }
+    this.current_quantity = this.init_quantity;
   }
 
   createAsteroid() {
@@ -40,9 +46,18 @@ class Asteroids implements IGroupEntity {
     let animation = asteroid.animations.add('destroyed');
     this.game.physics.arcade.enable(asteroid);
     asteroid.body.setCircle(10);
+    
     setInterval(() => {
         this.modifier++;
-    }, 10000);
+    }, GAME.INCREASE_SPEED_TIME);
+
+    setInterval(() => {
+      if (this.current_quantity <= GAME.MAX_ASTEROIDS) {
+        this.createAsteroid();
+        this.current_quantity++;
+      }
+    }, GAME.CREATE_ASTEROID_TIME);
+
     asteroid.body.gravity.y = (Math.random() * this.modifier) + 10;
     animation.onComplete.add((desroyedAsteroid: Phaser.Sprite) => {
         this.onDestroyed();

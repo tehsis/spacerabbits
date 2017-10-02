@@ -84,7 +84,7 @@ class Rabbit implements ISpriteEntity {
 
 
   move() {
-    const action = this.input.checkAction();
+    const action = this.input.checkAction(availablePositions[this.currentPosition]);
 
     if (action === 'LEFT') {
       if (Positions.LEFT_CORNER !== this.currentPosition) {

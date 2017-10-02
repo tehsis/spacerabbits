@@ -1,30 +1,32 @@
-/// <reference path="../../../node_modules/phaser-swipe/phaser-swipe.d.ts" />
-import Swipe from 'phaser-swipe';
+/// <reference path="../../../node_modules/phaser/typescript/phaser.d.ts" />
 
 export default class Input {
-
-  cursors: Phaser.CursorKeys;
-  swipe: Swipe;
-
+  game: Phaser.Game
+  block: boolean
   constructor (game: Phaser.Game) {
-    this.swipe = new Swipe(game);
+    this.game = game;
+    this.block = false;
   }
 
-  checkAction () {
-    const direction = this.swipe.check();
-    switch (direction && direction.direction ) {
-      case this.swipe.DIRECTION_UP_LEFT:
-      case this.swipe.DIRECTION_DOWN_LEFT:
-      case this.swipe.DIRECTION_LEFT:
-        return 'LEFT';
-      case this.swipe.DIRECTION_UP_RIGHT:
-      case this.swipe.DIRECTION_DOWN_RIGHT:
-      case this.swipe.DIRECTION_RIGHT:
-        return 'RIGHT';
-      case this.swipe.DIRECTION_UP: 
-        return 'UP';
-    }
+  checkAction (rabbitPosition) {
+    const pointer = this.game.input.pointer1;
+    const screen = this.game.width;
 
-    return null;
+    if (pointer.isDown && !this.block) {
+      this.block = true;      
+      if (pointer.positionDown.x > this.game.width-100) {
+          return 'RIGHT';
+      }
+
+      if (pointer.positionDown.x < 100) {
+        return 'LEFT';
+      }
+   }
+
+   if (pointer.isUp) {
+    this.block = false;
+   }
+   
+   return null;
   }
 }

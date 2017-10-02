@@ -44,7 +44,7 @@ NSString* const kCDVAssetsLibraryPrefixes = @"assets-library://";
 
     return NO;
 }
-
+ 
 + (NSURLRequest*)canonicalRequestForRequest:(NSURLRequest*)request
 {
     // NSLog(@"%@ received %@", self, NSStringFromSelector(_cmd));
@@ -57,7 +57,7 @@ NSString* const kCDVAssetsLibraryPrefixes = @"assets-library://";
     NSURL* url = [[self request] URL];
 
     if ([[url absoluteString] hasPrefix:kCDVAssetsLibraryPrefixes]) {
-        ALAssetsLibraryAssetForURLResultBlock resultBlock = ^(ALAsset* asset) {
+            ALAssetsLibraryAssetForURLResultBlock resultBlock = ^(ALAsset* asset) {
             if (asset) {
                 // We have the asset!  Get the data and send it along.
                 ALAssetRepresentation* assetRepresentation = [asset defaultRepresentation];

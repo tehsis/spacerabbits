@@ -6,10 +6,13 @@ const GAME = {
         BASE_HEIGHT: 667
     },
     INITIAL_LIFES: 3,
-    NUMBER_OF_ASTEROIDS: 10
+    NUMBER_OF_ASTEROIDS: 10,
+    INCREASE_SPEED_TIME: 5000,
+    MAX_ASTEROIDS: 100,
+    CREATE_ASTEROID_TIME: 10000
 };
 
-const baseAPI = 'http://192.168.0.7:8080';
+const baseAPI = 'http://104.131.195.202:8080';
 
 const API = {
     login: `${baseAPI}/login`,
