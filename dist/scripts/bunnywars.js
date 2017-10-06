@@ -52,6 +52,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	__webpack_require__(1);
 	__webpack_require__(4);
 	__webpack_require__(6);
@@ -144,6 +145,7 @@
 
 	"use strict";
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var GAME = {
 	    DEFAULT_STATE: 'Boot',
 	    DOM_ELEMENT: 'bunnywars-main',
@@ -160,9 +162,9 @@
 	exports.GAME = GAME;
 	var baseAPI = 'http://104.131.195.202:8080';
 	var API = {
-	    login: baseAPI + '/login',
-	    url: '' + baseAPI,
-	    leaderboard: baseAPI + '/leaderboard'
+	    login: baseAPI + "/login",
+	    url: "" + baseAPI,
+	    leaderboard: baseAPI + "/leaderboard"
 	};
 	exports.API = API;
 
@@ -175,6 +177,8 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	
 	var Game = function () {
 	    function Game(args) {
@@ -219,6 +223,7 @@
 
 	"use strict";
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var boot_1 = __webpack_require__(11);
 	exports.Boot = boot_1.default;
 	var loader_1 = __webpack_require__(15);
@@ -244,6 +249,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var game_state_1 = __webpack_require__(12);
 	
 	var Boot = function (_Phaser$State) {
@@ -256,10 +262,10 @@
 	    }
 	
 	    _createClass(Boot, [{
-	        key: 'scaleStage',
+	        key: "scaleStage",
 	        value: function scaleStage() {}
 	    }, {
-	        key: 'create',
+	        key: "create",
 	        value: function create() {
 	            game_state_1.default.goTo('Loader');
 	        }
@@ -268,7 +274,6 @@
 	    return Boot;
 	}(Phaser.State);
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Boot;
 
 /***/ }),
@@ -281,6 +286,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
 	__webpack_require__(13);
 	var initialState = {
@@ -306,29 +312,29 @@
 	    }
 	
 	    _createClass(GameState, [{
-	        key: 'reset',
+	        key: "reset",
 	        value: function reset() {
 	            var username = this.state.username;
 	            this.setState(initialState);
 	            this.setState({ username: username });
 	        }
 	    }, {
-	        key: 'increaseScore',
+	        key: "increaseScore",
 	        value: function increaseScore(amount) {
 	            this.setState({ score: this.state.score + amount });
 	        }
 	    }, {
-	        key: 'decreaseLife',
+	        key: "decreaseLife",
 	        value: function decreaseLife(amount) {
 	            this.setState({ life: this.state.life - amount });
 	        }
 	    }, {
-	        key: 'save',
+	        key: "save",
 	        value: function save() {
 	            var _this = this;
 	
 	            return new Promise(function (resolve, reject) {
-	                NativeStorage.setItem('rabbit-wars', _this.state, function () {
+	                NativeStorage.setItem("rabbit-wars", _this.state, function () {
 	                    resolve();
 	                }, function (e) {
 	                    reject(e);
@@ -336,53 +342,53 @@
 	            });
 	        }
 	    }, {
-	        key: 'goTo',
+	        key: "goTo",
 	        value: function goTo(screen) {
 	            this.setState({
 	                screen: screen
 	            });
 	        }
 	    }, {
-	        key: 'getUserName',
+	        key: "getUserName",
 	        value: function getUserName() {
 	            return this.state.username;
 	        }
 	    }, {
-	        key: 'setUsername',
+	        key: "setUsername",
 	        value: function setUsername(username) {
 	            this.setState({ username: username });
 	        }
 	    }, {
-	        key: 'getScore',
+	        key: "getScore",
 	        value: function getScore() {
 	            return this.state.score;
 	        }
 	    }, {
-	        key: 'getLifes',
+	        key: "getLifes",
 	        value: function getLifes() {
 	            return this.state.life;
 	        }
 	    }, {
-	        key: 'openModal',
+	        key: "openModal",
 	        value: function openModal(name) {
 	            return this.setUI({
 	                modal: name
 	            });
 	        }
 	    }, {
-	        key: 'closeModal',
+	        key: "closeModal",
 	        value: function closeModal() {
 	            return this.setUI({
 	                modal: null
 	            });
 	        }
 	    }, {
-	        key: 'load',
+	        key: "load",
 	        value: function load() {
 	            var _this2 = this;
 	
 	            return new Promise(function (resolve, reject) {
-	                NativeStorage.getItem('rabbit-wars', function (state) {
+	                NativeStorage.getItem("rabbit-wars", function (state) {
 	                    _this2.setState(state);
 	                    resolve();
 	                }, function () {
@@ -392,7 +398,7 @@
 	            });
 	        }
 	    }, {
-	        key: 'change',
+	        key: "change",
 	        value: function change() {
 	            var _this3 = this;
 	
@@ -401,12 +407,12 @@
 	            });
 	        }
 	    }, {
-	        key: 'onChange',
+	        key: "onChange",
 	        value: function onChange(cb) {
 	            this.listeners.push(cb);
 	        }
 	    }, {
-	        key: 'isOver',
+	        key: "isOver",
 	        value: function isOver(finish) {
 	            if (finish !== undefined) {
 	                this.state.gameOver = finish;
@@ -414,22 +420,22 @@
 	            return this.state.gameOver;
 	        }
 	    }, {
-	        key: 'serialize',
+	        key: "serialize",
 	        value: function serialize() {
 	            return JSON.stringify(this.state);
 	        }
 	    }, {
-	        key: 'getJSON',
+	        key: "getJSON",
 	        value: function getJSON() {
 	            return this.state;
 	        }
 	    }, {
-	        key: 'getState',
+	        key: "getState",
 	        value: function getState() {
 	            return Object.assign({}, this.state);
 	        }
 	    }, {
-	        key: 'getLeaderboard',
+	        key: "getLeaderboard",
 	        value: function getLeaderboard() {
 	            var _this4 = this;
 	
@@ -449,23 +455,23 @@
 	            });
 	        }
 	    }, {
-	        key: 'setAuthToken',
+	        key: "setAuthToken",
 	        value: function setAuthToken(auth_token) {
 	            this.setState({ auth_token: auth_token });
 	        }
 	    }, {
-	        key: 'getAuthToken',
+	        key: "getAuthToken",
 	        value: function getAuthToken() {
 	            return this.state.auth_token;
 	        }
 	    }, {
-	        key: 'setUI',
+	        key: "setUI",
 	        value: function setUI(uiState) {
 	            this.state.ui = Object.assign({}, this.state.ui, uiState);
 	            this.change();
 	        }
 	    }, {
-	        key: 'setState',
+	        key: "setState",
 	        value: function setState(state) {
 	            this.state = Object.assign({}, this.state, state);
 	            this.change();
@@ -477,7 +483,6 @@
 	
 	exports.GameState = GameState;
 	var gameState = new GameState();
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = gameState;
 
 /***/ }),
@@ -582,7 +587,10 @@
 	      headers.forEach(function(value, name) {
 	        this.append(name, value)
 	      }, this)
-	
+	    } else if (Array.isArray(headers)) {
+	      headers.forEach(function(header) {
+	        this.append(header[0], header[1])
+	      }, this)
 	    } else if (headers) {
 	      Object.getOwnPropertyNames(headers).forEach(function(name) {
 	        this.append(name, headers[name])
@@ -970,6 +978,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var assetHandlerManager_1 = __webpack_require__(16);
 	var game_state_1 = __webpack_require__(12);
 	
@@ -983,7 +992,7 @@
 	    }
 	
 	    _createClass(Loader, [{
-	        key: 'create',
+	        key: "create",
 	        value: function create() {
 	            this.assets = assetHandlerManager_1.default.getAssetsHandler(this.game);
 	            this.assets.loadImage('planet');
@@ -1005,7 +1014,7 @@
 	            this.game.load.start();
 	        }
 	    }, {
-	        key: '_loadStart',
+	        key: "_loadStart",
 	        value: function _loadStart() {
 	            this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY, 'Loading...', {
 	                font: 'bold 32px Tron',
@@ -1013,7 +1022,7 @@
 	            });
 	        }
 	    }, {
-	        key: '_loadComplete',
+	        key: "_loadComplete",
 	        value: function _loadComplete() {
 	            var _this2 = this;
 	
@@ -1028,7 +1037,6 @@
 	    return Loader;
 	}(Phaser.State);
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Loader;
 
 /***/ }),
@@ -1037,6 +1045,7 @@
 
 	"use strict";
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var AssetsHandler_1 = __webpack_require__(17);
 	var assetHandler = null;
 	var AssetHandlerManager = {
@@ -1047,7 +1056,6 @@
 	        return assetHandler;
 	    }
 	};
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = AssetHandlerManager;
 
 /***/ }),
@@ -1060,6 +1068,8 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
+	
 	var AssetsHandler = function () {
 	    function AssetsHandler(game) {
 	        _classCallCheck(this, AssetsHandler);
@@ -1069,32 +1079,32 @@
 	    }
 	
 	    _createClass(AssetsHandler, [{
-	        key: 'get',
+	        key: "get",
 	        value: function get(type, asset) {
-	            return this.base + '/' + type + '/' + asset;
+	            return this.base + "/" + type + "/" + asset;
 	        }
 	    }, {
-	        key: 'getImage',
+	        key: "getImage",
 	        value: function getImage(asset) {
-	            return this.get('images', asset + '.png');
+	            return this.get('images', asset + ".png");
 	        }
 	    }, {
-	        key: 'getAudio',
+	        key: "getAudio",
 	        value: function getAudio(asset) {
-	            return this.get('sounds', asset + '.wav');
+	            return this.get('sounds', asset + ".wav");
 	        }
 	    }, {
-	        key: 'loadImage',
+	        key: "loadImage",
 	        value: function loadImage(name) {
 	            this.game.load.image(name, this.getImage(name));
 	        }
 	    }, {
-	        key: 'loadSpreadSheet',
+	        key: "loadSpreadSheet",
 	        value: function loadSpreadSheet(name, width, height) {
 	            this.game.load.spritesheet(name, this.getImage(name), width, height);
 	        }
 	    }, {
-	        key: 'loadSound',
+	        key: "loadSound",
 	        value: function loadSound(name) {
 	            this.game.load.audio(name, this.getAudio(name));
 	        }
@@ -1119,6 +1129,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var game_state_1 = __webpack_require__(12);
 	var Planet_1 = __webpack_require__(19);
 	var Rabbit_1 = __webpack_require__(20);
@@ -1133,7 +1144,7 @@
 	    }
 	
 	    _createClass(MainMenu, [{
-	        key: 'create',
+	        key: "create",
 	        value: function create() {
 	            this.game.stage.backgroundColor = '#1F1333';
 	            var stars = this.game.add.sprite(0, 0, 'stars');
@@ -1156,7 +1167,6 @@
 	}(Phaser.State);
 	
 	;
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = MainMenu;
 
 /***/ }),
@@ -1168,6 +1178,8 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	
 	var Planet = function () {
 	    function Planet(game, x, y) {
@@ -1191,7 +1203,6 @@
 	    return Planet;
 	}();
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Planet;
 
 /***/ }),
@@ -1204,6 +1215,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var input_1 = __webpack_require__(21);
 	var bullets_1 = __webpack_require__(22);
 	var Positions;
@@ -1239,8 +1251,6 @@
 	
 	var Rabbit = function () {
 	    function Rabbit(game, fixedPosition) {
-	        var _this = this;
-	
 	        _classCallCheck(this, Rabbit);
 	
 	        this.game = game;
@@ -1253,13 +1263,10 @@
 	        this.jumpSound = this.game.add.sound('jump');
 	        this.input = new input_1.default(this.game);
 	        this.bullets = new bullets_1.default(this.game, 20);
-	        this.game.input.onTap.add(function (pointer) {
-	            _this.shoot();
-	        });
 	    }
 	
 	    _createClass(Rabbit, [{
-	        key: 'move',
+	        key: "move",
 	        value: function move() {
 	            var action = this.input.checkAction(availablePositions[this.currentPosition]);
 	            if (action === 'LEFT') {
@@ -1272,10 +1279,11 @@
 	                    this.currentPosition++;
 	                }
 	            }
+	            this.shoot();
 	            this.moveTo(this.currentPosition);
 	        }
 	    }, {
-	        key: 'moveTo',
+	        key: "moveTo",
 	        value: function moveTo(position) {
 	            var new_position = availablePositions[position];
 	            if (this.getSprite().x !== new_position.x && this.getSprite().y !== new_position.y) {
@@ -1286,17 +1294,17 @@
 	            this.getSprite().rotation = new_position.rotation;
 	        }
 	    }, {
-	        key: 'getSprite',
+	        key: "getSprite",
 	        value: function getSprite() {
 	            return this.sprite;
 	        }
 	    }, {
-	        key: 'getBullets',
+	        key: "getBullets",
 	        value: function getBullets() {
 	            return this.bullets.getGroup();
 	        }
 	    }, {
-	        key: 'shoot',
+	        key: "shoot",
 	        value: function shoot() {
 	            if (this.game.time.now > this.bulletTime) {
 	                var bullet = this.bullets.getGroup().getFirstExists(false);
@@ -1313,7 +1321,6 @@
 	    return Rabbit;
 	}();
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Rabbit;
 
 /***/ }),
@@ -1326,6 +1333,8 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
+	
 	var Input = function () {
 	    function Input(game) {
 	        _classCallCheck(this, Input);
@@ -1335,16 +1344,16 @@
 	    }
 	
 	    _createClass(Input, [{
-	        key: 'checkAction',
+	        key: "checkAction",
 	        value: function checkAction(rabbitPosition) {
 	            var pointer = this.game.input.pointer1;
 	            var screen = this.game.width;
 	            if (pointer.isDown && !this.block) {
 	                this.block = true;
-	                if (pointer.positionDown.x > this.game.width - 100) {
+	                if (pointer.positionDown.x > this.game.width / 2) {
 	                    return 'RIGHT';
 	                }
-	                if (pointer.positionDown.x < 100) {
+	                if (pointer.positionDown.x < this.game.width / 2) {
 	                    return 'LEFT';
 	                }
 	            }
@@ -1358,7 +1367,6 @@
 	    return Input;
 	}();
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Input;
 
 /***/ }),
@@ -1370,6 +1378,8 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	
 	var Bullets = function () {
 	    function Bullets(game, amount) {
@@ -1404,7 +1414,6 @@
 	    return Bullets;
 	}();
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Bullets;
 
 /***/ }),
@@ -1421,6 +1430,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
 	var Asteroids_1 = __webpack_require__(24);
 	var Planet_1 = __webpack_require__(19);
@@ -1441,7 +1451,7 @@
 	    }
 	
 	    _createClass(MainGame, [{
-	        key: 'create',
+	        key: "create",
 	        value: function create() {
 	            this.game.stage.backgroundColor = '#1F1333';
 	            this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -1454,10 +1464,10 @@
 	            this.rabbit = new Rabbit_1.default(this.game);
 	            this.score = this.game.add.text(64, 38, '0', style);
 	            this.lifes = this._createLifes();
-	            this.score.text = '' + this.state.getScore();
+	            this.score.text = "" + this.state.getScore();
 	        }
 	    }, {
-	        key: '_createLifes',
+	        key: "_createLifes",
 	        value: function _createLifes() {
 	            var lifes = [];
 	            for (var i = 0; i < this.state.getLifes(); i++) {
@@ -1466,7 +1476,7 @@
 	            return lifes;
 	        }
 	    }, {
-	        key: '_updateLifes',
+	        key: "_updateLifes",
 	        value: function _updateLifes() {
 	            var _this2 = this;
 	
@@ -1475,7 +1485,7 @@
 	            });
 	        }
 	    }, {
-	        key: 'update',
+	        key: "update",
 	        value: function update() {
 	            var _this3 = this;
 	
@@ -1484,7 +1494,7 @@
 	                asteroid.animations.play('destroyed');
 	                bullet.kill();
 	                _this3.state.increaseScore(SCORES.SIMPLE_ASTEROID);
-	                _this3.score.text = '' + _this3.state.getScore();
+	                _this3.score.text = "" + _this3.state.getScore();
 	            }, null, this);
 	            this.game.physics.arcade.collide(this.planet.getSprite(), this.asteroids.getGroup(), function (planet, asteroid) {
 	                asteroid.animations.play('destroyed');
@@ -1503,7 +1513,6 @@
 	}(Phaser.State);
 	
 	exports.MainGame = MainGame;
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = MainGame;
 
 /***/ }),
@@ -1516,6 +1525,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
 	var positions = [106, 156, 216, 256, 306];
 	
@@ -1533,12 +1543,12 @@
 	    }
 	
 	    _createClass(Asteroids, [{
-	        key: 'getGroup',
+	        key: "getGroup",
 	        value: function getGroup() {
 	            return this.resource;
 	        }
 	    }, {
-	        key: 'init',
+	        key: "init",
 	        value: function init() {
 	            for (var i = 0; i < this.init_quantity; i++) {
 	                this.createAsteroid();
@@ -1546,7 +1556,7 @@
 	            this.current_quantity = this.init_quantity;
 	        }
 	    }, {
-	        key: 'createAsteroid',
+	        key: "createAsteroid",
 	        value: function createAsteroid() {
 	            var _this = this;
 	
@@ -1579,7 +1589,6 @@
 	    return Asteroids;
 	}();
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Asteroids;
 
 /***/ }),
@@ -1596,6 +1605,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
 	__webpack_require__(13);
 	
@@ -1609,7 +1619,7 @@
 	    }
 	
 	    _createClass(Leaderboard, [{
-	        key: 'create',
+	        key: "create",
 	        value: function create() {
 	            var _this2 = this;
 	
@@ -1624,7 +1634,7 @@
 	                return response.json();
 	            }).then(function (leaderboad) {
 	                leaderboad.forEach(function (r, i) {
-	                    _this2.game.add.text(_this2.game.world.centerX - 150, _this2.game.world.centerY - 200 + i * 40, i + 1 + '. ' + r.Username, {
+	                    _this2.game.add.text(_this2.game.world.centerX - 150, _this2.game.world.centerY - 200 + i * 40, i + 1 + ". " + r.Username, {
 	                        font: 'bold 20px spacemono',
 	                        fill: '#fff'
 	                    });
@@ -1643,7 +1653,6 @@
 	    return Leaderboard;
 	}(Phaser.State);
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Leaderboard;
 
 /***/ }),
@@ -1660,6 +1669,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var preact_1 = __webpack_require__(27);
 	var const_1 = __webpack_require__(8);
 	var game_state_1 = __webpack_require__(12);
@@ -1679,7 +1689,7 @@
 	    }
 	
 	    _createClass(App, [{
-	        key: 'componentDidMount',
+	        key: "componentDidMount",
 	        value: function componentDidMount() {
 	            var _this2 = this;
 	
@@ -1688,26 +1698,26 @@
 	            });
 	        }
 	    }, {
-	        key: 'onClose',
+	        key: "onClose",
 	        value: function onClose() {
 	            game_state_1.default.closeModal();
 	        }
 	    }, {
-	        key: 'onPlay',
+	        key: "onPlay",
 	        value: function onPlay() {
 	            game_state_1.default.goTo('MainGame');
 	        }
 	    }, {
-	        key: 'onShare',
+	        key: "onShare",
 	        value: function onShare() {
 	            var authToken = game_state_1.default.getAuthToken();
 	            var form = new FormData();
-	            form.append('score', '' + game_state_1.default.getScore());
+	            form.append('score', "" + game_state_1.default.getScore());
 	            if (authToken) {
 	                fetch(const_1.API.leaderboard, {
 	                    method: 'POST',
 	                    headers: {
-	                        'Authorization': 'Bearer ' + authToken
+	                        'Authorization': "Bearer " + authToken
 	                    },
 	                    body: form
 	                }).then(function () {
@@ -1720,14 +1730,14 @@
 	            }
 	        }
 	    }, {
-	        key: 'onFbLogin',
+	        key: "onFbLogin",
 	        value: function onFbLogin() {
 	            login_1.default.login('Facebook').then(function (accessToken) {
 	                return game_state_1.default.setAuthToken(accessToken);
 	            });
 	        }
 	    }, {
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
 	            if ('leaderboard' === this.state.ui.modal) {
 	                return preact_1.h(modals_1.Leaderboard, { leaderboard: this.state.leaderboard, onCloseButtonClick: this.onClose, onPlayButtonClick: this.onPlay });
@@ -1745,7 +1755,6 @@
 	function default_1(parent) {
 	    preact_1.render(preact_1.h(App, null), parent);
 	}
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = default_1;
 
 /***/ }),
@@ -1835,7 +1844,7 @@
 	    function isSameNodeType(node, vnode) {
 	        if (isString(vnode)) return node instanceof Text;
 	        if (isString(vnode.nodeName)) return !node._componentConstructor && isNamedNode(node, vnode.nodeName);
-	        if (isFunction(vnode.nodeName)) return (node._componentConstructor ? node._componentConstructor === vnode.nodeName : !0) || isFunctionalComponent(vnode); else ;
+	        if (isFunction(vnode.nodeName)) return (node._componentConstructor ? node._componentConstructor === vnode.nodeName : !0) || isFunctionalComponent(vnode); else return;
 	    }
 	    function isNamedNode(node, nodeName) {
 	        return node.normalizedNodeName === nodeName || toLowerCase(node.nodeName) === toLowerCase(nodeName);
@@ -1907,7 +1916,7 @@
 	    }
 	    function diff(dom, vnode, context, mountAll, parent, componentRoot) {
 	        if (!diffLevel++) {
-	            isSvgMode = parent && 'undefined' != typeof parent.ownerSVGElement;
+	            isSvgMode = parent && void 0 !== parent.ownerSVGElement;
 	            hydrating = dom && !(ATTR_KEY in dom);
 	        }
 	        var ret = idiff(dom, vnode, context, mountAll);
@@ -2249,6 +2258,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
 	var Credentials = {
 	    Facebook: function Facebook() {
@@ -2353,7 +2363,6 @@
 	    return Login;
 	}();
 	
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = new Login();
 
 /***/ }),
@@ -2370,6 +2379,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var preact_1 = __webpack_require__(27);
 	var MODAL_CLASSNAME = 'modal';
 	var MODAL_HIDE = 'modal-hide';
@@ -2388,57 +2398,57 @@
 	    }
 	
 	    _createClass(Modal, [{
-	        key: 'onCloseButtonClick',
+	        key: "onCloseButtonClick",
 	        value: function onCloseButtonClick(e) {
 	            this.hide();
 	            this.props.onCloseButtonClick(e);
 	        }
 	    }, {
-	        key: 'onPlayButtonClick',
+	        key: "onPlayButtonClick",
 	        value: function onPlayButtonClick(e) {
 	            this.hide();
 	            this.props.onPlayButtonClick(e);
 	        }
 	    }, {
-	        key: 'hide',
+	        key: "hide",
 	        value: function hide() {
 	            this.setState({
 	                show: false
 	            });
 	        }
 	    }, {
-	        key: 'show',
+	        key: "show",
 	        value: function show() {
 	            this.setState({
 	                show: true
 	            });
 	        }
 	    }, {
-	        key: 'body',
+	        key: "body",
 	        value: function body() {}
 	    }, {
-	        key: 'closeButton',
+	        key: "closeButton",
 	        value: function closeButton() {
-	            return preact_1.h('button', { 'class': 'close-button', onClick: this.onCloseButtonClick.bind(this) });
+	            return preact_1.h("button", { "class": "close-button", onClick: this.onCloseButtonClick.bind(this) });
 	        }
 	    }, {
-	        key: 'header',
+	        key: "header",
 	        value: function header() {}
 	    }, {
-	        key: 'footer',
+	        key: "footer",
 	        value: function footer() {}
 	    }, {
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
 	            return preact_1.h(
-	                'div',
-	                { 'class': MODAL_CLASSNAME },
+	                "div",
+	                { "class": MODAL_CLASSNAME },
 	                this.closeButton(),
 	                this.header(),
 	                this.body(),
 	                preact_1.h(
-	                    'div',
-	                    { 'class': 'modal-footer' },
+	                    "div",
+	                    { "class": "modal-footer" },
 	                    this.footer()
 	                )
 	            );
@@ -2460,43 +2470,43 @@
 	    }
 	
 	    _createClass(Leaderboard, [{
-	        key: 'header',
+	        key: "header",
 	        value: function header() {
 	            return preact_1.h(
-	                'div',
-	                { 'class': 'modal-header' },
+	                "div",
+	                { "class": "modal-header" },
 	                preact_1.h(
-	                    'h2',
+	                    "h2",
 	                    null,
-	                    'Leaderboard'
+	                    "Leaderboard"
 	                )
 	            );
 	        }
 	    }, {
-	        key: 'body',
+	        key: "body",
 	        value: function body() {
 	            if (!Array.isArray(this.props.leaderboard) || this.props.leaderboard.length === 0) {
 	                return preact_1.h(
-	                    'div',
+	                    "div",
 	                    null,
-	                    'The leaderboard is not available now! Grab a carrot and try again later.'
+	                    "The leaderboard is not available now! Grab a carrot and try again later."
 	                );
 	            }
 	            return preact_1.h(
-	                'ol',
+	                "ol",
 	                null,
 	                this.props.leaderboard.map(function (score) {
 	                    return preact_1.h(
-	                        'li',
+	                        "li",
 	                        null,
 	                        preact_1.h(
-	                            'span',
-	                            { 'class': 'player-name' },
+	                            "span",
+	                            { "class": "player-name" },
 	                            score.Username
 	                        ),
 	                        preact_1.h(
-	                            'span',
-	                            { 'class': 'player-points' },
+	                            "span",
+	                            { "class": "player-points" },
 	                            score.Points
 	                        )
 	                    );
@@ -2504,12 +2514,12 @@
 	            );
 	        }
 	    }, {
-	        key: 'footer',
+	        key: "footer",
 	        value: function footer() {
 	            return preact_1.h(
-	                'button',
-	                { 'class': 'play-button', onClick: this.onPlayButtonClick.bind(this) },
-	                'play'
+	                "button",
+	                { "class": "play-button", onClick: this.onPlayButtonClick.bind(this) },
+	                "play"
 	            );
 	        }
 	    }]);
@@ -2529,51 +2539,51 @@
 	    }
 	
 	    _createClass(GameOver, [{
-	        key: 'header',
+	        key: "header",
 	        value: function header() {
 	            return preact_1.h(
-	                'div',
-	                { 'class': 'modal-header' },
+	                "div",
+	                { "class": "modal-header" },
 	                preact_1.h(
-	                    'h2',
+	                    "h2",
 	                    null,
-	                    'Game Over'
+	                    "Game Over"
 	                )
 	            );
 	        }
 	    }, {
-	        key: 'body',
+	        key: "body",
 	        value: function body() {
 	            console.log('state gameover', this.props.authToken);
 	            return preact_1.h(
-	                'div',
+	                "div",
 	                null,
 	                preact_1.h(
-	                    'div',
-	                    { 'class': 'game-over-points' },
+	                    "div",
+	                    { "class": "game-over-points" },
 	                    this.props.points,
-	                    ' pts'
+	                    " pts"
 	                ),
 	                !this.props.authToken ? preact_1.h(
-	                    'div',
-	                    { 'class': 'game-over-share' },
-	                    preact_1.h('button', { 'class': 'logo logo-twitter' }),
-	                    preact_1.h('button', { onClick: this.props.onFbClick, 'class': 'logo logo-facebook' })
+	                    "div",
+	                    { "class": "game-over-share" },
+	                    preact_1.h("button", { "class": "logo logo-twitter" }),
+	                    preact_1.h("button", { onClick: this.props.onFbClick, "class": "logo logo-facebook" })
 	                ) : '',
 	                preact_1.h(
-	                    'div',
-	                    { 'class': 'game-over-instructions' },
-	                    'login to place your score into the leaderboard'
+	                    "div",
+	                    { "class": "game-over-instructions" },
+	                    "login to place your score into the leaderboard"
 	                )
 	            );
 	        }
 	    }, {
-	        key: 'footer',
+	        key: "footer",
 	        value: function footer() {
 	            return preact_1.h(
-	                'button',
-	                { 'class': 'play-button', onClick: this.onPlayButtonClick.bind(this) },
-	                'send score!'
+	                "button",
+	                { "class": "play-button", onClick: this.onPlayButtonClick.bind(this) },
+	                "send score!"
 	            );
 	        }
 	    }]);

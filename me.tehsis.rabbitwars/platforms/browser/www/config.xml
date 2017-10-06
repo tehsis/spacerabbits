@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="me.tehsis.rabbitwars" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <feature name="NativeStorage">
-        <param name="browser-package" value="NativeStorage" />
-    </feature>
     <feature name="FacebookConnectPlugin">
         <param name="browser-package" value="FacebookConnectPluginBrowser" />
         <param name="onload" value="true" />
@@ -14,6 +11,9 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
+    <feature name="NativeStorage">
+        <param name="browser-package" value="NativeStorage" />
+    </feature>
     <name>Rabbit Wars</name>
     <description>
       Save the rabbit planet!

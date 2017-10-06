@@ -22,7 +22,7 @@
   "_resolved": "https://registry.npmjs.org/cordova-plugin-nativestorage/-/cordova-plugin-nativestorage-2.2.2.tgz",
   "_shasum": "8d965876956c9ad463472eb1b58f8e4e813a717a",
   "_spec": "cordova-plugin-nativestorage",
-  "_where": "/Users/tehsis/workspace/SpaceRabbits/bunnywars/me.tehsis.rabbitwars.back/node_modules",
+  "_where": "/Users/tehsis/workspace/SpaceRabbits/bunnywars-new/me.tehsis.rabbitwars/node_modules",
   "author": {
     "name": "Gilles Callebaut",
     "email": "callebaut.gilles@gmail.com"

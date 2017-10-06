@@ -28,10 +28,10 @@
     <preference name="TwitterConsumerKey" value="&lt;Twitter Consumer Key&gt;" />
     <preference name="TwitterConsumerSecret" value="&lt;Twitter Consumer Secret&gt;" />
     <engine name="browser" spec="^4.1.0" />
-    <engine name="ios" spec="~4.4.0" />
+    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="358865204487691" />
-        <variable name="APP_NAME" value="rabbitwars" />
+        <variable name="APP_NAME" value="rabbit wars" />
     </plugin>
     <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
     <plugin name="cordova-plugin-whitelist" spec="1" />

@@ -119,7 +119,7 @@ export class GameState {
   load () {
     return new Promise((resolve, reject) => {
       NativeStorage.getItem(`rabbit-wars`, (state) => {
-        this.setState(state);
+         this.setState(state);
         resolve();
       }, () => {
         this.setState(initialState);

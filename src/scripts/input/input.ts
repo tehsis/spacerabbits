@@ -14,11 +14,11 @@ export default class Input {
 
     if (pointer.isDown && !this.block) {
       this.block = true;      
-      if (pointer.positionDown.x > this.game.width-100) {
+      if (pointer.positionDown.x > this.game.width/2) {
           return 'RIGHT';
       }
 
-      if (pointer.positionDown.x < 100) {
+      if (pointer.positionDown.x < this.game.width/2) {
         return 'LEFT';
       }
    }

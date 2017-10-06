@@ -7,14 +7,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-inappbrowser@1.6.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "twitter-connect-plugin": {
         "source": {
             "type": "registry",
@@ -25,6 +17,17 @@
             "FABRIC_KEY": "a60a174ae63d1b523973a55c9a2a753d933ac057"
         }
     },
+    "cordova-plugin-facebook4": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-facebook4@^1.9.1"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "358865204487691",
+            "APP_NAME": "rabbit wars"
+        }
+    },
     "cordova-plugin-nativestorage": {
         "source": {
             "type": "registry",
@@ -32,16 +35,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-facebook4": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-facebook4"
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "358865204487691",
-            "APP_NAME": "rabbitwars"
-        }
     }
 }

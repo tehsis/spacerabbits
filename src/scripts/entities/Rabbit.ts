@@ -54,7 +54,6 @@ class Rabbit implements ISpriteEntity {
     this.game = game;
     this.lock = false;
     
-
     this.bulletTime = 0;
 
     this.currentPosition = Positions.CENTER;
@@ -75,11 +74,6 @@ class Rabbit implements ISpriteEntity {
 
       this.bullets = new Bullets(this.game, 20);
 
-      this.game.input.onTap.add((pointer) => {
-        this.shoot()
-      });
-    
-
   }
 
 
@@ -97,7 +91,7 @@ class Rabbit implements ISpriteEntity {
         this.currentPosition++;
       }
     }
-
+    this.shoot();
     this.moveTo(this.currentPosition);
   }
 

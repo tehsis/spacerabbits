@@ -6,23 +6,23 @@
 	objectVersion = 46;
 	objects = {
 /* Begin PBXBuildFile section */
-		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
+		027B7A81DF9A44A9A08D2AE4 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = BA811E80E8EB4BE1A69F0A98 /* FacebookConnectPlugin.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		220258CE1F82704B008DB2FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220258CD1F82704B008DB2FA /* Images.xcassets */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
+		4100DF70347B4CA0914DA76B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C60C72413DA48C495348D61 /* FBSDKLoginKit.framework */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
-		11C8712E1AF74EF1A8D05D22 /* NativeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E07146B2E44FA09938244F /* NativeStorage.m */; };
-		06A367F0EDA54E1284D493FD /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E597DBBB348BAA14EF39F /* FacebookConnectPlugin.m */; };
-		8599191D16F3489D89D94942 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55276F27F8724E7A975DB09D /* Bolts.framework */; };
-		AA88F53A32E44517915302C0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FAB6E561504A3EA5A1FBB6 /* FBSDKCoreKit.framework */; };
-		55AD594234EE4AD0BB245E48 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB8DF7BC97C4B29BE50C58E /* FBSDKLoginKit.framework */; };
-		03EA3F7B2E124EC6908687EF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D487D1D5A11140609D0183A8 /* FBSDKShareKit.framework */; };
+		6BAD5F56A1CF44909BEE15CC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D678DED4A949F2BD9CA37A /* Bolts.framework */; };
+		B7E82E34CD084CC0B71D9318 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94742847A32342E480B000B3 /* FBSDKShareKit.framework */; };
+		E4CF4B6D91B047A7935E3224 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCF6F3B89CB4304A134DACC /* FBSDKCoreKit.framework */; };
+		F4E19645767D47EA9E94FE08 /* NativeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AAA41D9A654423ADC12FFF /* NativeStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		220D813D1F1E1C8000186CA9 /* PBXContainerItemProxy */ = {
+		220258C11F826902008DB2FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 			proxyType = 2;
@@ -46,10 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Rabbit Wars/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		13AA6D6F679E44FEA12D8916 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = FacebookConnectPlugin.h; path = "cordova-plugin-facebook4/FacebookConnectPlugin.h"; sourceTree = "<group>"; };
+		1C60C72413DA48C495348D61 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Rabbit Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rabbit Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		220258CD1F82704B008DB2FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Rabbit Wars/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
@@ -60,20 +62,18 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* Rabbit Wars-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Rabbit Wars-Prefix.pch"; sourceTree = "<group>"; };
+		5FCF6F3B89CB4304A134DACC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = "Rabbit Wars/CDVLaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Rabbit Wars-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Rabbit Wars-Info.plist"; path = "Rabbit Wars/Rabbit Wars-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
+		94742847A32342E480B000B3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		BA811E80E8EB4BE1A69F0A98 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = FacebookConnectPlugin.m; path = "cordova-plugin-facebook4/FacebookConnectPlugin.m"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F7D678DED4A949F2BD9CA37A /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/Bolts.framework"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Rabbit Wars/config.xml"; sourceTree = "<group>"; };
-		D9E07146B2E44FA09938244F /* NativeStorage.m */ = {isa = PBXFileReference; name = "NativeStorage.m"; path = "cordova-plugin-nativestorage/NativeStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		F02C1198532A48EFAADA3FC4 /* NativeStorage.h */ = {isa = PBXFileReference; name = "NativeStorage.h"; path = "cordova-plugin-nativestorage/NativeStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		609E597DBBB348BAA14EF39F /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.m"; path = "cordova-plugin-facebook4/FacebookConnectPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		60681E208D9E498391D2A850 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.h"; path = "cordova-plugin-facebook4/FacebookConnectPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		55276F27F8724E7A975DB09D /* Bolts.framework */ = {isa = PBXFileReference; name = "Bolts.framework"; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/Bolts.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		87FAB6E561504A3EA5A1FBB6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; name = "FBSDKCoreKit.framework"; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		4CB8DF7BC97C4B29BE50C58E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; name = "FBSDKLoginKit.framework"; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		D487D1D5A11140609D0183A8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "Rabbit Wars/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		E2AAA41D9A654423ADC12FFF /* NativeStorage.m */ = {isa = PBXFileReference; name = "NativeStorage.m"; path = "cordova-plugin-nativestorage/NativeStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		1CC05F4A90E74560AD0EA1C1 /* NativeStorage.h */ = {isa = PBXFileReference; name = "NativeStorage.h"; path = "cordova-plugin-nativestorage/NativeStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +82,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				8599191D16F3489D89D94942 /* Bolts.framework in Frameworks */,
-				AA88F53A32E44517915302C0 /* FBSDKCoreKit.framework in Frameworks */,
-				55AD594234EE4AD0BB245E48 /* FBSDKLoginKit.framework in Frameworks */,
-				03EA3F7B2E124EC6908687EF /* FBSDKShareKit.framework in Frameworks */,
+				6BAD5F56A1CF44909BEE15CC /* Bolts.framework in Frameworks */,
+				E4CF4B6D91B047A7935E3224 /* FBSDKCoreKit.framework in Frameworks */,
+				4100DF70347B4CA0914DA76B /* FBSDKLoginKit.framework in Frameworks */,
+				B7E82E34CD084CC0B71D9318 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +144,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0207DA571B56EA530066E2B4 /* Images.xcassets */,
+				220258CD1F82704B008DB2FA /* Images.xcassets */,
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Rabbit Wars-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
@@ -156,10 +156,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55276F27F8724E7A975DB09D /* Bolts.framework */,
-				87FAB6E561504A3EA5A1FBB6 /* FBSDKCoreKit.framework */,
-				4CB8DF7BC97C4B29BE50C58E /* FBSDKLoginKit.framework */,
-				D487D1D5A11140609D0183A8 /* FBSDKShareKit.framework */,
+				F7D678DED4A949F2BD9CA37A /* Bolts.framework */,
+				5FCF6F3B89CB4304A134DACC /* FBSDKCoreKit.framework */,
+				1C60C72413DA48C495348D61 /* FBSDKLoginKit.framework */,
+				94742847A32342E480B000B3 /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				301BF535109A57CC0062928A /* libCordova.a */,
-				220D813E1F1E1C8000186CA9 /* Cordova.framework */,
+				220258C21F826902008DB2FA /* Cordova.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,10 +186,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				D9E07146B2E44FA09938244F /* NativeStorage.m */,
-				F02C1198532A48EFAADA3FC4 /* NativeStorage.h */,
-				609E597DBBB348BAA14EF39F /* FacebookConnectPlugin.m */,
-				60681E208D9E498391D2A850 /* FacebookConnectPlugin.h */,
+				BA811E80E8EB4BE1A69F0A98 /* FacebookConnectPlugin.m */,
+				13AA6D6F679E44FEA12D8916 /* FacebookConnectPlugin.h */,
+				E2AAA41D9A654423ADC12FFF /* NativeStorage.m */,
+				1CC05F4A90E74560AD0EA1C1 /* NativeStorage.h */,
 			);
 			name = Plugins;
 			path = "Rabbit Wars/Plugins";
@@ -236,6 +236,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 54WG6D3NB5;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -262,11 +263,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		220D813E1F1E1C8000186CA9 /* Cordova.framework */ = {
+		220258C21F826902008DB2FA /* Cordova.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Cordova.framework;
-			remoteRef = 220D813D1F1E1C8000186CA9 /* PBXContainerItemProxy */;
+			remoteRef = 220258C11F826902008DB2FA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		301BF535109A57CC0062928A /* libCordova.a */ = {
@@ -283,8 +284,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220258CE1F82704B008DB2FA /* Images.xcassets in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
-				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,8 +318,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				11C8712E1AF74EF1A8D05D22 /* NativeStorage.m in Sources */,
-				06A367F0EDA54E1284D493FD /* FacebookConnectPlugin.m in Sources */,
+				027B7A81DF9A44A9A08D2AE4 /* FacebookConnectPlugin.m in Sources */,
+				F4E19645767D47EA9E94FE08 /* NativeStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +343,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 54WG6D3NB5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
+					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
+					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
+					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -351,21 +361,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Rabbit Wars/Rabbit Wars-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "Rabbit Wars";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-				);
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -378,28 +378,27 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 54WG6D3NB5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rabbit Wars/Rabbit Wars-Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = "";
-				INFOPLIST_FILE = "Rabbit Wars/Rabbit Wars-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_NAME = "Rabbit Wars";
-				TARGETED_DEVICE_FAMILY = "1,2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
-					"\"Rabbit Wars/Plugins/cordova-plugin-facebook4\"",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rabbit Wars/Rabbit Wars-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "Rabbit Wars/Rabbit Wars-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_NAME = "Rabbit Wars";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

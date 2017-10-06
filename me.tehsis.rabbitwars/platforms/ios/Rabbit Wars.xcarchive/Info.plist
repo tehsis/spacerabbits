@@ -13,12 +13,12 @@
 		<key>CFBundleVersion</key>
 		<string>1.0.0</string>
 		<key>SigningIdentity</key>
-		<string>iPhone Developer: tehsis@gmail.com (52JA3Q9JNN)</string>
+		<string>iPhone Developer: Pablo Terradillos (52JA3Q9JNN)</string>
 	</dict>
 	<key>ArchiveVersion</key>
 	<integer>2</integer>
 	<key>CreationDate</key>
-	<date>2017-08-20T21:24:27Z</date>
+	<date>2017-10-03T10:00:56Z</date>
 	<key>Name</key>
 	<string>Rabbit Wars</string>
 	<key>SchemeName</key>
