@@ -10,11 +10,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		EjPEkgpZJh5E67Fx0Omx00vE/XI=
+		2C9DfAM6JmFzFATCrHtjWzuLgVU=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		7DkiZN1Z/SMqqbGDk6X16E5O5sY=
+		v7fSsQXrFB4bvMpxB8f9yGy/T80=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		pGjcUiGy1PuMynwZ9QYdmy5hxYg=
+		lArjkekOwPNxUkimqyFfXQ8Nzfs=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7vauVwy8CO2Hi+UYCvClCCABqJw=
+		Cuo4gJS/IoXXJxhuuvgyFKO/sZ4=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		P3FyFmdWCQtjJPSWZuTQQGNUeAU=
+		F8xasWAiWZc1VbvcUC+94TWS4/k=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>config.xml</key>
 		<data>
-		uno+WL041vQegPPRh8T97P9yuyc=
+		f2cKQy6UgMOSRFV+3p2dBXc3NY0=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -172,6 +172,14 @@
 		<data>
 		jLovTxCgg7zrOSqwgBhxH6vYFEI=
 		</data>
+		<key>www/assets/images/asteroids-blue.png</key>
+		<data>
+		jOwIKJsgIcLW/CvauzqbxENPGtU=
+		</data>
+		<key>www/assets/images/asteroids-orange.png</key>
+		<data>
+		a0GJkL4IGzQuwMKE+PeaNJOnBY4=
+		</data>
 		<key>www/assets/images/backgrund-stars.png</key>
 		<data>
 		IQJvl43Gozi66d5XafWiJc6F+zI=
@@ -179,6 +187,10 @@
 		<key>www/assets/images/bala.png</key>
 		<data>
 		6OhiwoU0JiBTDDOFFecSZC5WO4Q=
+		</data>
+		<key>www/assets/images/celeste.png</key>
+		<data>
+		jOwIKJsgIcLW/CvauzqbxENPGtU=
 		</data>
 		<key>www/assets/images/close-button.png</key>
 		<data>
@@ -204,6 +216,10 @@
 		<data>
 		lKx7bJ40Fogr0OW2oSlnY3GqIp0=
 		</data>
+		<key>www/assets/images/loader.png</key>
+		<data>
+		ushPE2eOHeYXADrZvngqTvc9XgM=
+		</data>
 		<key>www/assets/images/main-menu-button.png</key>
 		<data>
 		EbbAIh4C40XsXakgix620cLyrxk=
@@ -223,6 +239,14 @@
 		<key>www/assets/images/planet.png</key>
 		<data>
 		cVPTtXRH1xpNLcOBv4QwMoniotg=
+		</data>
+		<key>www/assets/images/rabbit-sheet.png</key>
+		<data>
+		LmPEr34HpPKulHGf67i/1SHwbVE=
+		</data>
+		<key>www/assets/images/rabbit-sheet.svg</key>
+		<data>
+		CFfhAW5NEO2zLmWAZxliAFj7iI0=
 		</data>
 		<key>www/assets/images/rabbit.png</key>
 		<data>
@@ -248,6 +272,10 @@
 		<data>
 		L2tV0y0IwWTTe6Fk037F+Sh4FLY=
 		</data>
+		<key>www/assets/sounds/squarenoise.mp3</key>
+		<data>
+		a/feXtPqu1C2kl3k0WXn9a3+DLU=
+		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
 		3QDPaUQrAr8Wq2XcQhqcl8DLabQ=
@@ -262,7 +290,7 @@
 		</data>
 		<key>www/cordova_plugins.js</key>
 		<data>
-		/04KeRCjzdEZgkQYnlhOZUx2slA=
+		EVsj1eyVOYe2MvmcpMNPvih6WCs=
 		</data>
 		<key>www/index.html</key>
 		<data>
@@ -284,21 +312,29 @@
 		<data>
 		QHRTH9bZvtRFiCdID26NIkj8kqc=
 		</data>
+		<key>www/plugins/cordova-plugin-splashscreen/www/splashscreen.js</key>
+		<data>
+		n2E0W8B/grOxM2ORx/haAYOWIcA=
+		</data>
+		<key>www/plugins/cordova-plugin-vibration/www/vibration.js</key>
+		<data>
+		j3i/p9i/Hek1cLdtoLxMNfeU5Tw=
+		</data>
 		<key>www/plugins/twitter-connect-plugin/www/TwitterConnect.js</key>
 		<data>
 		jjAICfdQ8EXgOk8q9EOF2FNMTpc=
 		</data>
 		<key>www/scripts/bunnywars.js</key>
 		<data>
-		4QfdSrI6Fk3xwigZgNbPVeLWcdA=
+		nsagtHeF+TpP1D9L7+CB0eZSHhA=
 		</data>
 		<key>www/scripts/bunnywars.js.map</key>
 		<data>
-		1vn8bj+vtctDndGQTagPCiKCbCI=
+		u2AfnNw7BnlJrB4RfQ+aPLgyUMU=
 		</data>
 		<key>www/styles/index.css</key>
 		<data>
-		AvdGupkLaAOz4DoPiU8F2C8EZ6U=
+		lx6xpSUlU2EsKa9tfOECwoNQlc0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -318,22 +354,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EjPEkgpZJh5E67Fx0Omx00vE/XI=
+			2C9DfAM6JmFzFATCrHtjWzuLgVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			6aZvtx3cJqlJgWvOyToSYuxeyC2ZCvXWQm1kvLk6HWU=
+			4PJJPgJnr94OJHgcL+Cwj1bv3ggeXYqT1a7A0Fcm8m8=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7DkiZN1Z/SMqqbGDk6X16E5O5sY=
+			v7fSsQXrFB4bvMpxB8f9yGy/T80=
 			</data>
 			<key>hash2</key>
 			<data>
-			ntx4b/MMP80jTKEfCZnNcSDBsoxs8zl60zN1omhbXII=
+			ocpEtIIRUmM4rnahCmMSrA6G0vWtHhnVaWmDSHwoCPU=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -351,11 +387,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pGjcUiGy1PuMynwZ9QYdmy5hxYg=
+			lArjkekOwPNxUkimqyFfXQ8Nzfs=
 			</data>
 			<key>hash2</key>
 			<data>
-			WjCLC6cSzr7Dxg6RmiNbl+Fd4DMiQbI0MH+Oi3NkoxE=
+			iIpi+A06+omRL3vscNIDC46xd1uY32ZEvzFxlSrtJM4=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -450,11 +486,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			P3FyFmdWCQtjJPSWZuTQQGNUeAU=
+			F8xasWAiWZc1VbvcUC+94TWS4/k=
 			</data>
 			<key>hash2</key>
 			<data>
-			7MCZepcgTGNWpbcaz/5PbJ4IfIUpSurkY/YmZxcBxWE=
+			QESsajGYQIIGCxlP4nax1/GzM1kyKyvoU2QcSdgMUu8=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -472,11 +508,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uno+WL041vQegPPRh8T97P9yuyc=
+			f2cKQy6UgMOSRFV+3p2dBXc3NY0=
 			</data>
 			<key>hash2</key>
 			<data>
-			MXQS/tmDgFnCvgGR/tJ8X9tM8KeXrjuyN/MkZP2s6KI=
+			P/G1lIVVflxZAXTKx2uh1mNAHL5skjImg66eAAVCBg4=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
@@ -743,6 +779,28 @@
 			kn84GYhazTUA2dYQlACiOtF6RrgBZjGijDOFY64N+GA=
 			</data>
 		</dict>
+		<key>www/assets/images/asteroids-blue.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jOwIKJsgIcLW/CvauzqbxENPGtU=
+			</data>
+			<key>hash2</key>
+			<data>
+			+K7pC+FJO/OXZociYUIkYw6VoaGA02Qa4K19oDSNOKo=
+			</data>
+		</dict>
+		<key>www/assets/images/asteroids-orange.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			a0GJkL4IGzQuwMKE+PeaNJOnBY4=
+			</data>
+			<key>hash2</key>
+			<data>
+			a+KAyr/LzC31X9AU1PeDRgZUEPy/pVZnW0KGaGr1uL4=
+			</data>
+		</dict>
 		<key>www/assets/images/backgrund-stars.png</key>
 		<dict>
 			<key>hash</key>
@@ -763,6 +821,17 @@
 			<key>hash2</key>
 			<data>
 			Ozw+8n2cLoB9v8WQrdL4aOPtLcZFXuTF2yvauK81nwQ=
+			</data>
+		</dict>
+		<key>www/assets/images/celeste.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jOwIKJsgIcLW/CvauzqbxENPGtU=
+			</data>
+			<key>hash2</key>
+			<data>
+			+K7pC+FJO/OXZociYUIkYw6VoaGA02Qa4K19oDSNOKo=
 			</data>
 		</dict>
 		<key>www/assets/images/close-button.png</key>
@@ -831,6 +900,17 @@
 			ur2oDjRlZM4H8FP0NWXjIc0bfXH2j7gz/tL0w4ksGII=
 			</data>
 		</dict>
+		<key>www/assets/images/loader.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ushPE2eOHeYXADrZvngqTvc9XgM=
+			</data>
+			<key>hash2</key>
+			<data>
+			LswCaiRK3g89yisUfUreB78i2ujClH3GHFNrAc/vE8o=
+			</data>
+		</dict>
 		<key>www/assets/images/main-menu-button.png</key>
 		<dict>
 			<key>hash</key>
@@ -884,6 +964,28 @@
 			<key>hash2</key>
 			<data>
 			SNpgyRbRBtYLIVfpB4SA7ikx1EQC/S8zjSIPFIqfXIY=
+			</data>
+		</dict>
+		<key>www/assets/images/rabbit-sheet.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LmPEr34HpPKulHGf67i/1SHwbVE=
+			</data>
+			<key>hash2</key>
+			<data>
+			fpmvlcHMlwKYrgZUSVIwH9kqVBmKcSsENWKX3bjehpI=
+			</data>
+		</dict>
+		<key>www/assets/images/rabbit-sheet.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CFfhAW5NEO2zLmWAZxliAFj7iI0=
+			</data>
+			<key>hash2</key>
+			<data>
+			BwlUSYUAz/3d1XRGKtZuZRUEZiGyDhbydAUAbprqmYY=
 			</data>
 		</dict>
 		<key>www/assets/images/rabbit.png</key>
@@ -952,6 +1054,17 @@
 			ORSDdZMtfOfHEgVaIH8wC+Ij6lUVfzU2RKBskVvVsqE=
 			</data>
 		</dict>
+		<key>www/assets/sounds/squarenoise.mp3</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			a/feXtPqu1C2kl3k0WXn9a3+DLU=
+			</data>
+			<key>hash2</key>
+			<data>
+			qHadL4gIHLLKuqfnTglW2kltCC9Iu/qAES0Lye3DM4Y=
+			</data>
+		</dict>
 		<key>www/cordova-js-src/exec.js</key>
 		<dict>
 			<key>hash</key>
@@ -989,11 +1102,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/04KeRCjzdEZgkQYnlhOZUx2slA=
+			EVsj1eyVOYe2MvmcpMNPvih6WCs=
 			</data>
 			<key>hash2</key>
 			<data>
-			+6FoBbiwGxgfPYhFgyFNoAOkTwGUgOM00dZEZ2YA+FE=
+			LGQ4/XjeN6tTRYmfteUArdDlokRyo3Vtdal9mTottOI=
 			</data>
 		</dict>
 		<key>www/index.html</key>
@@ -1051,6 +1164,28 @@
 			OuaSbm13nTtHkay9Egdtg+5TlWMBS3hjvKsw9ynppMg=
 			</data>
 		</dict>
+		<key>www/plugins/cordova-plugin-splashscreen/www/splashscreen.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n2E0W8B/grOxM2ORx/haAYOWIcA=
+			</data>
+			<key>hash2</key>
+			<data>
+			YSn19P0zRIG9MxdesT37iqYB1WqXVOFIXyjmnTn6foU=
+			</data>
+		</dict>
+		<key>www/plugins/cordova-plugin-vibration/www/vibration.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j3i/p9i/Hek1cLdtoLxMNfeU5Tw=
+			</data>
+			<key>hash2</key>
+			<data>
+			mgNzVHxjBPhcGRwGCVxOQRj7jj8PwnaQpJeHL9EDlWs=
+			</data>
+		</dict>
 		<key>www/plugins/twitter-connect-plugin/www/TwitterConnect.js</key>
 		<dict>
 			<key>hash</key>
@@ -1066,33 +1201,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4QfdSrI6Fk3xwigZgNbPVeLWcdA=
+			nsagtHeF+TpP1D9L7+CB0eZSHhA=
 			</data>
 			<key>hash2</key>
 			<data>
-			fjSL/B2ry1Y6vhD1Wyb9FO9sBo/qGSp35kfEt2u6pSc=
+			AEc1vaUmKQte3nEXY9h2EGlESL079VQtyKpRLlKfRvM=
 			</data>
 		</dict>
 		<key>www/scripts/bunnywars.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1vn8bj+vtctDndGQTagPCiKCbCI=
+			u2AfnNw7BnlJrB4RfQ+aPLgyUMU=
 			</data>
 			<key>hash2</key>
 			<data>
-			/rfFud6X0QBKHDOyniQuA4Cfd9m3pi9Lg5fLiw71pGA=
+			YVanlbnDyw9Av5nRhr2b9mzfIvTS0mtQfEjiv4zV4Vk=
 			</data>
 		</dict>
 		<key>www/styles/index.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AvdGupkLaAOz4DoPiU8F2C8EZ6U=
+			lx6xpSUlU2EsKa9tfOECwoNQlc0=
 			</data>
 			<key>hash2</key>
 			<data>
-			yLbTFLYo+PIlt2cG26g7mENOWlVXjPHwId8z/2rZi70=
+			UZpY6CUW1X9S0lCC5200gYt2i1z3fanIf19czQ0/g1Y=
 			</data>
 		</dict>
 	</dict>

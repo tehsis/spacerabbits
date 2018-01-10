@@ -10,9 +10,7 @@ class Loader extends Phaser.State {
 
       this.assets.loadImage('planet');
       this.assets.loadImage('stars');
-      this.assets.loadImage('rabbit');
       this.assets.loadImage('heart');
-      this.assets.loadImage('rabbit-intro');
       this.assets.loadImage('bala');
       this.assets.loadImage('gunpoints');
       this.assets.loadImage('new-game-button')
@@ -21,8 +19,11 @@ class Loader extends Phaser.State {
       this.assets.loadSound('shoot');
       this.assets.loadSound('explosion');
       this.assets.loadSound('jump');
-
-      this.assets.loadSpreadSheet('destroyed', 20, 21);
+      this.assets.loadSound('squarenoise', 'mp3');
+      
+      this.assets.loadSpreadSheet('asteroids-orange', 23, 24);
+      this.assets.loadSpreadSheet('asteroids-blue', 23, 24);
+      this.assets.loadSpreadSheetSVG('rabbit-sheet', 131, 171);
 
       this.game.load.onLoadStart.add(this._loadStart, this);
       this.game.load.onLoadComplete.add(this._loadComplete, this);

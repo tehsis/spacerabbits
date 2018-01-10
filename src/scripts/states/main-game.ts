@@ -12,6 +12,11 @@ const SCORES = {
   SIMPLE_ASTEROID: 10
 }
 
+const ASTEROIDS = {
+  LIFE: 'blue',
+  REGULAR: 'orange'
+}
+
 export class MainGame extends Phaser.State {
   asteroids : Asteroids;
   rabbit    : Rabbit;
@@ -19,6 +24,7 @@ export class MainGame extends Phaser.State {
   score     : Phaser.Text;
   lifes     : Array<Phaser.Text>;
   state     : GameState;
+  music     : Phaser.Sound
 
   create() {
     this.game.stage.backgroundColor = '#1F1333';
@@ -32,11 +38,14 @@ export class MainGame extends Phaser.State {
     let background = this.game.add.sprite(0, 0, 'stars');
 
     this.game.add.sprite(32, 32, 'gunpoints');
+    this.music = this.game.add.sound('squarenoise', 1, true);
 
-    this.planet = new Planet(this.game, 0, this.game.world.centerY + 240);
-    this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, () => {
-    });
+    this.music.play();
+
+    this.planet = new Planet(this.game, GAME.SCREEN.OFFSETX, GAME.SCREEN.BASE_HEIGHT - 98);
+    this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, ASTEROIDS.REGULAR, () => {});
     this.rabbit = new Rabbit(this.game);
+    this.rabbit.startAnimation();
     this.score = this.game.add.text(64, 38, '0', style);
 
     this.lifes = this._createLifes();
@@ -73,14 +82,21 @@ export class MainGame extends Phaser.State {
       asteroid.animations.play('destroyed');
       this.state.decreaseLife(1);
       asteroid.destroy();
+      navigator.vibrate(1000);
+      this.game.camera.shake(0.05, 500);
+      this.game.camera.flash();
     }, null, this);
 
     this._updateLifes();
 
-    if (this.state.getLifes() <= 0) {
-      this.state.isOver(true);
-      this.game.state.start('MainMenu');
-    }
+    this.game.camera.onShakeComplete.add(() => {
+      if (this.state.getLifes() <= 0) {
+        this.music.stop();
+        this.state.isOver(true);
+        this.game.state.start('MainMenu');
+      } 
+    });
+   
   }
 }
 

@@ -17,10 +17,26 @@
             "FABRIC_KEY": "a60a174ae63d1b523973a55c9a2a753d933ac057"
         }
     },
+    "cordova-plugin-splashscreen": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-splashscreen@4.0.3"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-nativestorage": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-nativestorage"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
     "cordova-plugin-facebook4": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-facebook4@^1.9.1"
+            "id": "cordova-plugin-facebook4"
         },
         "is_top_level": true,
         "variables": {
@@ -28,10 +44,10 @@
             "APP_NAME": "rabbit wars"
         }
     },
-    "cordova-plugin-nativestorage": {
+    "cordova-plugin-vibration": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-nativestorage"
+            "id": "cordova-plugin-vibration"
         },
         "is_top_level": true,
         "variables": {}

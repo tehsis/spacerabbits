@@ -8,8 +8,10 @@ interface Score {
 const MODAL_CLASSNAME = 'modal';
 const MODAL_HIDE = 'modal-hide';
 const MODAL_SHOW = 'modal-show';
+const MODAL_LOADING = 'modal-loading';
 
 export interface ModalComponentProps {
+  loading: Boolean,
   onPlayButtonClick: (Event) => void
   onCloseButtonClick: (Event) => void
 }
@@ -48,6 +50,12 @@ export class Modal<P extends ModalComponentProps, S extends ModalComponentState>
 
   body() { }
 
+  bodyLoad() {
+    return <div className="modal-loading">
+      <div className="loading-image"></div>
+    </div>
+  }
+
   closeButton() {
     return <button class="close-button" onClick={ this.onCloseButtonClick.bind(this) }></button>;
   }
@@ -60,7 +68,7 @@ export class Modal<P extends ModalComponentProps, S extends ModalComponentState>
     return <div class={ MODAL_CLASSNAME }>
       { this.closeButton() }
       { this.header() }
-      { this.body() }
+      { this.props.loading ? this.bodyLoad() : this.body() }
       <div class="modal-footer">
         { this.footer() }
       </div>
@@ -117,26 +125,38 @@ export class GameOver extends Modal<GameOverComponentProps, GameOverComponentSta
   }
 
   body() {
-    console.log('state gameover', this.props.authToken)
+    //        <button class="logo logo-twitter"></button>
+
+    let body = <div>
+      <div class="game-over-share">
+        <button onClick={ this.props.onFbClick } class="logo logo-facebook"></button>
+      </div>
+      <div class="game-over-instructions">
+        login to place your score into the leaderboard
+      </div>
+    </div>;
+
+    if (this.props.authToken) {
+      body = <div class="game-over-instructions">
+        Place your score in the leaderboard!
+      </div>
+    }
+    
+    if (this.props.loading) {
+      body = this.bodyLoad();
+    }
+
     return <div>
       <div class="game-over-points">
         { this.props.points } pts
       </div>
-        { !this.props.authToken ?
-          <div class="game-over-share">
-            <button class="logo logo-twitter"></button>
-            <button onClick={ this.props.onFbClick } class="logo logo-facebook"></button>
-          </div>
-          : ''
-        }
-      <div class="game-over-instructions">
-        login to place your score into the leaderboard
-      </div>
+      {body}
     </div>
   }
 
   footer() {
-    return <button class="play-button" onClick={this.onPlayButtonClick.bind(this)}>send score!</button>
+    const disabled = !this.props.authToken;
+    return <button disabled={disabled} class="play-button" onClick={this.onPlayButtonClick.bind(this)}>send score!</button>
   }
 
 }

@@ -60,7 +60,7 @@
 	var game_1 = __webpack_require__(9);
 	var states = __webpack_require__(10);
 	var game_state_1 = __webpack_require__(12);
-	var HTMLComponents_1 = __webpack_require__(26);
+	var HTMLComponents_1 = __webpack_require__(27);
 	
 	var BunnyWars = function (_game_1$Game) {
 	    _inherits(BunnyWars, _game_1$Game);
@@ -150,8 +150,10 @@
 	    DEFAULT_STATE: 'Boot',
 	    DOM_ELEMENT: 'bunnywars-main',
 	    SCREEN: {
-	        BASE_WIDTH: 375,
-	        BASE_HEIGHT: 667
+	        BASE_WIDTH: window.innerWidth,
+	        BASE_HEIGHT: window.innerHeight,
+	        OFFSETX: (window.innerWidth - 375) / 2,
+	        OFFSETY: window.innerHeight - 667
 	    },
 	    INITIAL_LIFES: 3,
 	    NUMBER_OF_ASTEROIDS: 10,
@@ -184,7 +186,7 @@
 	    function Game(args) {
 	        _classCallCheck(this, Game);
 	
-	        this.game = new Phaser.Game(args.width, args.height, Phaser.WEBGL, args.element);
+	        this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.WEBGL, args.element);
 	        this.states = args.states;
 	        this.args = args;
 	        this.gameState = args.gameState;
@@ -226,13 +228,13 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var boot_1 = __webpack_require__(11);
 	exports.Boot = boot_1.default;
-	var loader_1 = __webpack_require__(15);
+	var loader_1 = __webpack_require__(16);
 	exports.Loader = loader_1.default;
-	var main_menu_1 = __webpack_require__(18);
+	var main_menu_1 = __webpack_require__(19);
 	exports.MainMenu = main_menu_1.default;
-	var main_game_1 = __webpack_require__(23);
+	var main_game_1 = __webpack_require__(24);
 	exports.MainGame = main_game_1.default;
-	var leaderboard_1 = __webpack_require__(25);
+	var leaderboard_1 = __webpack_require__(26);
 	exports.Leaderboard = leaderboard_1.default;
 
 /***/ }),
@@ -288,7 +290,8 @@
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
-	__webpack_require__(13);
+	var login_1 = __webpack_require__(13);
+	__webpack_require__(14);
 	var initialState = {
 	    score: 0,
 	    life: const_1.GAME.INITIAL_LIFES,
@@ -376,6 +379,28 @@
 	            });
 	        }
 	    }, {
+	        key: "postScore",
+	        value: function postScore() {
+	            var _this2 = this;
+	
+	            this.setUI({
+	                loading: true
+	            });
+	            var form = new FormData();
+	            form.append('score', "" + this.getScore());
+	            fetch(const_1.API.leaderboard, {
+	                method: 'POST',
+	                headers: {
+	                    'Authorization': "Bearer " + this.getAuthToken()
+	                },
+	                body: form
+	            }).then(function () {
+	                _this2.getLeaderboard();
+	            }).catch(function () {
+	                console.log('failed posting to leaderboard');
+	            });
+	        }
+	    }, {
 	        key: "closeModal",
 	        value: function closeModal() {
 	            return this.setUI({
@@ -385,25 +410,40 @@
 	    }, {
 	        key: "load",
 	        value: function load() {
-	            var _this2 = this;
+	            var _this3 = this;
 	
 	            return new Promise(function (resolve, reject) {
 	                NativeStorage.getItem("rabbit-wars", function (state) {
-	                    _this2.setState(state);
+	                    _this3.setState(state);
 	                    resolve();
 	                }, function () {
-	                    _this2.setState(initialState);
+	                    _this3.setState(initialState);
 	                    reject();
 	                });
 	            });
 	        }
 	    }, {
+	        key: "loginFacebook",
+	        value: function loginFacebook() {
+	            var _this4 = this;
+	
+	            this.setUI({
+	                loading: true
+	            });
+	            login_1.default.login('Facebook').then(function (accessToken) {
+	                _this4.setUI({
+	                    loading: false
+	                });
+	                _this4.setAuthToken(accessToken);
+	            });
+	        }
+	    }, {
 	        key: "change",
 	        value: function change() {
-	            var _this3 = this;
+	            var _this5 = this;
 	
 	            this.listeners.forEach(function (cb) {
-	                cb(_this3.state, _this3.prev_state);
+	                cb(_this5.state, _this5.prev_state);
 	            });
 	        }
 	    }, {
@@ -437,7 +477,7 @@
 	    }, {
 	        key: "getLeaderboard",
 	        value: function getLeaderboard() {
-	            var _this4 = this;
+	            var _this6 = this;
 	
 	            this.setUI({
 	                loading: true
@@ -445,13 +485,13 @@
 	            return fetch(const_1.API.leaderboard).then(function (result) {
 	                return result.json();
 	            }).then(function (leaderboard) {
-	                _this4.setState({
+	                _this6.setState({
 	                    leaderboard: leaderboard || []
 	                });
-	                _this4.setUI({
+	                _this6.setUI({
 	                    loading: false
 	                });
-	                window.w = _this4.state;
+	                window.w = _this6.state;
 	            });
 	        }
 	    }, {
@@ -489,16 +529,133 @@
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var const_1 = __webpack_require__(8);
+	var Credentials = {
+	    Facebook: function Facebook() {
+	        return new Promise(function (resolve, reject) {
+	            console.log("Login with facebook api");
+	            facebookConnectPlugin.getLoginStatus(function (response) {
+	                console.log('facebookConnectPlugin.getLoginStatus', response);
+	                if (response.status === 'connected') {
+	                    return resolve(response.authResponse.accessToken);
+	                } else if (response.status === 'not_authorized') {
+	                    return reject();
+	                } else {
+	                    facebookConnectPlugin.login([''], function (response) {
+	                        if (response.authResponse) {
+	                            resolve(response.authResponse.accessToken);
+	                        } else {
+	                            reject(response);
+	                        }
+	                    }, function (error) {
+	                        reject(error);
+	                    });
+	                }
+	            });
+	        });
+	    }
+	};
+	
+	var Login = function () {
+	    function Login() {
+	        _classCallCheck(this, Login);
+	    }
+	
+	    _createClass(Login, [{
+	        key: "getAuthToken",
+	        value: function getAuthToken(method) {
+	            var _this = this;
+	
+	            return new Promise(function (resolve, reject) {
+	                if (_this.auth_token) {
+	                    return resolve(_this.auth_token);
+	                }
+	                console.log('cred method', method);
+	                Credentials[method]().then(function (credentials) {
+	                    _this.auth(method, credentials).then(function (auth_token) {
+	                        _this.auth_token = auth_token;
+	                        return resolve(_this.auth_token);
+	                    });
+	                });
+	            });
+	        }
+	    }, {
+	        key: "auth",
+	        value: function auth(method, credentials) {
+	            var form = new FormData();
+	            form.append('method', method);
+	            form.append('credentials', credentials);
+	            return fetch(const_1.API.login, {
+	                method: 'POST',
+	                body: form
+	            }).then(function (res) {
+	                if (res.status >= 400) {
+	                    throw new Error("Bad response from server");
+	                }
+	                return res.json();
+	            }).then(function (json) {
+	                return json.access_token;
+	            }).catch(function (res) {
+	                alert(res);
+	            });
+	        }
+	    }, {
+	        key: "share",
+	        value: function share(points) {
+	            return new Promise(function (resolve, reject) {
+	                facebookConnectPlugin.showDialog({
+	                    method: "share",
+	                    href: "https://rabbitwars.com",
+	                    caption: "Wow! I've made " + points + " in Space Rabbits!",
+	                    description: "I've helped Robbit to save his planet!",
+	                    picture: 'http://example.com/image.png',
+	                    share_feedWeb: true
+	                }, function () {
+	                    resolve(arguments);
+	                }, function () {
+	                    reject(arguments);
+	                });
+	            });
+	        }
+	    }, {
+	        key: "logout",
+	        value: function logout() {
+	            delete this.profile;
+	            delete this.auth_token;
+	        }
+	    }, {
+	        key: "login",
+	        value: function login(method) {
+	            return this.getAuthToken(method);
+	        }
+	    }]);
+	
+	    return Login;
+	}();
+	
+	exports.default = new Login();
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(14);
+	__webpack_require__(15);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	(function(self) {
@@ -965,7 +1122,7 @@
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -979,7 +1136,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var assetHandlerManager_1 = __webpack_require__(16);
+	var assetHandlerManager_1 = __webpack_require__(17);
 	var game_state_1 = __webpack_require__(12);
 	
 	var Loader = function (_Phaser$State) {
@@ -997,9 +1154,7 @@
 	            this.assets = assetHandlerManager_1.default.getAssetsHandler(this.game);
 	            this.assets.loadImage('planet');
 	            this.assets.loadImage('stars');
-	            this.assets.loadImage('rabbit');
 	            this.assets.loadImage('heart');
-	            this.assets.loadImage('rabbit-intro');
 	            this.assets.loadImage('bala');
 	            this.assets.loadImage('gunpoints');
 	            this.assets.loadImage('new-game-button');
@@ -1008,7 +1163,10 @@
 	            this.assets.loadSound('shoot');
 	            this.assets.loadSound('explosion');
 	            this.assets.loadSound('jump');
-	            this.assets.loadSpreadSheet('destroyed', 20, 21);
+	            this.assets.loadSound('squarenoise', 'mp3');
+	            this.assets.loadSpreadSheet('asteroids-orange', 23, 24);
+	            this.assets.loadSpreadSheet('asteroids-blue', 23, 24);
+	            this.assets.loadSpreadSheetSVG('rabbit-sheet', 131, 171);
 	            this.game.load.onLoadStart.add(this._loadStart, this);
 	            this.game.load.onLoadComplete.add(this._loadComplete, this);
 	            this.game.load.start();
@@ -1040,13 +1198,13 @@
 	exports.default = Loader;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var AssetsHandler_1 = __webpack_require__(17);
+	var AssetsHandler_1 = __webpack_require__(18);
 	var assetHandler = null;
 	var AssetHandlerManager = {
 	    getAssetsHandler: function getAssetsHandler(game) {
@@ -1059,7 +1217,7 @@
 	exports.default = AssetHandlerManager;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1089,14 +1247,26 @@
 	            return this.get('images', asset + ".png");
 	        }
 	    }, {
+	        key: "getImageSVG",
+	        value: function getImageSVG(asset) {
+	            return this.get('images', asset + ".svg");
+	        }
+	    }, {
 	        key: "getAudio",
 	        value: function getAudio(asset) {
-	            return this.get('sounds', asset + ".wav");
+	            var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'wav';
+	
+	            return this.get('sounds', asset + "." + format);
 	        }
 	    }, {
 	        key: "loadImage",
 	        value: function loadImage(name) {
-	            this.game.load.image(name, this.getImage(name));
+	            var i = this.game.load.image(name, this.getImage(name));
+	        }
+	    }, {
+	        key: "loadImageSVG",
+	        value: function loadImageSVG(name) {
+	            var i = this.game.load.image(name, this.getImageSVG(name));
 	        }
 	    }, {
 	        key: "loadSpreadSheet",
@@ -1104,9 +1274,14 @@
 	            this.game.load.spritesheet(name, this.getImage(name), width, height);
 	        }
 	    }, {
+	        key: "loadSpreadSheetSVG",
+	        value: function loadSpreadSheetSVG(name, width, height) {
+	            this.game.load.spritesheet(name, this.getImageSVG(name), width, height);
+	        }
+	    }, {
 	        key: "loadSound",
-	        value: function loadSound(name) {
-	            this.game.load.audio(name, this.getAudio(name));
+	        value: function loadSound(name, format) {
+	            this.game.load.audio(name, this.getAudio(name, format));
 	        }
 	    }]);
 	
@@ -1116,7 +1291,7 @@
 	exports.AssetsHandler = AssetsHandler;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1130,9 +1305,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
+	var const_1 = __webpack_require__(8);
 	var game_state_1 = __webpack_require__(12);
-	var Planet_1 = __webpack_require__(19);
-	var Rabbit_1 = __webpack_require__(20);
+	var Planet_1 = __webpack_require__(20);
+	var Rabbit_1 = __webpack_require__(21);
 	
 	var MainMenu = function (_Phaser$State) {
 	    _inherits(MainMenu, _Phaser$State);
@@ -1148,7 +1324,7 @@
 	        value: function create() {
 	            this.game.stage.backgroundColor = '#1F1333';
 	            var stars = this.game.add.sprite(0, 0, 'stars');
-	            new Planet_1.default(this.game, 0, this.game.world.centerY + 240);
+	            new Planet_1.default(this.game, const_1.GAME.SCREEN.OFFSETX, const_1.GAME.SCREEN.BASE_HEIGHT - 98);
 	            new Rabbit_1.default(this.game, true);
 	            this.game.add.button(128, 75, 'new-game-button', function () {
 	                game_state_1.default.goTo('MainGame');
@@ -1170,7 +1346,7 @@
 	exports.default = MainMenu;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1194,6 +1370,11 @@
 	    }
 	
 	    _createClass(Planet, [{
+	        key: "setTint",
+	        value: function setTint(tint) {
+	            this.sprite.tint = tint;
+	        }
+	    }, {
 	        key: "getSprite",
 	        value: function getSprite() {
 	            return this.sprite;
@@ -1206,7 +1387,7 @@
 	exports.default = Planet;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1216,8 +1397,9 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var input_1 = __webpack_require__(21);
-	var bullets_1 = __webpack_require__(22);
+	var input_1 = __webpack_require__(22);
+	var bullets_1 = __webpack_require__(23);
+	var const_1 = __webpack_require__(8);
 	var Positions;
 	(function (Positions) {
 	    Positions[Positions["LEFT_CORNER"] = 0] = "LEFT_CORNER";
@@ -1247,7 +1429,12 @@
 	    x: 200,
 	    y: 450,
 	    rotation: 0
-	}];
+	}].map(function (position) {
+	    return Object.assign({}, position, {
+	        x: position.x + const_1.GAME.SCREEN.OFFSETX,
+	        y: position.y + const_1.GAME.SCREEN.OFFSETY
+	    });
+	});
 	
 	var Rabbit = function () {
 	    function Rabbit(game, fixedPosition) {
@@ -1257,15 +1444,21 @@
 	        this.lock = false;
 	        this.bulletTime = 0;
 	        this.currentPosition = Positions.CENTER;
-	        this.sprite = this.game.add.sprite(availablePositions[this.currentPosition].x, availablePositions[this.currentPosition].y, 'rabbit');
+	        this.sprite = this.game.add.sprite(availablePositions[this.currentPosition].x, availablePositions[this.currentPosition].y, 'rabbit-sheet');
+	        this.sprite.animations.add('move', [0, 1, 2, 3, 2, 1]);
 	        this.sprite.rotation = availablePositions[this.currentPosition].rotation;
-	        this.shootSound = this.game.add.sound("shoot");
+	        this.shootSound = this.game.add.sound("shoot", 0.2);
 	        this.jumpSound = this.game.add.sound('jump');
 	        this.input = new input_1.default(this.game);
 	        this.bullets = new bullets_1.default(this.game, 20);
 	    }
 	
 	    _createClass(Rabbit, [{
+	        key: "startAnimation",
+	        value: function startAnimation() {
+	            this.sprite.animations.play('move', 15, true);
+	        }
+	    }, {
 	        key: "move",
 	        value: function move() {
 	            var action = this.input.checkAction(availablePositions[this.currentPosition]);
@@ -1309,9 +1502,9 @@
 	            if (this.game.time.now > this.bulletTime) {
 	                var bullet = this.bullets.getGroup().getFirstExists(false);
 	                if (bullet) {
-	                    bullet.reset(this.getSprite().x + 112, this.getSprite().y - 8);
+	                    bullet.reset(this.getSprite().x + 95, this.getSprite().y - 8);
 	                    bullet.body.velocity.y = -300;
-	                    this.bulletTime = this.game.time.now + 150;
+	                    this.bulletTime = this.game.time.now + 500;
 	                    this.shootSound.play();
 	                }
 	            }
@@ -1324,7 +1517,7 @@
 	exports.default = Rabbit;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1370,7 +1563,7 @@
 	exports.default = Input;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1417,7 +1610,7 @@
 	exports.default = Bullets;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1432,13 +1625,17 @@
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
-	var Asteroids_1 = __webpack_require__(24);
-	var Planet_1 = __webpack_require__(19);
-	var Rabbit_1 = __webpack_require__(20);
+	var Asteroids_1 = __webpack_require__(25);
+	var Planet_1 = __webpack_require__(20);
+	var Rabbit_1 = __webpack_require__(21);
 	var game_state_1 = __webpack_require__(12);
 	var style = { font: "24px spacemono", fill: "#ffffff", align: "center" };
 	var SCORES = {
 	    SIMPLE_ASTEROID: 10
+	};
+	var ASTEROIDS = {
+	    LIFE: 'blue',
+	    REGULAR: 'orange'
 	};
 	
 	var MainGame = function (_Phaser$State) {
@@ -1459,9 +1656,12 @@
 	            this.state.reset();
 	            var background = this.game.add.sprite(0, 0, 'stars');
 	            this.game.add.sprite(32, 32, 'gunpoints');
-	            this.planet = new Planet_1.default(this.game, 0, this.game.world.centerY + 240);
-	            this.asteroids = new Asteroids_1.default(this.game, const_1.GAME.NUMBER_OF_ASTEROIDS, function () {});
+	            this.music = this.game.add.sound('squarenoise', 1, true);
+	            this.music.play();
+	            this.planet = new Planet_1.default(this.game, const_1.GAME.SCREEN.OFFSETX, const_1.GAME.SCREEN.BASE_HEIGHT - 98);
+	            this.asteroids = new Asteroids_1.default(this.game, const_1.GAME.NUMBER_OF_ASTEROIDS, ASTEROIDS.REGULAR, function () {});
 	            this.rabbit = new Rabbit_1.default(this.game);
+	            this.rabbit.startAnimation();
 	            this.score = this.game.add.text(64, 38, '0', style);
 	            this.lifes = this._createLifes();
 	            this.score.text = "" + this.state.getScore();
@@ -1500,12 +1700,18 @@
 	                asteroid.animations.play('destroyed');
 	                _this3.state.decreaseLife(1);
 	                asteroid.destroy();
+	                navigator.vibrate(1000);
+	                _this3.game.camera.shake(0.05, 500);
+	                _this3.game.camera.flash();
 	            }, null, this);
 	            this._updateLifes();
-	            if (this.state.getLifes() <= 0) {
-	                this.state.isOver(true);
-	                this.game.state.start('MainMenu');
-	            }
+	            this.game.camera.onShakeComplete.add(function () {
+	                if (_this3.state.getLifes() <= 0) {
+	                    _this3.music.stop();
+	                    _this3.state.isOver(true);
+	                    _this3.game.state.start('MainMenu');
+	                }
+	            });
 	        }
 	    }]);
 	
@@ -1516,7 +1722,7 @@
 	exports.default = MainGame;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1527,16 +1733,19 @@
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
-	var positions = [106, 156, 216, 256, 306];
+	var positions = [90, 140, 190, 240, 290].map(function (position) {
+	    return position + const_1.GAME.SCREEN.OFFSETX;
+	});
 	
 	var Asteroids = function () {
-	    function Asteroids(game, quantity, onDestroyed) {
+	    function Asteroids(game, quantity, color, onDestroyed) {
 	        _classCallCheck(this, Asteroids);
 	
 	        this.game = game;
 	        this.resource = this.game.add.group();
 	        this.onDestroyed = onDestroyed;
 	        this.modifier = 0;
+	        this.asteroidType = color == 'blue' ? "asteroids-blue" : "asteroids-orange";
 	        this.destroyedSound = this.game.add.sound('explosion');
 	        this.init_quantity = quantity;
 	        this.init();
@@ -1560,22 +1769,17 @@
 	        value: function createAsteroid() {
 	            var _this = this;
 	
+	            this.asteroidType = Math.random() > 0.5 ? "asteroids-orange" : "asteroids-blue";
 	            var index = Math.round(Math.random() * (positions.length - 1));
 	            var x = positions[index];
 	            var y = Math.random() * 1000 - 900;
-	            var asteroid = this.getGroup().create(x, y, 'destroyed', 0);
-	            var animation = asteroid.animations.add('destroyed');
+	            var asteroid = this.getGroup().create(x, y, this.asteroidType);
+	            var animation = asteroid.animations.add('destroyed', [0, 1, 2, 3, 4]);
 	            this.game.physics.arcade.enable(asteroid);
 	            asteroid.body.setCircle(10);
 	            setInterval(function () {
 	                _this.modifier++;
 	            }, const_1.GAME.INCREASE_SPEED_TIME);
-	            setInterval(function () {
-	                if (_this.current_quantity <= const_1.GAME.MAX_ASTEROIDS) {
-	                    _this.createAsteroid();
-	                    _this.current_quantity++;
-	                }
-	            }, const_1.GAME.CREATE_ASTEROID_TIME);
 	            asteroid.body.gravity.y = Math.random() * this.modifier + 10;
 	            animation.onComplete.add(function (desroyedAsteroid) {
 	                _this.onDestroyed();
@@ -1592,7 +1796,7 @@
 	exports.default = Asteroids;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1607,7 +1811,7 @@
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var const_1 = __webpack_require__(8);
-	__webpack_require__(13);
+	__webpack_require__(14);
 	
 	var Leaderboard = function (_Phaser$State) {
 	    _inherits(Leaderboard, _Phaser$State);
@@ -1656,7 +1860,7 @@
 	exports.default = Leaderboard;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1670,10 +1874,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var preact_1 = __webpack_require__(27);
-	var const_1 = __webpack_require__(8);
+	var preact_1 = __webpack_require__(28);
 	var game_state_1 = __webpack_require__(12);
-	var login_1 = __webpack_require__(28);
 	var modals_1 = __webpack_require__(29);
 	
 	var App = function (_preact_1$Component) {
@@ -1710,41 +1912,22 @@
 	    }, {
 	        key: "onShare",
 	        value: function onShare() {
-	            var authToken = game_state_1.default.getAuthToken();
-	            var form = new FormData();
-	            form.append('score', "" + game_state_1.default.getScore());
-	            if (authToken) {
-	                fetch(const_1.API.leaderboard, {
-	                    method: 'POST',
-	                    headers: {
-	                        'Authorization': "Bearer " + authToken
-	                    },
-	                    body: form
-	                }).then(function () {
-	                    return game_state_1.default.getLeaderboard().then(function () {
-	                        game_state_1.default.openModal('leaderboard');
-	                    });
-	                }).catch(function () {
-	                    console.log('failed posting to leaderboard');
-	                });
-	            }
+	            game_state_1.default.openModal('leaderboard');
+	            game_state_1.default.postScore();
 	        }
 	    }, {
 	        key: "onFbLogin",
 	        value: function onFbLogin() {
-	            login_1.default.login('Facebook').then(function (accessToken) {
-	                return game_state_1.default.setAuthToken(accessToken);
-	            });
+	            game_state_1.default.loginFacebook();
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
 	            if ('leaderboard' === this.state.ui.modal) {
-	                return preact_1.h(modals_1.Leaderboard, { leaderboard: this.state.leaderboard, onCloseButtonClick: this.onClose, onPlayButtonClick: this.onPlay });
+	                return preact_1.h(modals_1.Leaderboard, { loading: this.state.ui.loading, leaderboard: this.state.leaderboard, onCloseButtonClick: this.onClose, onPlayButtonClick: this.onPlay });
 	            }
 	            if ('game-over' === this.state.ui.modal) {
-	                console.log('state', this.state.auth_token);
-	                return preact_1.h(modals_1.GameOver, { points: this.state.score, onCloseButtonClick: this.onClose, onPlayButtonClick: this.onShare, onFbClick: this.onFbLogin, authToken: this.state.auth_token });
+	                return preact_1.h(modals_1.GameOver, { loading: this.state.ui.loading, points: this.state.score, onCloseButtonClick: this.onClose, onPlayButtonClick: this.onShare, onFbClick: this.onFbLogin, authToken: this.state.auth_token });
 	            }
 	        }
 	    }]);
@@ -1758,7 +1941,7 @@
 	exports.default = default_1;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	!function(global, factory) {
@@ -2249,123 +2432,6 @@
 	//# sourceMappingURL=preact.js.map
 
 /***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	Object.defineProperty(exports, "__esModule", { value: true });
-	var const_1 = __webpack_require__(8);
-	var Credentials = {
-	    Facebook: function Facebook() {
-	        return new Promise(function (resolve, reject) {
-	            console.log("Login with facebook api");
-	            facebookConnectPlugin.getLoginStatus(function (response) {
-	                console.log('facebookConnectPlugin.getLoginStatus', response);
-	                if (response.status === 'connected') {
-	                    return resolve(response.authResponse.accessToken);
-	                } else if (response.status === 'not_authorized') {
-	                    return reject();
-	                } else {
-	                    facebookConnectPlugin.login([''], function (response) {
-	                        if (response.authResponse) {
-	                            resolve(response.authResponse.accessToken);
-	                        } else {
-	                            reject(response);
-	                        }
-	                    }, function (error) {
-	                        reject(error);
-	                    });
-	                }
-	            });
-	        });
-	    }
-	};
-	
-	var Login = function () {
-	    function Login() {
-	        _classCallCheck(this, Login);
-	    }
-	
-	    _createClass(Login, [{
-	        key: "getAuthToken",
-	        value: function getAuthToken(method) {
-	            var _this = this;
-	
-	            return new Promise(function (resolve, reject) {
-	                if (_this.auth_token) {
-	                    return resolve(_this.auth_token);
-	                }
-	                console.log('cred method', method);
-	                Credentials[method]().then(function (credentials) {
-	                    _this.auth(method, credentials).then(function (auth_token) {
-	                        _this.auth_token = auth_token;
-	                        return resolve(_this.auth_token);
-	                    });
-	                });
-	            });
-	        }
-	    }, {
-	        key: "auth",
-	        value: function auth(method, credentials) {
-	            var form = new FormData();
-	            form.append('method', method);
-	            form.append('credentials', credentials);
-	            return fetch(const_1.API.login, {
-	                method: 'POST',
-	                body: form
-	            }).then(function (res) {
-	                if (res.status >= 400) {
-	                    throw new Error("Bad response from server");
-	                }
-	                return res.json();
-	            }).then(function (json) {
-	                return json.access_token;
-	            }).catch(function (res) {
-	                alert(res);
-	            });
-	        }
-	    }, {
-	        key: "share",
-	        value: function share(points) {
-	            return new Promise(function (resolve, reject) {
-	                facebookConnectPlugin.showDialog({
-	                    method: "share",
-	                    href: "https://rabbitwars.com",
-	                    caption: "Wow! I've made " + points + " in Space Rabbits!",
-	                    description: "I've helped Robbit to save his planet!",
-	                    picture: 'http://example.com/image.png',
-	                    share_feedWeb: true
-	                }, function () {
-	                    resolve(arguments);
-	                }, function () {
-	                    reject(arguments);
-	                });
-	            });
-	        }
-	    }, {
-	        key: "logout",
-	        value: function logout() {
-	            delete this.profile;
-	            delete this.auth_token;
-	        }
-	    }, {
-	        key: "login",
-	        value: function login(method) {
-	            return this.getAuthToken(method);
-	        }
-	    }]);
-	
-	    return Login;
-	}();
-	
-	exports.default = new Login();
-
-/***/ }),
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2380,10 +2446,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var preact_1 = __webpack_require__(27);
+	var preact_1 = __webpack_require__(28);
 	var MODAL_CLASSNAME = 'modal';
 	var MODAL_HIDE = 'modal-hide';
 	var MODAL_SHOW = 'modal-show';
+	var MODAL_LOADING = 'modal-loading';
 	
 	var Modal = function (_preact_1$Component) {
 	    _inherits(Modal, _preact_1$Component);
@@ -2427,6 +2494,15 @@
 	        key: "body",
 	        value: function body() {}
 	    }, {
+	        key: "bodyLoad",
+	        value: function bodyLoad() {
+	            return preact_1.h(
+	                "div",
+	                { className: "modal-loading" },
+	                preact_1.h("div", { className: "loading-image" })
+	            );
+	        }
+	    }, {
 	        key: "closeButton",
 	        value: function closeButton() {
 	            return preact_1.h("button", { "class": "close-button", onClick: this.onCloseButtonClick.bind(this) });
@@ -2445,7 +2521,7 @@
 	                { "class": MODAL_CLASSNAME },
 	                this.closeButton(),
 	                this.header(),
-	                this.body(),
+	                this.props.loading ? this.bodyLoad() : this.body(),
 	                preact_1.h(
 	                    "div",
 	                    { "class": "modal-footer" },
@@ -2554,7 +2630,30 @@
 	    }, {
 	        key: "body",
 	        value: function body() {
-	            console.log('state gameover', this.props.authToken);
+	            var body = preact_1.h(
+	                "div",
+	                null,
+	                preact_1.h(
+	                    "div",
+	                    { "class": "game-over-share" },
+	                    preact_1.h("button", { onClick: this.props.onFbClick, "class": "logo logo-facebook" })
+	                ),
+	                preact_1.h(
+	                    "div",
+	                    { "class": "game-over-instructions" },
+	                    "login to place your score into the leaderboard"
+	                )
+	            );
+	            if (this.props.authToken) {
+	                body = preact_1.h(
+	                    "div",
+	                    { "class": "game-over-instructions" },
+	                    "Place your score in the leaderboard!"
+	                );
+	            }
+	            if (this.props.loading) {
+	                body = this.bodyLoad();
+	            }
 	            return preact_1.h(
 	                "div",
 	                null,
@@ -2564,25 +2663,16 @@
 	                    this.props.points,
 	                    " pts"
 	                ),
-	                !this.props.authToken ? preact_1.h(
-	                    "div",
-	                    { "class": "game-over-share" },
-	                    preact_1.h("button", { "class": "logo logo-twitter" }),
-	                    preact_1.h("button", { onClick: this.props.onFbClick, "class": "logo logo-facebook" })
-	                ) : '',
-	                preact_1.h(
-	                    "div",
-	                    { "class": "game-over-instructions" },
-	                    "login to place your score into the leaderboard"
-	                )
+	                body
 	            );
 	        }
 	    }, {
 	        key: "footer",
 	        value: function footer() {
+	            var disabled = !this.props.authToken;
 	            return preact_1.h(
 	                "button",
-	                { "class": "play-button", onClick: this.onPlayButtonClick.bind(this) },
+	                { disabled: disabled, "class": "play-button", onClick: this.onPlayButtonClick.bind(this) },
 	                "send score!"
 	            );
 	        }

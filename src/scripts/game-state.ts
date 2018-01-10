@@ -6,6 +6,8 @@
 */
 
 import { GAME, API } from './const';
+import login from './extras/login';
+
 import 'isomorphic-fetch';
 
 declare global {
@@ -110,6 +112,26 @@ export class GameState {
     });
   }
 
+  postScore () {
+    this.setUI({
+      loading: true
+    });
+
+    const form = new FormData();
+    form.append('score', `${this.getScore()}`);
+    fetch(API.leaderboard, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.getAuthToken()}`
+      },
+      body: form
+    }).then(() => {
+      this.getLeaderboard();
+    }).catch(() => {
+      console.log('failed posting to leaderboard')
+    });
+  }
+
   closeModal () {
     return this.setUI({
       modal: null
@@ -126,6 +148,18 @@ export class GameState {
         reject();
       });
     });
+  }
+
+  loginFacebook() {
+    this.setUI({
+      loading: true
+    });
+    login.login('Facebook').then((accessToken) => {
+      this.setUI({
+        loading: false
+      });
+      this.setAuthToken(accessToken)
+    });    
   }
 
   private change() {

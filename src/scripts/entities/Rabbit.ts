@@ -2,6 +2,7 @@ import ISpriteEntity from './IEntity';
 import Input from '../input/input';
 import Bullets from './bullets';
 import { Map } from 'immutable';
+import { GAME } from '../const';
 
 enum Positions { LEFT_CORNER, LEFT, CENTER, RIGHT, RIGHT_CORNER };
 
@@ -12,7 +13,7 @@ const availablePositions = [
     rotation: 0
   },
   {
-    x: 50,
+    x:  50,
     y: 450,
     rotation: 0
   },
@@ -31,7 +32,10 @@ const availablePositions = [
     y: 450,
     rotation: 0
   }
-];
+].map(position => Object.assign({}, position, {
+  x: position.x + GAME.SCREEN.OFFSETX,
+  y: position.y + GAME.SCREEN.OFFSETY,
+}));
 
 interface IRabbitPositions {
   x: number,
@@ -61,19 +65,25 @@ class Rabbit implements ISpriteEntity {
     this.sprite = this.game.add.sprite(
       availablePositions[this.currentPosition].x,
       availablePositions[this.currentPosition].y,
-      'rabbit'
+      'rabbit-sheet'
     );
+
+    this.sprite.animations.add('move', [0,1,2,3,2,1])
 
     this.sprite.rotation = availablePositions[this.currentPosition].rotation;
 
 
-      this.shootSound = this.game.add.sound("shoot");
-      this.jumpSound = this.game.add.sound('jump');
+    this.shootSound = this.game.add.sound("shoot", 0.2);
+    this.jumpSound = this.game.add.sound('jump');
 
-      this.input = new Input(this.game);
+    this.input = new Input(this.game);
 
-      this.bullets = new Bullets(this.game, 20);
+    this.bullets = new Bullets(this.game, 20);
 
+  }
+
+  startAnimation() {
+    this.sprite.animations.play('move', 15, true);    
   }
 
 
@@ -97,7 +107,7 @@ class Rabbit implements ISpriteEntity {
 
   moveTo(position: Positions) {
     let new_position = availablePositions[position];
-    if (this.getSprite().x !== new_position.x && this.getSprite().y !== new_position.y) {
+    if (this.getSprite().x !== new_position.x || this.getSprite().y !== new_position.y) {
       this.jumpSound.play()
     }
     this.getSprite().x = new_position.x;
@@ -117,9 +127,9 @@ class Rabbit implements ISpriteEntity {
     if (this.game.time.now > this.bulletTime) {
       const bullet = this.bullets.getGroup().getFirstExists(false);
       if (bullet) {
-        bullet.reset(this.getSprite().x + 112, this.getSprite().y - 8 );
+        bullet.reset(this.getSprite().x + 95, this.getSprite().y - 8 );
         bullet.body.velocity.y = -300;
-        this.bulletTime = this.game.time.now + 150;
+        this.bulletTime = this.game.time.now + 500;
         this.shootSound.play()
       }
     }

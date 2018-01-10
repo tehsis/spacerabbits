@@ -8,12 +8,12 @@ import fetch from '../mocks/mocked-fetch';
 class MainMenu extends Phaser.State {  
         create() {
           // gameState.load();
-          
+
           this.game.stage.backgroundColor = '#1F1333';
 
           let stars = this.game.add.sprite(0, 0, 'stars');
 
-          new Planet(this.game, 0, this.game.world.centerY + 240);
+          new Planet(this.game, GAME.SCREEN.OFFSETX, GAME.SCREEN.BASE_HEIGHT - 98);
           
           new Rabbit(this.game, true);
 

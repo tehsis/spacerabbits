@@ -13,6 +13,10 @@ class Planet implements ISpriteEntity {
     this.sprite.body.setCircle(230, -50, 0);
   }
 
+  setTint(tint: number) {
+    this.sprite.tint = tint;
+  }
+
   getSprite () {
     return this.sprite;
   }
