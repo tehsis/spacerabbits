@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const phaserModule = path.join(__dirname, '/node_modules/phaser/');
 const phaser = path.join(phaserModule, 'build/custom/phaser-split.js');
@@ -21,6 +23,16 @@ module.exports = {
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
   mode: process.env.NODE_ENV || 'development',
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "./styles/style.css",
+    }),
+    new HtmlWebpackPlugin({
+      target,
+      hash: true,
+      template: 'src/index.html'
+    })
+  ],
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.js', '.tsx'],
     alias: {
@@ -48,7 +60,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [ 
-          { loader: 'style-loader' },
+          { loader: MiniCssExtractPlugin.loader, options: {publicPath: './styles'} },
           { loader: 'css-loader', options: {url: false, sourceMap: true} },
           { loader: 'less-loader', options: {relativeUrls: false, sourceMap: true} } 
         ]
