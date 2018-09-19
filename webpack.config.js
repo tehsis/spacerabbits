@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); 
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const phaserModule = path.join(__dirname, '/node_modules/phaser/');
 const phaser = path.join(phaserModule, 'build/custom/phaser-split.js');
@@ -9,15 +11,9 @@ const pixi = path.join(phaserModule, 'build/custom/pixi.js');
 const p2 = path.join(phaserModule, 'build/custom/p2.js');
 
 const target = process.env.TARGET || 'web';
-
-let entry = ['./src/scripts/index.ts'];
-
-if (target === 'cordova') {
-  entry.push('cordova')
-}
    
 module.exports = {  
-  entry: ['./src/scripts/index.ts'],
+  entry: './src/scripts/index.ts',
   output: {
     filename: 'scripts/bunnywars.js'
   },
@@ -30,8 +26,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       target,
       hash: true,
+      minify: true,
       template: 'src/index.html'
-    })
+    }),
+    new CopyWebpackPlugin([ {from: './src/assets', to: './assets'} ]),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i })
   ],
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.js', '.tsx'],
