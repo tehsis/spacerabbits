@@ -1,6 +1,5 @@
 import gameState from '../game-state';
 import user from '../extras/users';
-import * as FormData from 'form-data';
 import 'isomorphic-fetch';
 
 class GameOver extends Phaser.State {

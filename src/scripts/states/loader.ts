@@ -7,7 +7,6 @@ class Loader extends Phaser.State {
 
     create () {
       this.assets = assetHandler.getAssetsHandler(this.game);
-
       this.assets.loadImage('planet');
       this.assets.loadImage('stars');
       this.assets.loadImage('heart');
@@ -17,6 +16,7 @@ class Loader extends Phaser.State {
       this.assets.loadImage('leaderboard-button')
       this.assets.loadImage('main-menu-button')
       this.assets.loadSound('shoot');
+      this.assets.loadSound('newlife');
       this.assets.loadSound('explosion');
       this.assets.loadSound('jump');
       this.assets.loadSound('squarenoise', 'mp3');
@@ -25,25 +25,14 @@ class Loader extends Phaser.State {
       this.assets.loadSpreadSheet('asteroids-blue', 23, 24);
       this.assets.loadSpreadSheetSVG('rabbit-sheet', 131, 171);
 
-      this.game.load.onLoadStart.add(this._loadStart, this);
       this.game.load.onLoadComplete.add(this._loadComplete, this);
 
       this.game.load.start();
     }
 
-    _loadStart() {
-      this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY, 'Loading...', {
-         font: 'bold 32px Tron',
-         fill: '#fff'
-     });
-    }
-
-    _loadComplete() {
-      gameState.load().then(() => {
-        this.game.state.start('MainMenu');
-      }).catch(() => {
-        this.game.state.start('MainMenu');
-      })
+    async _loadComplete() {
+      await gameState.load();
+      this.game.state.start('MainMenu');
     }
 }
 

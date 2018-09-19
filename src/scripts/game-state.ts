@@ -8,16 +8,9 @@
 import { GAME, API } from './const';
 import login from './extras/login';
 
+import storage from './extras/storage';
+
 import 'isomorphic-fetch';
-
-declare global {
-  interface NativeStorageInterface {
-    setItem(key: string, value: Object, onSuccess: () => void, onError: (error: Object) => void )
-    getItem(key: string, onSuccess: (data: Object) => void, onError: (error: Object) => void)
-  }
-
-  let NativeStorage: NativeStorageInterface;
-}
 
 interface Score {
   Username: string,
@@ -49,7 +42,6 @@ const initialState: IGameState = {
   auth_token: null
 };
 
-
 export class GameState {
   private state: IGameState = initialState;
   private prev_state: IGameState = initialState;
@@ -73,15 +65,13 @@ export class GameState {
   decreaseLife (amount) {
     this.setState({life : this.state.life - amount})
   }
+
+  increaseLife(amount) {
+    this.setState({life: this.state.life + amount})
+  }
   
-  save () {
-    return new Promise((resolve, reject) => {
-      NativeStorage.setItem(`rabbit-wars`, this.state, () => {
-        resolve();
-      }, function (e) {
-        reject(e);
-      });
-    });
+  async save () {
+    return await storage.setItem('rabbit-wars', this.state);
   }
 
   goTo(screen) {
@@ -138,16 +128,13 @@ export class GameState {
     });
   }
 
-  load () {
-    return new Promise((resolve, reject) => {
-      NativeStorage.getItem(`rabbit-wars`, (state) => {
-         this.setState(state);
-        resolve();
-      }, () => {
-        this.setState(initialState);
-        reject();
-      });
-    });
+  async load () {
+    try {
+      const state = await storage.getItem('rabit-wars');
+      this.setState(state);
+    } catch (e) {
+      this.setState(initialState);
+    }
   }
 
   loginFacebook() {

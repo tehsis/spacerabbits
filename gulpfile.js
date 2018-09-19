@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const path_join = require('path').join;
 const $ = require('gulp-load-plugins')();
+const webpack = require('webpack');
+const gulpWebpack = require('webpack-stream');
 const pngquant = require('imagemin-pngquant');
 
 const PATHS =  {
@@ -10,7 +12,7 @@ const PATHS =  {
     STYLES: 'styles/',
     PHASER: {
       LIB: 'vendor/phaser-ninja-physics.min.js',
-      MAP: 'vendir/phaser-ninja-physics.map'
+      MAP: 'vendor/phaser-ninja-physics.map'
     },
     HTML: 'index.html',
     ASSETS: 'assets/',
@@ -29,14 +31,13 @@ gulp.task('build', [
     'images',
     'sounds',
     'fonts',
-    'styles'
    ], function (cb) {
     cb();
 });
 
 gulp.task('webpack', function () {
    return gulp.src(path_join(PATHS.BASE_SRC, PATHS.SCRIPTS, 'index.js'))
-    .pipe($.webpack(require('./webpack.config.js')))
+    .pipe(gulpWebpack(require('./webpack.config.js'), webpack))
     .pipe($.replace('phaser_swipe_1.default', 'phaser_swipe_1'))
     .pipe(gulp.dest('.'));
 });
@@ -74,8 +75,11 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('styles', function () {
-   return gulp.src(path_join(PATHS.BASE_SRC, PATHS.STYLES, 'index.less'))
-    .pipe($.less())
-    .pipe($.minifyCss())
-    .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.STYLES)));
+    const styles = path_join(PATHS.BASE_SRC, PATHS.STYLES, 'index.less');
+    return gulp.src(styles)
+        .pipe($.watch(styles))
+        .pipe($.plumber())
+        .pipe($.less())
+        .pipe($.minifyCss())
+        .pipe(gulp.dest(path_join(PATHS.BASE_DIST, PATHS.STYLES)));
 });

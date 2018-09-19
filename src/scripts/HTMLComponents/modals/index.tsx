@@ -62,7 +62,9 @@ export class Modal<P extends ModalComponentProps, S extends ModalComponentState>
 
   header() {}
 
-  footer() {}
+  footer() {
+    return null;
+  }
 
   render () {
     return <div class={ MODAL_CLASSNAME }>

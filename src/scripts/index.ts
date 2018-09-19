@@ -11,6 +11,8 @@ import DOMApp from './HTMLComponents';
 
 import * as webfont from 'webfontloader';
 
+import '../styles/index.less';
+
 class BunnyWars extends Game {}
 
 const bunnywars = new BunnyWars({
@@ -22,9 +24,12 @@ const bunnywars = new BunnyWars({
     default_state: GAME.DEFAULT_STATE
 });
 
-document.addEventListener('deviceready', () => {
-  bunnywars.init();
+const loadEvent = window.cordova ? 'deviceReady' : 'DOMContentLoaded';
+
+
+document.addEventListener(loadEvent, () => {
   DOMApp(document.body);
+  bunnywars.init();
 });
 
 

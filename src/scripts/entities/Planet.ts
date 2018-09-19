@@ -1,5 +1,7 @@
 import ISpriteEntity from './IEntity';
 
+import { GAME } from '../const';
+
 class Planet implements ISpriteEntity {
   game: Phaser.Game;
   sprite: Phaser.Sprite;
@@ -7,6 +9,7 @@ class Planet implements ISpriteEntity {
   constructor (game, x: number, y: number) {
     this.game = game;
     this.sprite = this.game.add.sprite(x, y, 'planet');
+    this.sprite.width = GAME.SCREEN.BASE_WIDTH;
     this.game.physics.arcade.enable(this.sprite);
     this.sprite.body.immovable = true;
     this.sprite.body.setSize(20, 20);

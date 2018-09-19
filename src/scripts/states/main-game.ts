@@ -25,6 +25,9 @@ export class MainGame extends Phaser.State {
   lifes     : Array<Phaser.Text>;
   state     : GameState;
   music     : Phaser.Sound
+  newLifeSound  : Phaser.Sound
+
+  lifeUp    : Boolean
 
   create() {
     this.game.stage.backgroundColor = '#1F1333';
@@ -35,14 +38,25 @@ export class MainGame extends Phaser.State {
     this.state = gameState;
     this.state.reset();
 
-    let background = this.game.add.sprite(0, 0, 'stars');
+    let background = this.game.add.sprite(GAME.SCREEN.OFFSETX, 0, 'stars');
+    let background2 = this.game.add.sprite(GAME.SCREEN.OFFSETX, -background.height, 'stars');
+
+
+    const backgroundTween1 = this.game.add.tween(background);
+    const backgroundTween2 = this.game.add.tween(background2);
+
+
+    backgroundTween1.to({y: GAME.SCREEN.BASE_HEIGHT}, 5000, 'Linear', true, 0, Infinity);
+    backgroundTween2.to({y: 0}, 5000, 'Linear', true, 0, Infinity);
+
 
     this.game.add.sprite(32, 32, 'gunpoints');
     this.music = this.game.add.sound('squarenoise', 1, true);
+    this.newLifeSound = this.game.add.sound('newlife', 1);
 
     this.music.play();
 
-    this.planet = new Planet(this.game, GAME.SCREEN.OFFSETX, GAME.SCREEN.BASE_HEIGHT - 98);
+    this.planet = new Planet(this.game, 0, GAME.SCREEN.BASE_HEIGHT - 98);
     this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, ASTEROIDS.REGULAR, () => {});
     this.rabbit = new Rabbit(this.game);
     this.rabbit.startAnimation();
@@ -55,7 +69,7 @@ export class MainGame extends Phaser.State {
 
   _createLifes () {
     const lifes = [];
-    for (let i=0;i<this.state.getLifes();i++) {
+    for (let i=0;i<5;i++) {
       lifes.push(this.game.add.sprite(332, 32 + (30*i), 'heart'));   
     }
 
@@ -75,6 +89,12 @@ export class MainGame extends Phaser.State {
       asteroid.animations.play('destroyed');
       bullet.kill();
       this.state.increaseScore(SCORES.SIMPLE_ASTEROID);
+      
+      if (this.state.getScore() % 200 === 0 && this.state.getLifes() < 5) {
+        this.state.increaseLife(1);
+        this.newLifeSound.play();
+      }
+
       this.score.text = `${this.state.getScore()}`;
     }, null, this);
 
