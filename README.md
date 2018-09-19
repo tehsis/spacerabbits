@@ -7,24 +7,11 @@
 ### Prerequisites
 
   * node.js >= 5
-  * make 4.x
 
 ### Instructions
 
-This project uses `make` as primary buildtool. 
-All project dependencies as well as build dependencies are installed under `node_modules` (and therefore specified in `package.json`.
-
-#### `make [build]`
-  Will build the project under `./dst` ready for release.
- 
-### `make dev`
-  Will build the project for development and set up a static http server to test it.
-  Refer to the output of the command to know how to access to the server.
-
-### Cordova
-  This project uses Cordova to build mobile applications. A script to build the project can be found at `./tools/createCordova.sh`.
-  Before running it, make sure to have cordova installed: `npm i -g cordova`.
-  
+1. `npm i`
+2. `npm run build`
   
 ### Project structure
 
