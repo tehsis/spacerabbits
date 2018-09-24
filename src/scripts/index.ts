@@ -28,7 +28,7 @@ const loadEvent = window.cordova ? 'deviceReady' : 'DOMContentLoaded';
 
 
 document.addEventListener(loadEvent, () => {
-  DOMApp(document.body);
+  DOMApp(document.getElementById('bunnywars-main'));
   bunnywars.init();
 });
 

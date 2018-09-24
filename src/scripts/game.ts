@@ -1,5 +1,7 @@
 import { GameState } from './game-state';
 
+import { GAME } from './const';
+
 interface IGameConstructorArgs {
     width: number|string;
     height: number|string;
@@ -15,7 +17,7 @@ class Game {
     args: IGameConstructorArgs
     
     constructor (args: IGameConstructorArgs) {
-        this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.WEBGL, args.element);
+        this.game = new Phaser.Game(GAME.SCREEN.BASE_WIDTH, GAME.SCREEN.BASE_HEIGHT, Phaser.WEBGL, args.element);
         
         this.states = args.states;
         this.args = args;
