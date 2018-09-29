@@ -44,8 +44,12 @@ class Loader extends Phaser.State {
     }
 
     async _loadComplete() {
-      await gameState.load();
-      this.game.state.start('MainMenu');
+      const state = gameState.getJSON();
+      if (state.screen && ['Loader', 'Boot'].indexOf(state.screen) === -1) {
+        gameState.goTo(state.screen);
+      } else {
+        gameState.goTo('MainMenu');
+      }
     }
 }
 

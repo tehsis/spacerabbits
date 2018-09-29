@@ -47,15 +47,15 @@ export class GameState {
   private prev_state: IGameState = initialState;
   private listeners: Array<(state: IGameState, prev_state: IGameState) => void> = [];
 
-  constructor () {
-    this.load();
-    this.reset();
-  }
-
   reset() {
     const username = this.state.username;
+    const screen = this.state.screen;
     this.setState(initialState);
-    this.setState({ username })
+    this.setState({ username, screen });
+  }
+
+  setScore(amount) {
+    this.setState({score: amount})
   }
 
   increaseScore (amount) {
@@ -130,7 +130,8 @@ export class GameState {
 
   async load () {
     try {
-      const state = await storage.getItem('rabit-wars');
+      const state = await storage.getItem('rabbit-wars') as IGameState;
+      this.state = state;
       this.setState(state);
     } catch (e) {
       this.setState(initialState);
@@ -150,6 +151,7 @@ export class GameState {
   }
 
   private change() {
+    this.save();
     this.listeners.forEach((cb) => {
       cb(this.state, this.prev_state)
     });
@@ -211,6 +213,7 @@ export class GameState {
   }
 
   private setState(state) {
+    this.prev_state = this.state;
     this.state = Object.assign({}, this.state, state)
     this.change();
   }

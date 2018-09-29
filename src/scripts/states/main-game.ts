@@ -34,9 +34,7 @@ export class MainGame extends Phaser.State {
 
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // FIXME: This should removed, all objects should use gameState as is
     this.state = gameState;
-    this.state.reset();
 
     let background = this.game.add.sprite(GAME.SCREEN.OFFSETX, 0, 'stars');
     let background2 = this.game.add.sprite(GAME.SCREEN.OFFSETX, -background.height, 'stars');
@@ -113,7 +111,7 @@ export class MainGame extends Phaser.State {
       if (this.state.getLifes() <= 0) {
         this.music.stop();
         this.state.isOver(true);
-        this.game.state.start('MainMenu');
+        this.state.goTo('MainMenu');
       } 
     });
    

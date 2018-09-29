@@ -7,8 +7,6 @@ import fetch from '../mocks/mocked-fetch';
 
 class MainMenu extends Phaser.State {  
         create() {
-          // gameState.load();
-
           this.game.stage.backgroundColor = '#1F1333';
 
           let stars = this.game.add.sprite(GAME.SCREEN.OFFSETX, 0, 'stars');
@@ -19,11 +17,13 @@ class MainMenu extends Phaser.State {
           new Rabbit(this.game, true);
 
           this.game.add.button(128, 75, 'new-game-button', () => {
+            gameState.reset();
             gameState.goTo('MainGame');
           }, this);
 
           if (gameState.isOver()) {
             gameState.openModal('game-over');
+            gameState.isOver(false);
           }
 
           this.game.add.button(128, 140, 'leaderboard-button', () => {

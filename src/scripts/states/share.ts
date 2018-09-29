@@ -46,9 +46,6 @@ export default class Share extends Phaser.State {
       gameState.setUsername(this.inputElement.value().trim())
     }
 
-    console.log('SCORE', gameState.getScore())
-    console.log('USERNAME', gameState.getUserName())
-
     // TODO: (maybe?) handle success/error
     gameState.save()
       .then(() => {
@@ -69,7 +66,6 @@ export default class Share extends Phaser.State {
       })
       .catch(() => {
         console.trace();
-        console.log('ERRRORRRR', arguments);
       });
 
     

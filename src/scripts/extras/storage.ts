@@ -14,7 +14,8 @@ const BrowserStorage: Storage = {
     },
 
     getItem: async (key) => {
-        return JSON.parse(window.localStorage.getItem(key));
+        const item = window.localStorage.getItem(key);
+        return JSON.parse(item);
     }
 };
 

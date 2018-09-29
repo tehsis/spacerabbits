@@ -28,14 +28,20 @@ class Game {
 
     private loadStates(default_state: string) {
         Object.keys(this.states).forEach((state_name) => this.game.state.add(state_name, this.states[state_name]));
-        
-        this.gameState.onChange((state, prev_state) => {
-          if (state.screen !== prev_state.screen) {
-            this.game.state.start(state.screen);
-          }
-        });
+        let firstTransition = true;
 
-        this.gameState.goTo(this.args.default_state);
+        this.gameState.load().then(() => {
+            this.game.state.start(this.args.default_state);
+
+            this.gameState.onChange((state, prev_state) => {
+                if (firstTransition || (state.screen !== prev_state.screen)) {
+                    console.log('first transition', state, prev_state);
+                    firstTransition = false;
+                    this.game.state.start(state.screen);
+                }
+            });
+        });
+        
     }
 
     init () {
