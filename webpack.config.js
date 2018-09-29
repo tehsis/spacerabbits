@@ -19,6 +19,9 @@ module.exports = {
   },
   devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
   mode: process.env.NODE_ENV || 'development',
+  devServer: {
+    contentBase: './dist'
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "./styles/style.css",

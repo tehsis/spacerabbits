@@ -5,7 +5,7 @@ const GAME = {
         BASE_WIDTH: window.innerWidth < 500 ? window.innerWidth : 375,
         BASE_HEIGHT:  window.innerHeight < 723 ? window.innerHeight : 723,
         OFFSETX: window.innerWidth < 500 ? ((window.innerWidth - 375) / 2) : 0,
-        OFFSETY: window.innerHeight < 723 ? (window.innerHeight - 667) : 0
+        OFFSETY: (window.innerHeight < 723 ? window.innerHeight : 723) - 667
     },
     INITIAL_LIFES: 3,
     NUMBER_OF_ASTEROIDS: 10,

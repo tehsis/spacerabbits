@@ -3,14 +3,25 @@
 export default class Input {
   game: Phaser.Game
   block: boolean
+  cursors: Phaser.CursorKeys
+
   constructor (game: Phaser.Game) {
     this.game = game;
+    this.cursors = game.input.keyboard.createCursorKeys();
     this.block = false;
   }
 
   checkAction (rabbitPosition) {
     const pointer = this.game.input.pointer1;
     const screen = this.game.width;
+
+    if (this.cursors.left.justDown && !this.block) {
+      return 'LEFT';
+    }
+
+    if (this.cursors.right.justDown && !this.block) {
+      return 'RIGHT';
+    }
 
     if (pointer.isDown && !this.block) {
       this.block = true;      
@@ -23,7 +34,7 @@ export default class Input {
       }
    }
 
-   if (pointer.isUp) {
+   if (pointer.isUp || this.cursors.left.isUp || this.cursors.left.isUp) {
     this.block = false;
    }
    

@@ -20,10 +20,13 @@ declare global {
   }
 
   let facebookConnectPlugin: FacebookConnectPlugin;
+  let FB: FacebookConnectPlugin;
 }
 
+
 const Credentials = {
-  Facebook: function () {
+  Facebook: async function () {
+    facebookConnectPlugin = window.cordova ? facebookConnectPlugin : FB;
     return new Promise((resolve, reject) => {
       console.log("Login with facebook api");
       facebookConnectPlugin.getLoginStatus(function(response) {  
@@ -65,7 +68,7 @@ class Login {
               this.auth_token = auth_token;
               return resolve(this.auth_token);
             });
-        });
+        }).catch((err) => console.log(err));
      });
   }
 
