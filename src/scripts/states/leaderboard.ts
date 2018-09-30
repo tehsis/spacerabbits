@@ -20,6 +20,7 @@ class Leaderboard extends Phaser.State {
             .then((response) => {
               return response.json()
             }).then((leaderboad: any) => {
+              alert('!');
               leaderboad.forEach((r, i) => {
                 this.game.add.text(this.game.world.centerX-150, this.game.world.centerY-200 + (i*40), `${i+1}. ${r.Username}`, {
                   font: 'bold 20px spacemono',

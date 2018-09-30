@@ -13,30 +13,27 @@ declare global {
     authResponse: FacebookAuthResponse
   }
 
-  interface FacebookConnectPlugin {
+  interface FB {
     login: (permissions: Array<string>, onSuccess: (response: FacebookResponse) => void, onError: (response: any) => void) => void;
     getLoginStatus: (callback: (response: any) => void) => void;
     showDialog: (options: any, onSuccess: (any) => any, onError: (any) => any) => void
   }
 
-  let facebookConnectPlugin: FacebookConnectPlugin;
-  let FB: FacebookConnectPlugin;
+  let FB: FB;
 }
 
 
 const Credentials = {
-  Facebook: async function () {
-    facebookConnectPlugin = window.cordova ? facebookConnectPlugin : FB;
+  Facebook: function () {
+    debugger;
     return new Promise((resolve, reject) => {
-      console.log("Login with facebook api");
-      facebookConnectPlugin.getLoginStatus(function(response) {  
-        console.log('facebookConnectPlugin.getLoginStatus', response);
+      FB.getLoginStatus(function(response) {  
         if (response.status === 'connected') {
           return resolve(response.authResponse.accessToken);
         } else if (response.status === 'not_authorized') {
           return reject()
         } else {
-          facebookConnectPlugin.login([''], function (response) {
+          FB.login([''], function (response) {
             if (response.authResponse) {
               resolve(response.authResponse.accessToken);
             } else {
@@ -95,7 +92,7 @@ class Login {
 
   share (points: number) {
     return new Promise(function (resolve, reject) {
-      facebookConnectPlugin.showDialog({
+      FB.showDialog({
         method: "share",
         href: "https://rabbitwars.com",
         caption: `Wow! I've made ${points} in Space Rabbits!`,

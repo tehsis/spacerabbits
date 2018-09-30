@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Bunny Wars</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, height=device-height, viewport-fit=cover">
-    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src * data:; script-src * 'unsafe-inline' 'unsafe-eval'">
 </head>
 <body>
     
@@ -17,25 +17,6 @@
     <script type="text/javascript" src="cordova.js"></script>
     <% } %>
 
-    <% if (htmlWebpackPlugin.options.target !== 'cordova') { %>
-        <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId            : '358865204487691',
-                    autoLogAppEvents : true,
-                    xfbml            : true,
-                    version          : 'v3.1'
-                });
-            };
-            
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-    <% } %>
+    <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
 </body>
 </html>

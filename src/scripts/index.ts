@@ -24,13 +24,21 @@ const bunnywars = new BunnyWars({
     default_state: GAME.DEFAULT_STATE
 });
 
-const loadEvent = window.cordova ? 'deviceReady' : 'DOMContentLoaded';
+// const loadEvent = window.cordova ? 'deviceReady' : 'DOMContentLoaded';
 
 
-document.addEventListener(loadEvent, () => {
-  DOMApp(document.getElementById('bunnywars-main'));
-  bunnywars.init();
-});
+// document.addEventListener(loadEvent, () => {
+//   DOMApp(document.getElementById('bunnywars-main'));
+//   bunnywars.init();
+// });
 
+declare global {
+  let FBInstant: any;
+}
 
+FBInstant.initializeAsync()
+  .then(function() {        
+    DOMApp(document.getElementById('bunnywars-main'));
+    bunnywars.init();
+  });
 

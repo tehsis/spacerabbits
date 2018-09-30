@@ -2,9 +2,9 @@ const GAME = {
     DEFAULT_STATE: 'Boot',
     DOM_ELEMENT: 'bunnywars-main',
     SCREEN: {
-        BASE_WIDTH: window.innerWidth < 500 ? window.innerWidth : 375,
+        BASE_WIDTH: window.innerWidth < 375 ? window.innerWidth : 375,
         BASE_HEIGHT:  window.innerHeight < 723 ? window.innerHeight : 723,
-        OFFSETX: window.innerWidth < 500 ? ((window.innerWidth - 375) / 2) : 0,
+        OFFSETX: window.innerWidth < 375 ? ((window.innerWidth - 375) / 2) : 0,
         OFFSETY: (window.innerHeight < 723 ? window.innerHeight : 723) - 667
     },
     INITIAL_LIFES: 3,

@@ -14,6 +14,7 @@ import 'isomorphic-fetch';
 
 interface Score {
   Username: string,
+  UserPic: string,
   Points: number
 }
 
@@ -102,24 +103,18 @@ export class GameState {
     });
   }
 
-  postScore () {
+  async postScore () {
     this.setUI({
       loading: true
     });
 
-    const form = new FormData();
-    form.append('score', `${this.getScore()}`);
-    fetch(API.leaderboard, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${this.getAuthToken()}`
-      },
-      body: form
-    }).then(() => {
+    try {
+      const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
+      const entry = await leaderboard.setScoreAsync(this.getScore());
       this.getLeaderboard();
-    }).catch(() => {
-      console.log('failed posting to leaderboard')
-    });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   closeModal () {
@@ -181,22 +176,29 @@ export class GameState {
     return Object.assign({}, this.state);
   }
 
-  getLeaderboard() {
+  async getLeaderboard() {
     this.setUI({
       loading: true
-    });
+    })
+    try { 
+      const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
+      const entries = await leaderboard.getEntriesAsync();
+      const rabbitLeaderboard = entries
+        .map((entry) => ({
+          Username: entry.getPlayer().getName(),
+          Points: entry.getScore(),
+          UserPic: entry.getPlayer().getPhoto()
+      })).slice(0, 5);
 
-    return fetch(API.leaderboard)
-      .then((result) => result.json())
-      .then((leaderboard) => {
-        this.setState({
-          leaderboard: leaderboard || []
-        });
-        this.setUI({
-          loading: false
-        });
-        (window as any).w = this.state;
+      
+
+      this.setState({leaderboard: rabbitLeaderboard});
+      this.setUI({
+        loading: false
       });
+    } catch (e) {
+      console.log('err', e);
+    }
   }
 
   setAuthToken(auth_token) {

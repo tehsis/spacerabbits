@@ -35,6 +35,9 @@ class Loader extends Phaser.State {
       this.assets = assetHandler.getAssetsHandler(this.game);
 
       this.game.load.onLoadComplete.add(this._loadComplete, this);
+      this.game.load.onFileComplete.add((progress) => {
+        FBInstant.setLoadingProgress(progress);
+      })
 
       images.forEach(([image, type]) => this.assets.loadImage(image, type));
       sounds.forEach(([sound, type]) => this.assets.loadSound(sound, type));
@@ -44,12 +47,8 @@ class Loader extends Phaser.State {
     }
 
     async _loadComplete() {
-      const state = gameState.getJSON();
-      if (state.screen && ['Loader', 'Boot'].indexOf(state.screen) === -1) {
-        gameState.goTo(state.screen);
-      } else {
-        gameState.goTo('MainMenu');
-      }
+      await FBInstant.startGameAsync();
+      gameState.goTo('MainMenu');
     }
 }
 
