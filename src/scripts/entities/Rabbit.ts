@@ -6,6 +6,8 @@ import { GAME } from '../const';
 
 enum Positions { LEFT_CORNER, LEFT, CENTER, RIGHT, RIGHT_CORNER };
 
+const SHOOT_DELAY = 200;
+
 const availablePositions = [
   {
     x: 0,
@@ -129,7 +131,7 @@ class Rabbit implements ISpriteEntity {
       if (bullet) {
         bullet.reset(this.getSprite().x + 95, this.getSprite().y - 8 );
         bullet.body.velocity.y = -300;
-        this.bulletTime = this.game.time.now + 500;
+        this.bulletTime = this.game.time.now + SHOOT_DELAY;
         this.shootSound.play()
       }
     }

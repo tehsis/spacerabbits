@@ -100,7 +100,9 @@ export class MainGame extends Phaser.State {
       asteroid.animations.play('destroyed');
       this.state.decreaseLife(1);
       asteroid.destroy();
-      navigator.vibrate(1000);
+      if (navigator.vibrate) {
+        navigator.vibrate(1000);
+      }
       this.game.camera.shake(0.05, 500);
       this.game.camera.flash();
     }, null, this);

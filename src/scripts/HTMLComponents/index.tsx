@@ -33,7 +33,7 @@ class App extends Component<{}, IGameState> {
 
   render() {
     if ('leaderboard' === this.state.ui.modal) {
-      return <Leaderboard loading={this.state.ui.loading} leaderboard={this.state.leaderboard} onCloseButtonClick={ this.onClose } onPlayButtonClick={ this.onPlay } />
+      return <Leaderboard loading={this.state.ui.loading} current={this.state.current} leaderboard={this.state.leaderboard} onCloseButtonClick={ this.onClose } onPlayButtonClick={ this.onPlay } />
     }
 
     if ('game-over' === this.state.ui.modal) {

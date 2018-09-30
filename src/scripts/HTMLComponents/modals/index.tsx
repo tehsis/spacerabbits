@@ -1,6 +1,7 @@
 import { h, render, Component } from 'preact';
 
 interface Score {
+  ID: string,
   Username: string,
   Points: number,
   UserPic: string
@@ -84,7 +85,24 @@ interface LeaderBoardComponentState extends ModalComponentState {}
 
 interface LeaderBoardComponentProps extends ModalComponentProps {
     leaderboard: Array<Score>
+    current: Score
  }
+
+
+const currentPositionElement = (leaderboard: Score[], current: Score) => {
+  const currentPlayerInLeaderboard = leaderboard.some((entry) => entry.ID === current.ID);
+  if (currentPlayerInLeaderboard) {
+    return <div class="leaderboard-current">
+      Awesome! You are on the TOP. <br />
+      Make sure you stay there!
+    </div>
+  }
+
+  return <div class="leaderboard-current">
+    Your high score is: {current.Points}!<br /> 
+    Keep Fighting to reach the TOP!
+   </div>
+}
 
 export class Leaderboard extends Modal<LeaderBoardComponentProps, LeaderBoardComponentState> {
    
@@ -101,15 +119,20 @@ export class Leaderboard extends Modal<LeaderBoardComponentProps, LeaderBoardCom
       </div>
     }
 
-    return <ul class="score-list">
-      { this.props.leaderboard.map((score) => 
-        <li class="score-item">
-          <img class="score-photo" src={score.UserPic} alt={score.Username} />
-          <span class="player-name">{ score.Username }</span>
-          <span class="player-points">{ score.Points }</span>
-        </li>
-      ) }
-    </ul>
+    return <div class="leaderboard-container">
+        <ul class="score-list">
+          { 
+            this.props.leaderboard.map((score) => 
+              <li class="score-item">
+                <img class="score-photo" src={score.UserPic} alt={score.Username} />
+                <span class="player-name">{ score.Username }</span>
+                <span class="player-points">{ score.Points }</span>
+              </li>
+            ).slice(0, 3) 
+          }
+      </ul>
+      {currentPositionElement(this.props.leaderboard, this.props.current)}
+    </div>
   }
 
   footer() {

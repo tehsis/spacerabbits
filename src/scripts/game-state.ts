@@ -13,6 +13,7 @@ import storage from './extras/storage';
 import 'isomorphic-fetch';
 
 interface Score {
+  ID: string,
   Username: string,
   UserPic: string,
   Points: number
@@ -24,12 +25,22 @@ export interface IGameState {
   life: number
   gameOver: Boolean
   leaderboard?: Array<Score>
+  current?: Score
   screen: string
   ui: {
     loading: Boolean
     modal?: 'leaderboard'|'game-over'
   }
   auth_token: string
+}
+
+function FBLeaderBoardEntryToScore(entry): Score {
+  return {
+    ID: entry.getPlayer().getID(),
+    Username: entry.getPlayer().getName(),
+    Points: entry.getScore(),
+    UserPic: entry.getPlayer().getPhoto()
+  }
 }
 
 const initialState: IGameState = {
@@ -182,17 +193,14 @@ export class GameState {
     })
     try { 
       const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
-      const entries = await leaderboard.getEntriesAsync();
-      const rabbitLeaderboard = entries
-        .map((entry) => ({
-          Username: entry.getPlayer().getName(),
-          Points: entry.getScore(),
-          UserPic: entry.getPlayer().getPhoto()
-      })).slice(0, 5);
+      const [entries, currentPlayer] =  [await leaderboard.getEntriesAsync(), await leaderboard.getPlayerEntryAsync()];
+      const rabbitLeaderboard = entries.map(FBLeaderBoardEntryToScore).slice(0, 3);
+      const current = FBLeaderBoardEntryToScore(currentPlayer);
 
-      
-
-      this.setState({leaderboard: rabbitLeaderboard});
+      this.setState({
+        leaderboard: rabbitLeaderboard,
+        current
+      });
       this.setUI({
         loading: false
       });
