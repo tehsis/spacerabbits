@@ -120,17 +120,17 @@ export class Leaderboard extends Modal<LeaderBoardComponentProps, LeaderBoardCom
     }
 
     return <div class="leaderboard-container">
-        <ul class="score-list">
+        <table class="score-list">
           { 
             this.props.leaderboard.map((score) => 
-              <li class="score-item">
-                <img class="score-photo" src={score.UserPic} alt={score.Username} />
-                <span class="player-name">{ score.Username }</span>
-                <span class="player-points">{ score.Points }</span>
-              </li>
+              <tr class="score-item">
+                <td class="score-item-field field-photo"><img class="score-photo" src={score.UserPic} alt={score.Username} /></td>
+                <td class="score-item-field"><span class="player-name">{ score.Username }</span></td>
+                <td class="score-item-field field-points"><span class="player-points">{ score.Points }</span></td>
+              </tr>
             ).slice(0, 3) 
           }
-      </ul>
+      </table>
       {currentPositionElement(this.props.leaderboard, this.props.current)}
     </div>
   }
@@ -158,10 +158,18 @@ export class GameOver extends Modal<GameOverComponentProps, GameOverComponentSta
   }
 
   body() {
+    const scoreDiff = this.props.highScore - this.props.points;
+    console.log('props', this.props)
     return <div>
       <div class="game-over-points">
+        <h3>You scored</h3>
         { this.props.points } pts
       </div>
+      { 
+        scoreDiff <= 0 
+        ? 'Congratulations! You got a new high score!'
+        : <div><h3>Your highest score was:</h3><span>{ this.props.highScore }</span></div>
+      }
       {this.props.loading ? this.bodyLoad() : ''}
     </div>
   }

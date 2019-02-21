@@ -37,7 +37,7 @@ class App extends Component<{}, IGameState> {
     }
 
     if ('game-over' === this.state.ui.modal) {
-      return <GameOver loading={this.state.ui.loading} points={ this.state.score } onCloseButtonClick={ this.onClose } onPlayButtonClick={ this.onShare } onFbClick={ this.onFbLogin } authToken={ this.state.auth_token } />
+      return <GameOver loading={this.state.ui.loading} highScore={ this.state.highScore } points={ this.state.score } onCloseButtonClick={ this.onClose } onPlayButtonClick={ this.onShare } onFbClick={ this.onFbLogin } authToken={ this.state.auth_token } />
     }
   }
 }

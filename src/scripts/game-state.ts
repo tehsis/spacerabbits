@@ -26,6 +26,7 @@ export interface IGameState {
   gameOver: Boolean
   leaderboard?: Array<Score>
   current?: Score
+  highScore?: number
   screen: string
   ui: {
     loading: Boolean
@@ -128,6 +129,25 @@ export class GameState {
     }
   }
 
+  async getHighScore() {
+    this.setUI({
+      loading: true
+    });
+
+    try {
+      const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
+      const player = await leaderboard.getPlayerEntryAsync();
+      this.setState({
+        highScore: player.getScore()
+      })
+      this.setUI({
+        loading: false
+      });
+    } catch (e) {
+
+    }
+  }
+
   closeModal () {
     return this.setUI({
       modal: null
@@ -205,7 +225,9 @@ export class GameState {
         loading: false
       });
     } catch (e) {
-      console.log('err', e);
+      this.setState({
+        leaderboard: []
+      });
     }
   }
 

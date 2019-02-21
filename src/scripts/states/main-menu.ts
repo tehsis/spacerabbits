@@ -24,6 +24,7 @@ class MainMenu extends Phaser.State {
           if (gameState.isOver()) {
             gameState.openModal('game-over');
             gameState.isOver(false);
+            gameState.getHighScore();
           }
 
           this.game.add.button(128, 140, 'leaderboard-button', () => {
