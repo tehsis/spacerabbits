@@ -30,7 +30,7 @@ export class MainGame extends Phaser.State {
   lifeUp    : Boolean
 
   create() {
-    this.game.stage.backgroundColor = '#1F1333';
+    this.game.stage.backgroundColor = GAME.BACKGROUND_COLOR;
 
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -60,12 +60,12 @@ export class MainGame extends Phaser.State {
     this.rabbit.startAnimation();
     this.score = this.game.add.text(64, 38, '0', style);
 
-    this.lifes = this._createLifes();
+    this.lifes = this.createLifes();
 
     this.score.text = `${this.state.getScore()}`;
   }
 
-  _createLifes () {
+  private createLifes () {
     const lifes = [];
     for (let i=0;i<5;i++) {
       lifes.push(this.game.add.sprite(332, 32 + (30*i), 'heart'));   
@@ -74,7 +74,7 @@ export class MainGame extends Phaser.State {
     return lifes;
   }
 
-  _updateLifes () {
+  private updateLifes () {
     this.lifes.forEach((lifeText, index) => {
       lifeText.visible = index < this.state.getLifes();
     });
@@ -107,7 +107,7 @@ export class MainGame extends Phaser.State {
       this.game.camera.flash();
     }, null, this);
 
-    this._updateLifes();
+    this.updateLifes();
 
     this.game.camera.onShakeComplete.add(() => {
       if (this.state.getLifes() <= 0) {

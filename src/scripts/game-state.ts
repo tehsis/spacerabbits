@@ -121,9 +121,7 @@ export class GameState {
     });
 
     try {
-      const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
-      const entry = await leaderboard.setScoreAsync(this.getScore());
-      this.getLeaderboard();
+      // TODO: implement
     } catch (e) {
       console.log(e);
     }
@@ -135,14 +133,7 @@ export class GameState {
     });
 
     try {
-      const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
-      const player = await leaderboard.getPlayerEntryAsync();
-      this.setState({
-        highScore: player.getScore()
-      })
-      this.setUI({
-        loading: false
-      });
+     // TODO: Implement
     } catch (e) {
 
     }
@@ -212,18 +203,7 @@ export class GameState {
       loading: true
     })
     try { 
-      const leaderboard = await FBInstant.getLeaderboardAsync('Production Leaderboard');
-      const [entries, currentPlayer] =  [await leaderboard.getEntriesAsync(), await leaderboard.getPlayerEntryAsync()];
-      const rabbitLeaderboard = entries.map(FBLeaderBoardEntryToScore).slice(0, 3);
-      const current = FBLeaderBoardEntryToScore(currentPlayer);
-
-      this.setState({
-        leaderboard: rabbitLeaderboard,
-        current
-      });
-      this.setUI({
-        loading: false
-      });
+     // TODO: Implement
     } catch (e) {
       this.setState({
         leaderboard: []

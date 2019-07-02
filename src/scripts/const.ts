@@ -1,6 +1,7 @@
 const GAME = {
     DEFAULT_STATE: 'Boot',
     DOM_ELEMENT: 'bunnywars-main',
+    BACKGROUND_COLOR: '#1F1333',
     SCREEN: {
         BASE_WIDTH: window.innerWidth < 375 ? window.innerWidth : 375,
         BASE_HEIGHT:  window.innerHeight < 723 ? window.innerHeight : 723,

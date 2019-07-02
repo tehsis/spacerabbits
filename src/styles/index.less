@@ -1,10 +1,17 @@
-@import '~normalize-css/normalize.css';
-
 @import './fonts.less';
+// @import './modal-leaderboard.less';
 
-@import './modal-leaderboard.less';
-
+body {
+    margin: 0;
+}
 
 #bunnywars-main {
-    position: absolute;
+    display: flex;
+    height: 100vh;
+    background-color: #1F1333;
+}
+
+#bunnywars-main canvas {
+    border: 1px solid white;
+    margin: auto;
 }

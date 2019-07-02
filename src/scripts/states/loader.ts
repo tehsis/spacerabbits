@@ -35,19 +35,15 @@ class Loader extends Phaser.State {
       this.assets = assetHandler.getAssetsHandler(this.game);
 
       this.game.load.onLoadComplete.add(this._loadComplete, this);
-      this.game.load.onFileComplete.add((progress) => {
-        FBInstant.setLoadingProgress(progress);
-      })
 
       images.forEach(([image, type]) => this.assets.loadImage(image, type));
       sounds.forEach(([sound, type]) => this.assets.loadSound(sound, type));
-      sheets.forEach(([name, width, height, type]) => this.assets.loadSpreadSheet(name, width, height, type));
+      sheets.forEach(([name, width, height, type]) => this.assets.loadSpriteSheet(name, width, height, type));
 
       this.game.load.start();
     }
 
     async _loadComplete() {
-      await FBInstant.startGameAsync();
       gameState.goTo('MainMenu');
     }
 }

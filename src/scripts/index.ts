@@ -2,14 +2,12 @@ import "pixi.js";
 import "p2";
 import "Phaser";
 
-import {GAME} from './const';
+import { GAME } from './const';
 import { Game } from './game';
 import * as states from './states/index';
 import gameState from './game-state';
 
 import DOMApp from './HTMLComponents';
-
-import * as webfont from 'webfontloader';
 
 import '../styles/index.less';
 
@@ -24,21 +22,7 @@ const bunnywars = new BunnyWars({
     default_state: GAME.DEFAULT_STATE
 });
 
-// const loadEvent = window.cordova ? 'deviceReady' : 'DOMContentLoaded';
 
-
-// document.addEventListener(loadEvent, () => {
-//   DOMApp(document.getElementById('bunnywars-main'));
-//   bunnywars.init();
-// });
-
-declare global {
-  let FBInstant: any;
-}
-
-FBInstant.initializeAsync()
-  .then(function() {        
-    DOMApp(document.getElementById('bunnywars-main'));
-    bunnywars.init();
-  });
+DOMApp(document.getElementById('bunnywars-main'));
+bunnywars.init();
 
