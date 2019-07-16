@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
+
+body {
+    margin: 0;
+}
+
+#bunnywars-main {
+    display: flex;
+    height: 100vh;
+    background-color: #1F1333;
+
+    canvas {
+        margin: auto;
+    }
+
+    @media (min-width: 768px) {
+        canvas {
+            border: 1px solid white;
+        }
+    }
+   
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    color: white;
+
+    @media (max-width: 768px) {
+        & {
+            display: none;
+        }
+    }
+}

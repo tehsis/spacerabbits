@@ -1,0 +1,16 @@
+{
+    "name": "Space Rabbits",
+    "short_name": "Space Rabbits",
+    "description": "Help the little rabbit to defend their planet!",
+    "icons": [
+        {
+            "src": "/assets/icons/icon-120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "fullscreen",
+    "theme_color": "#1F1333",
+    "background_color": "#1F1333"
+}

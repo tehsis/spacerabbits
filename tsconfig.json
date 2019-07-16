@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "removeComments": true,
+    "outDir": "dist/",
+    "sourceMap": true,
+    "jsx": "react",
+    "jsxFactory": "h"
+  },
+  "files": [
+    "node_modules/phaser/typescript/phaser.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
