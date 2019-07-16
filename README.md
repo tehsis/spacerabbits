@@ -1,4 +1,4 @@
-# Space Rabbits
+# [Space Rabbits](https://spacerabbits.now.sh)
 
   ![Space Rabbits Icon](/Assets/ICON@2X.png)
 
