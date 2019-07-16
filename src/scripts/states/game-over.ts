@@ -1,7 +1,5 @@
 import gameState from '../game-state';
 import { GAME }  from '../const';
-import 'isomorphic-fetch';
-
 const TEXT_BLINKING_TIME = 600;
 
 

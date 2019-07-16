@@ -10,8 +10,6 @@ import login from './extras/login';
 
 import storage from './extras/storage';
 
-import 'isomorphic-fetch';
-
 interface Score {
   ID: string,
   Username: string,

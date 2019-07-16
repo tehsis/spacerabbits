@@ -1,7 +1,6 @@
 import ISpriteEntity from './IEntity';
 import Input from '../input/input';
 import Bullets from './bullets';
-import { Map } from 'immutable';
 import { GAME } from '../const';
 
 enum Positions { LEFT_CORNER, LEFT, CENTER, RIGHT, RIGHT_CORNER };
