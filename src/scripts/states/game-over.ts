@@ -1,6 +1,7 @@
 import gameState from '../game-state';
 import { GAME }  from '../const';
 const TEXT_BLINKING_TIME = 600;
+const TIME_TO_MAINMENU = 5000;
 
 
 class GameOver extends Phaser.State {
@@ -14,24 +15,19 @@ class GameOver extends Phaser.State {
     stars.scale.setTo(0.5, 0.5);
 
     this.texts = [
-      this.game.add.text(this.game.world.centerX - 30, this.game.world.centerY-100, 'Game', {
+      this.game.add.text(this.game.world.centerX - 75, this.game.world.centerY-100, 'Game Over', {
         font: 'bold 20pt Space Mono',
         fill: '#fff'
       }),
 
-      this.game.add.text(this.game.world.centerX - 30, this.game.world.centerY-50, 'Over', {
-          font: 'bold 20pt Space Mono',
-          fill: '#fff'
-        }),
 
-
-        this.game.add.text(this.game.world.centerX - 80, this.game.world.centerY + 80, "Your score", {
+        this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY - 30, "Your score is", {
           font: 'bold 20pt Space Mono',
           boundsAlignH: 'center',
           fill: '#fff'
         }),
 
-        this.game.add.text(this.game.world.centerX - 30, this.game.world.centerY + 150, `${gameState.getScore()}`, {
+        this.game.add.text(this.game.world.centerX - 10, this.game.world.centerY + 40, `${gameState.getScore()}`, {
           font: 'bold 20pt Space Mono',
           align: "center",
           boundsAlignH: 'center',
@@ -39,7 +35,7 @@ class GameOver extends Phaser.State {
         }),
       ];
 
-      const goToMainMenuTimeOut = setTimeout(() => gameState.goTo('MainMenu'), 5000);
+      const goToMainMenuTimeOut = setTimeout(() => true || gameState.goTo('MainMenu'), TIME_TO_MAINMENU);
 
       this.game.input.keyboard.onPressCallback = () => {
         clearTimeout(goToMainMenuTimeOut);

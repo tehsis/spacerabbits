@@ -36,6 +36,11 @@ class Loader extends Phaser.State {
 
       this.game.load.onLoadComplete.add(this._loadComplete, this);
 
+      this.game.add.text(this.game.world.centerX - 75, this.game.world.centerY-40, 'Loading...', {
+        font: 'bold 20pt Space Mono',
+        fill: '#fff'
+      }),
+
       images.forEach(([image, type]) => this.assets.loadImage(image, type));
       sounds.forEach(([sound, type]) => this.assets.loadSound(sound, type));
       sheets.forEach(([name, width, height, type]) => this.assets.loadSpriteSheet(name, width, height, type));
