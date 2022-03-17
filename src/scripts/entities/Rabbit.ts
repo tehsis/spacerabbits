@@ -1,6 +1,6 @@
 import ISpriteEntity from './IEntity';
 import Input from '../input/input';
-import Bullets from './bullets';
+import Bullets from './Bullets';
 import { GAME } from '../const';
 
 enum Positions { LEFT_CORNER, LEFT, CENTER, RIGHT, RIGHT_CORNER };

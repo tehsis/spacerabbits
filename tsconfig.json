@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "target": "es2018",
     "removeComments": true,
-    "outDir": "dist/",
+    "outDir": "./dist/",
     "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "h"
