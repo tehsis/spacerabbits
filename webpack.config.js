@@ -1,30 +1,34 @@
-// TS + node modules
-// Phaser + phixi + etc -> static
-// css
-// images
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-const phaserModule = path.join(__dirname, '/node_modules/phaser/');
+const phaserModule = path.join(__dirname, './node_modules/phaser/');
 const phaser = path.join(phaserModule, 'build/custom/phaser-split.js');
 const pixi = path.join(phaserModule, 'build/custom/pixi.js');
 const p2 = path.join(phaserModule, 'build/custom/p2.js');
 
 module.exports = {
-    mode: process.env.NODE_ENV || 'development',
-    entry: './src/scripts/index.ts',
+    mode: 'production',
+    entry: ['./src/scripts/index.ts', './src/styles/index.css'],
+    devtool: false,
+    optimization: {
+        usedExports: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Space Rabbits',
+            title: 'Alberto War',
             template: 'src/index.html'
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: "./src/assets", to: "./assets" }
+                { 
+                    from: "./src/assets", 
+                    to: "./assets" 
+                }
             ]
-        })
+        }),
+        new MiniCssExtractPlugin({filename: '[name].css'})
     ],
     module: {
         rules: [
@@ -34,11 +38,10 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.less$/,
+                test: /\.css$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'less-loader'
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
                 ]
             },
             {
@@ -69,7 +72,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts'],
+        extensions: ['.tsx', '.ts', '.js'],
         alias: {
             'Phaser': phaser,
             'pixi': pixi,

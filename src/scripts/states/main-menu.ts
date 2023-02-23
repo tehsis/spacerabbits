@@ -15,22 +15,37 @@ class MainMenu extends Phaser.State {
       create() {
         this.game.stage.backgroundColor = GAME.BACKGROUND_COLOR;
 
-        this.game.add.sprite(GAME.SCREEN.OFFSETX, 0, 'stars');
+        let block_callback = false;
 
-        new Planet(this.game, 0, GAME.SCREEN.BASE_HEIGHT - 98);
-        
-        this.rabbit = new Rabbit(this.game, true);
+        this.game.add.sprite(GAME.SCREEN.OFFSETX, 50, 'Default-Alberto');
+        this.game.add.button(GAME.SCREEN.OFFSETX + 170, 5, 'barcelona', () => {
+          block_callback = true;
+          window.location.href = "https://bit.ly/AWBarcelonaDigital"
+        });
 
+      
         this.game.input.keyboard.onPressCallback = () => {
+          if (block_callback) { return; }
           gameState.goTo('MainGame');
         }
 
-        this.fireText = this.game.add.text(145, 300, 'Press Start', {
-          font: 'bold 20pt Space Mono',
+        this.game.add.sprite(GAME.SCREEN.OFFSETX, 50, 'Default-Alberto');
+
+        this.fireText = this.game.add.text(GAME.SCREEN.OFFSETX + 5, GAME.SCREEN.OFFSETY + 430, '¡Ayudá a Alberto a seguir tirandose tiros en los pies!', {
+          font: 'bold 30pt Arial',
+          fill: "#f2d50f",
           wordWrap: true,
+          wordWrapWidth: GAME.SCREEN.BASE_WIDTH,
           align: 'center',
-          fill: 'white'
         });
+        
+        this.fireText.stroke = "#5d45a2";
+        this.fireText.strokeThickness = 5;
+        //this.fireText.setShadow(2, 2, "#333333", 2, true, true);
+
+        //this.fireText.setShadow(3, 3, 'rgba(255,255,255, 1)', 2);
+
+
 
         gameState.isOver(!gameState.isOver());
     }
@@ -47,7 +62,7 @@ class MainMenu extends Phaser.State {
         this.fireText.visible = !this.fireText.visible;
 
         if (!this.fireText.visible) {
-          this.rabbit.shoot();
+       //   this.rabbit.shoot();
         }
       }
 

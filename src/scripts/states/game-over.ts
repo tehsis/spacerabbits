@@ -1,52 +1,69 @@
 import gameState from '../game-state';
 import { GAME }  from '../const';
-const TEXT_BLINKING_TIME = 600;
+const TEXT_BLINKING_TIME = 5000;
 const TIME_TO_MAINMENU = 5000;
 
 
 class GameOver extends Phaser.State {
   texts: Phaser.Text[]
   private lastTimeBlinked = 0
+  private goToMainMenuTimeOut: NodeJS.Timeout
 
   create() {
     this.game.stage.backgroundColor = GAME.BACKGROUND_COLOR;
 
-    let stars = this.game.add.sprite(0, 0, 'stars');
-    stars.scale.setTo(0.5, 0.5);
+    this.game.add.sprite(GAME.SCREEN.OFFSETX + 170, 5, 'barcelona');
 
     this.texts = [
-      this.game.add.text(this.game.world.centerX - 75, this.game.world.centerY-100, 'Game Over', {
-        font: 'bold 20pt Space Mono',
-        fill: '#fff'
-      }),
+      this.game.add.text(
+        this.game.world.centerX - 150, 
+        this.game.world.centerY - 100, 
+        `¡Qué pena!\n\¡Pegaste ${gameState.getScore()} menos tiros\nen los pies de Alberto\nque el propio Alberto!\n\n¡Volvé a intentarlo!`,
+        {
+          font: 'bold 15pt Space Mono',
+          fill: '#000',
+          align: 'center'
+        }
+      )
+    ];
 
-
-        this.game.add.text(this.game.world.centerX - 100, this.game.world.centerY - 30, "Your score is", {
-          font: 'bold 20pt Space Mono',
-          boundsAlignH: 'center',
-          fill: '#fff'
-        }),
-
-        this.game.add.text(this.game.world.centerX - 10, this.game.world.centerY + 40, `${gameState.getScore()}`, {
-          font: 'bold 20pt Space Mono',
-          align: "center",
-          boundsAlignH: 'center',
-          fill: '#fff'
-        }),
-      ];
-
-      const goToMainMenuTimeOut = setTimeout(() => true || gameState.goTo('MainMenu'), TIME_TO_MAINMENU);
-
-      this.game.input.keyboard.onPressCallback = () => {
-        clearTimeout(goToMainMenuTimeOut);
-        gameState.goTo('MainMenu');
+    this.game.add.button(
+      this.game.world.centerX - 30, 
+      this.game.world.centerY + 100,
+      'twitter',
+      () => {
+        window.location.href = `https://twitter.com/intent/tweet?text=¡Me sume a la guerra contra la inflación y pude bajar ${gameState.getScore()} precios más que Alberto!&url=https://albertowars-barcelona.alidion.studio&hashtags=albertowars&via=revisbarcelona`
       }
+    )
+
+    this.game.add.button(
+      this.game.world.centerX - 115, 
+      this.game.world.centerY + 180,
+      'suscribite',
+      () => {
+        window.location.href = "https://bit.ly/AWBarcelonaDigital";
+      }
+    )
+
+    this.goToMainMenuTimeOut = setTimeout(() => gameState.goTo('MainMenu'), TIME_TO_MAINMENU);
+
+    this.game.input.keyboard.onPressCallback = () => {
+      clearTimeout(this.goToMainMenuTimeOut);
+      gameState.goTo('MainMenu');
+    }
    }
 
   update() {
-    if (this.game.time.now - this.lastTimeBlinked  >= TEXT_BLINKING_TIME) {
-      this.lastTimeBlinked = this.game.time.now;
-      this.texts.forEach((text) => text.visible = !text.visible);
+    // if (this.game.time.now - this.lastTimeBlinked  >= TEXT_BLINKING_TIME) {
+    //   this.lastTimeBlinked = this.game.time.now;
+    //   this.texts.forEach((text) => text.visible = !text.visible);
+    // }
+
+    const pointer = this.game.input.pointer1;
+
+    if (pointer.isDown) {
+      clearTimeout(this.goToMainMenuTimeOut);
+      gameState.goTo('MainGame');
     }
   }
 }

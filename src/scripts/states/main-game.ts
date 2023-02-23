@@ -6,7 +6,7 @@ import Rabbit       from '../entities/Rabbit';
 import { GameState }  from '../game-state';
 import gameState    from '../game-state';
 
-const style = { font: 'bold 20pt Space Mono', fill: "#ffffff", align: "center" };
+const style = { font: 'bold 40pt Space Mono', fill: "#000", align: "center" };
 
 const SCORES = {
   SIMPLE_ASTEROID: 10
@@ -36,28 +36,22 @@ export class MainGame extends Phaser.State {
 
     this.state = gameState;
 
-    let background = this.game.add.sprite(GAME.SCREEN.OFFSETX, 0, 'stars');
-    let background2 = this.game.add.sprite(GAME.SCREEN.OFFSETX, -background.height, 'stars');
+    this.state.reset();
 
 
-    const backgroundTween1 = this.game.add.tween(background);
-    const backgroundTween2 = this.game.add.tween(background2);
+    this.game.add.image(0, 0, 'background');
+
+    this.planet = new Planet(this.game, 0, GAME.SCREEN.BASE_HEIGHT);
 
 
-    backgroundTween1.to({y: GAME.SCREEN.BASE_HEIGHT}, 5000, 'Linear', true, 0, Infinity);
-    backgroundTween2.to({y: 0}, 5000, 'Linear', true, 0, Infinity);
-
-
-    this.game.add.sprite(32, 32, 'gunpoints');
     this.music = this.game.add.sound('squarenoise', 1, true);
     this.newLifeSound = this.game.add.sound('newlife', 1);
 
     this.music.play();
 
-    this.planet = new Planet(this.game, 0, GAME.SCREEN.BASE_HEIGHT - 98);
     this.asteroids = new Asteroids(this.game, GAME.NUMBER_OF_ASTEROIDS, ASTEROIDS.REGULAR, () => {});
     this.rabbit = new Rabbit(this.game);
-    this.score = this.game.add.text(64, 35, '0', style);
+    this.score = this.game.add.text(30, 35, '0', style);
 
     this.lifes = this.createLifes();
 
@@ -67,7 +61,7 @@ export class MainGame extends Phaser.State {
   private createLifes () {
     const lifes = [];
     for (let i=0;i<5;i++) {
-      lifes.push(this.game.add.sprite(332, 32 + (30*i), 'heart'));   
+      lifes.push(this.game.add.sprite(322, 32 + (50*i), 'alberto-vida'));   
     }
 
     return lifes;
@@ -82,8 +76,9 @@ export class MainGame extends Phaser.State {
   update() {
     this.rabbit.move();
     
-    this.game.physics.arcade.collide(this.asteroids.getGroup(), this.rabbit.getBullets(), (asteroid, bullet) => {
-      asteroid.animations.play('destroyed');
+    this.game.physics.arcade.collide(this.asteroids.getGroup(), this.rabbit.getBullets(), (asteroid, bullet) => {      
+      this.asteroids.destroy(asteroid);
+
       bullet.kill();
       this.state.increaseScore(SCORES.SIMPLE_ASTEROID);
       
@@ -96,10 +91,9 @@ export class MainGame extends Phaser.State {
     }, null, this);
 
     this.game.physics.arcade.collide(this.planet.getSprite(), this.asteroids.getGroup(), (planet: Phaser.Sprite, asteroid: Phaser.Sprite) => {
-      asteroid.animations.play('destroyed');
+      this.asteroids.destroy(asteroid);
       this.state.decreaseLife(1);
-      asteroid.destroy();
-      if (navigator.vibrate) {
+        if (navigator.vibrate) {
         navigator.vibrate(1000);
       }
       this.game.camera.shake(0.05, 500);
@@ -109,6 +103,7 @@ export class MainGame extends Phaser.State {
     this.updateLifes();
 
     this.game.camera.onShakeComplete.add(() => {
+      debugger;
       if (this.state.getLifes() <= 0) {
         this.music.stop();
         this.state.isOver(true);

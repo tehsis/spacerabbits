@@ -59,14 +59,16 @@ export class GameState {
   private listeners: Array<(state: IGameState, prev_state: IGameState) => void> = [];
 
   reset() {
-    const username = this.state.username;
-    const screen = this.state.screen;
-    this.setState(initialState);
-    this.setState({ username, screen });
+    this.setScore(0);
+    this.setLife(3);
   }
 
   setScore(amount) {
     this.setState({score: amount})
+  }
+
+  setLife(amount) {
+    this.setState({life: amount});
   }
 
   increaseScore (amount) {

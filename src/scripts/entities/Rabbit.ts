@@ -3,7 +3,7 @@ import Input from '../input/input';
 import Bullets from './Bullets';
 import { GAME } from '../const';
 
-enum Positions { LEFT_CORNER, LEFT, CENTER, RIGHT, RIGHT_CORNER };
+enum Positions { LEFT, CENTER, RIGHT };
 
 const SHOOT_DELAY = 200;
 
@@ -14,25 +14,21 @@ const availablePositions = [
     rotation: 0
   },
   {
-    x:  50,
-    y: 450,
-    rotation: 0
-  },
-  {
-    x: 100,
-    y: 450,
-    rotation: 0
-  },
-  {
-    x: 150,
+    x:  100,
     y: 450,
     rotation: 0
   },
   {
     x: 200,
     y: 450,
+    flip: true,
     rotation: 0
-  }
+  },
+  {
+    x: 300,
+    y: 450,
+    rotation: 0
+  },
 ].map(position => Object.assign({}, position, {
   x: position.x + GAME.SCREEN.OFFSETX,
   y: position.y + GAME.SCREEN.OFFSETY,
@@ -66,7 +62,7 @@ class Rabbit implements ISpriteEntity {
     this.sprite = this.game.add.sprite(
       availablePositions[this.currentPosition].x,
       availablePositions[this.currentPosition].y,
-      'rabbit'
+      'alberto'
     );
 
     this.sprite.animations.add('move', [0,1,2,3,2,1])
@@ -92,13 +88,13 @@ class Rabbit implements ISpriteEntity {
     const action = this.input.checkAction();
 
     if (action === 'LEFT') {
-      if (Positions.LEFT_CORNER !== this.currentPosition) {
+      if (Positions.LEFT !== this.currentPosition) {
         this.currentPosition--;
       }
     }
   
     if (action === 'RIGHT') {
-      if (Positions.RIGHT_CORNER !== this.currentPosition) {
+      if (Positions.RIGHT !== this.currentPosition) {
         this.currentPosition++;
       }
     }
@@ -111,6 +107,7 @@ class Rabbit implements ISpriteEntity {
     if (this.getSprite().x !== new_position.x || this.getSprite().y !== new_position.y) {
       this.jumpSound.play()
     }
+    
     this.getSprite().x = new_position.x;
     this.getSprite().y = new_position.y;
     this.getSprite().rotation = new_position.rotation;
@@ -128,7 +125,7 @@ class Rabbit implements ISpriteEntity {
     if (this.game.time.now > this.bulletTime) {
       const bullet = this.bullets.getGroup().getFirstExists(false);
       if (bullet) {
-        bullet.reset(this.getSprite().x + 110, this.getSprite().y - 8 );
+        bullet.reset(this.getSprite().x + 20, this.getSprite().y - 8 );
         bullet.body.velocity.y = -300;
         this.bulletTime = this.game.time.now + SHOOT_DELAY;
         this.shootSound.play()

@@ -3,7 +3,9 @@ import IGroupEntity from './IEntity';
 import {GAME} from '../const';
 
 // FIXME this positions should be always aligned with the rabbit bullets
-const positions = [ 105, 155, 205, 255, 305 ].map(position => position + GAME.SCREEN.OFFSETX);
+const positions = [ 5, 100, 200 ].map(position => position + GAME.SCREEN.OFFSETX);
+
+const ZAPATOS_TYPES = ['zapato-1','zapato-2','zapato-3','zapato-4','zapato-5','zapato-6',];
 
 class Asteroids implements IGroupEntity {
   game: Phaser.Game;
@@ -23,7 +25,7 @@ class Asteroids implements IGroupEntity {
 
     this.modifier = 0;
 
-    this.asteroidType = color == 'blue' ? `asteroids-blue`  : `asteroids-orange`;
+    this.asteroidType = color == 'blue' ? `zapato-azul`  : `zapato-verde`;
 
     this.destroyedSound = this.game.add.sound('explosion')
     this.init_quantity = quantity;
@@ -46,17 +48,18 @@ class Asteroids implements IGroupEntity {
     // TODO: Asteroids position and speed should be handled outside (eg. main-game state)
 
      // TODO: remove
-     this.asteroidType = Math.random() > 0.5 ? `asteroids-orange` : `asteroids-blue`;
+
+     this.asteroidType = ZAPATOS_TYPES[Math.floor(Math.random()*ZAPATOS_TYPES.length)]
 
     const index = Math.round(Math.random() * (positions.length-1));
     let x = positions[index];
     let y = (Math.random() * 1000) - 900;
 
     let asteroid: Phaser.Sprite = this.getGroup().create(x, y, this.asteroidType);
-    let animation = asteroid.animations.add('destroyed', [0,1,2,3,4]);
-    this.game.physics.arcade.enable(asteroid);
+   // let animation = asteroid.animations.add('destroyed', [0,1,2,3,4]);
+    this.game.physics.enable(asteroid);
     asteroid.body.setCircle(10);
-    
+
     setInterval(() => {
         this.modifier++;
     }, GAME.INCREASE_SPEED_TIME);
@@ -69,12 +72,16 @@ class Asteroids implements IGroupEntity {
     // }, GAME.CREATE_ASTEROID_TIME);
 
     asteroid.body.gravity.y = (Math.random() * this.modifier) + 10;
-    animation.onComplete.add((desroyedAsteroid: Phaser.Sprite) => {
-        this.onDestroyed();
-        desroyedAsteroid.kill();
-        this.destroyedSound.play();
-        this.createAsteroid();
-    }, this);
+    // animation.onComplete.add((desroyedAsteroid: Phaser.Sprite) => {
+      
+    // }, this);
+  }
+
+  destroy(desroyedAsteroid: Phaser.Sprite) {
+    this.onDestroyed();
+    desroyedAsteroid.kill();
+    this.destroyedSound.play();
+    this.createAsteroid();
   }
 
 }

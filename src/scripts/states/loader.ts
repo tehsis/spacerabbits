@@ -4,14 +4,22 @@ import gameState from '../game-state';
 
 const images = [
  ['planet'],
- ['stars'],
- ['heart'],
+ ['alberto-vida'],
  ['bala'],
- ['gunpoints'],
- ['new-game-button'],
- ['leaderboard-button'],
- ['main-menu-button'],
- ['rabbit']
+ ['twitter'],
+ ['background'],
+ ['barcelona'],
+ ['suscribite'],
+ ['zapato-1'],
+ ['zapato-2'],
+ ['zapato-3'],
+ ['zapato-4'],
+ ['zapato-5'],
+ ['zapato-6'],
+ ['zapato-7'],
+ ['zapato-8'],
+ ['alberto'],
+ ['Default-Alberto']
 ];
 
 const sounds = [
@@ -22,10 +30,7 @@ const sounds = [
   ['squarenoise', 'mp3'],
 ];
 
-const sheets: [string, number, number, string?][] = [
-  ['asteroids-orange', 23, 24],
-  ['asteroids-blue', 23, 24]
-];
+const sheets: [string, number, number, string?][] = [];
 
 class Loader extends Phaser.State {
     assets: AssetsHandler;
@@ -36,7 +41,7 @@ class Loader extends Phaser.State {
 
       this.game.load.onLoadComplete.add(this._loadComplete, this);
 
-      this.game.add.text(this.game.world.centerX - 75, this.game.world.centerY-40, 'Loading...', {
+      this.game.add.text(this.game.world.centerX - 75, this.game.world.centerY-40, 'Cargando...', {
         font: 'bold 20pt Space Mono',
         fill: '#fff'
       }),

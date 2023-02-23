@@ -12,8 +12,8 @@ class Planet implements ISpriteEntity {
     this.sprite.width = GAME.SCREEN.BASE_WIDTH;
     this.game.physics.arcade.enable(this.sprite);
     this.sprite.body.immovable = true;
-    this.sprite.body.setSize(20, 20);
-    this.sprite.body.setCircle(230, -50, 0);
+    this.sprite.body.setSize(GAME.SCREEN.BASE_WIDTH, 20);
+    //this.sprite.body.setCircle(230, -50, 0);
   }
 
   setTint(tint: number) {

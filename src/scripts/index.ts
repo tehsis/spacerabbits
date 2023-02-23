@@ -7,8 +7,6 @@ import { Game } from './game';
 import * as states from './states/index';
 import gameState from './game-state';
 
-import '../styles/index.less';
-
 class BunnyWars extends Game {}
 
 const bunnywars = new BunnyWars({

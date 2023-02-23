@@ -1,0 +1,23 @@
+body {
+    background-color: #ffff55;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.alidion {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    footer {
+        display: none;
+    }
+}
+  
