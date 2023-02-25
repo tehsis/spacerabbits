@@ -31,7 +31,7 @@ class MainMenu extends Phaser.State {
 
         this.game.add.sprite(GAME.SCREEN.OFFSETX, 50, 'Default-Alberto');
 
-        this.fireText = this.game.add.text(GAME.SCREEN.OFFSETX + 5, GAME.SCREEN.OFFSETY + 430, '¡Ayudá a Alberto a seguir tirandose tiros en los pies!', {
+        this.fireText = this.game.add.text(GAME.SCREEN.OFFSETX + 5, GAME.SCREEN.OFFSETY + 430, '¡Ayudá a Alberto a seguir tirándose tiros en los pies!', {
           font: 'bold 30pt Arial',
           fill: "#f2d50f",
           wordWrap: true,
